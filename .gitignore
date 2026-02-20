@@ -30,3 +30,6 @@ Thumbs.db
 logs/
 *.h5
 *.keras
+
+# Misc
+results/*.pdf
