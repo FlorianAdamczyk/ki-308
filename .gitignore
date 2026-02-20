@@ -32,4 +32,5 @@ logs/
 *.keras
 
 # Misc
-results/**/*.pdf
+results/**/**.pdf
+*.pdf
