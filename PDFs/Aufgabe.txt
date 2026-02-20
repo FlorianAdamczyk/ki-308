@@ -1,0 +1,214 @@
+03.02.2026 Projekt WS 2025/26 Künstliche Intelligenz I
+Prof. Dr. Christian Heiliger, Dr. Jan-Matthis Waack Abgabetermin 15.04.2026
+Im folgenden Text verwenden wir durchgehend das generische Femininum.
+Thema: Neuronales Netz für den kalifornischen Hauspreis-Datensatz
+Betrachten Sie den Datensatz zu den kalifornischen Hauspreisen, wie in der Vorlesung betrach-tet. Entwickeln Sie ein neuronales Netz, um die Hauspreise zu beschreiben. Ordnen Sie Ihr Modell im Vergleich zu den in der Vorlesung behandelten Linearen Regression ein.
+Gruppennummer: 308
+Bearbeitung
+Sie arbeiten an dem Thema in einer 4er oder 5er Gruppe. Vereinbaren Sie zeitnah einen ers-ten Termin für ein Gruppentreffen und bestimmen Sie zunächst eine Sprecherin. Diese Person dokumentiert die Gruppentreffen und ist verantwortlich, dass am Ende das finale Ergebnis abgegeben wird. Allerdings müssen alle ein eigenes e-Portfolio einreichen.
+Das Projekt ist bewusst offen formuliert. Ziel ist es nicht, ein ” fertiges“ oder optimales Er-
+gebnis zu präsentieren, sondern sich innerhalb der vorgegebenen Bearbeitungszeit sinnvoll und eigenständig mit dem Thema auseinanderzusetzen.
+In diesem Sinne gibt es keinen klaren Endpunkt der Bearbeitung. Stattdessen dokumentieren Sie, welche Ansätze Sie verfolgt, welche Entscheidungen Sie getroffen, welche Schwierigkeiten Sie erlebt und welche Erkenntnisse Sie gewonnen haben. Das Portfolio stellt somit einen be-gründeten Zwischenstand Ihrer Arbeit dar.
+1 Prüfungsdokument
+1.1 Allgemeine Form
+Das Abgabeformat des Projektes eines jeden Gruppenmitglieds ist eine PDF Datei mit den in Tabelle I aufgelisteten Bestandteilen.
+Die in Tabelle I genannten Abschnitte (Bestandteile) müssen in Ihrem Abgabedokument visuell durch Überschriften, Abschnitte etc. und geeignete Formatierung klar erkennbar voneinander getrennt sein.
+Dabei ist es unerheblich, welche Software Sie für die Erstellung (der Inhalte) der PDF-Datei verwenden (z.B. LATEX oder ein Office-Programm), solange das PDF die geforderten Abschnitte und Inhalte hat und eine ansprechende äußere Form hat.
+Position Bestandteil Enthalten im e-Portfolio von Umfang Seiten 1 Titel allen Gruppenmitgliedern 1 2 Logbuch allen Gruppenmitgliedern — 3 Zusammenfassung des Logbuchs allen Gruppenmitgliedern max. 4 4 Einschätzung der Gruppenmitglieder allen Gruppenmitgliedern 1 5 Ergebnisse der Gruppe Sprecherin der Gruppe max. 3 6 Protokoll der Gruppentreffen Sprecherin der Gruppe ca. 1–2 7 Quellen und Hilfsmittel allen Gruppenmitgliedern ca. 1
+Tabelle I: Bestandteile des e-Portfolios mit Reihenfolge und Zuordnung zu Gruppenmit-gliedern sowie empfohlener Umfang.
+Das e-Portfolio hat gemäß Modulbeschreibung einen Umfang von 5–10 Seiten (ohne Programm-code). Die Seitenzahl fließt nicht in die Bewertung ein, dient aber als Richtwert. Halten Sie sich an den Grundsatz: so lang wie nötig, so kurz wie möglich. Eine Empfehlung zum Umfang der einzelnen Teile finden Sie in Tabelle I. Das Logbuch ist als Anhang beizufügen, zählt nicht zum Seitenumfang, wird aber als eigener Bestandteil bewertet.
+Der Programmcode ist ebenfalls mit abzugeben und soll an passenden Stellen verlinkt/referen-ziert werden. Beachten Sie für die Abgabe des Programmcodes die Hinweise in Abschnitt 5.
+Unabhängig vom konkreten Umfang gilt: Das e-Portfolio soll den individuellen Arbeitsprozess, die getroffenen Entscheidungen und den erreichten Zwischenstand verständlich und nachvoll-ziehbar dokumentieren. Eine formal korrekte und gut strukturierte Darstellung ist Vorausset-zung für eine angemessene Bewertung.
+Achten Sie hierbei explizit darauf, Ihren Text durch Abbildungen und Tabellen zu untermau-ern und verweisen Sie bei Bedarf auf Ihren Programmcode. Abbildungen und Tabellen sind keine Screenshots sondern sollten auf eine sinnvolle Weise erstellt werden. Für Tabellen eignen sich die Tabellenfunktionen in Ihrer Textbearbeitungssoftware. Für Abbildungen können Sie geeignete Software wie z. B. matplotlib verwenden, um Abbildungen zu exportieren und in Ihr Dokument einzubinden. Achten Sie hierbei auf eine ausreichende Auflösung, eine sinnvolle Beschriftung und eine klare Darstellung der Daten.
+1.2 Titel
+Die Titelseite dient der eindeutigen Zuordnung des e-Portfolios und enthält die folgenden An-gaben:
+• Thema
+• Name
+• Gruppennummer
+• Übrige Gruppenmitglieder
+• Sprecherin
+Die Angaben sollen vollständig und übersichtlich dargestellt sein. Eine aufwändige Gestaltung ist nicht erforderlich; entscheidend ist, dass das Portfolio eindeutig zugeordnet werden kann.
+1.3 Logbuch
+Im Logbuch dokumentieren Sie Ihren individuellen Arbeitsprozess während des gesamten Be-arbeitungszeitraums. Das Logbuch dient nicht der Darstellung eines
+” fertigen“ Ergebnisses, son-
+dern der nachvollziehbaren Beschreibung Ihres Vorgehens. Ziel ist, dass der geleistete Arbeits-aufwand im erforderlichen Umfang plausibel wird und eigene Entscheidungen/Anpassungen im Methodeneinsatz erkennbar sind.
+Das Logbuch ist dem e-Portfolio als Anhang beizufügen und wird nicht auf den Seitenumfang angerechnet. Gleichzeitig wird es als eigener Bestandteil bewertet und bildet die Grundlage für die Zusammenfassung des Logbuchs.
+Die Einträge erfolgen chronologisch. Stichpunktartige Formulierungen sind ausdrücklich ausrei-chend, sofern der jeweilige Arbeitsschritt verständlich beschrieben wird. Wichtig ist, dass auch Entscheidungen, verworfene Ansätze, Schwierigkeiten und offene Fragen sichtbar werden.
+Jeder Logbucheintrag enthält mindestens
+• das Datum des Eintrags,
+• einen kurzen, prägnanten Titel,
+• eine knappe Zusammenfassung des jeweiligen Arbeitsschritts.
+Verweisen Sie darauf, aus welchen Gruppentreffen die jeweiligen Arbeitsschritte hervorgehen. Geben Sie bei Abweichungen vom vereinbarten Vorgehen an, wie und warum Sie hier abgewi-chen sind.
+Abbildungen und Tabellen sollten zur Dokumentation des Arbeitsprozesses eingesetzt werden. Im Logbuch dienen diese nicht der Präsentation Ihrer Ergebnisse, sondern der Dokumentati-on Ihres Fortschrittes und müssen daher nicht den obigen Kriterien entsprechen. Das heißt, Abbildungen müssen nicht voll ausgearbeitet sein (mit Achsenbeschriftungen, etc.) und auch Screenshots sind erlaubt. Der Schwerpunkt des Logbuchs liegt hier auf der inhaltlichen Nach-vollziehbarkeit des Vorgehens, nicht auf der Menge oder Ausarbeitung der Darstellungen.
+Im Logbuch soll erkennbar werden, wie die einzelnen Schritte der Datenanalyse (z. B. Daten-aufbereitung, Modellauswahl, Training, Evaluation) aufeinander aufbauen und inwiefern die eingesetzten Methoden sachgerecht und begründet verwendet wurden.
+Das Logbuch bildet die Grundlage für die Zusammenfassung des Logbuchs. Eine sorgfältige, kontinuierliche und besonders zeitnahe Führung erleichtert daher sowohl die Zusammenfassung als auch die spätere Bewertung des Portfolios.
+1.4 Zusammenfassung des Logbuchs
+Die Zusammenfassung des Logbuchs enthält eine ausformulierte Darstellung Ihres bisherigen Vorgehens und Ihres erreichten Arbeitsstands auf Basis des Logbuch.
+Der Umfang der Zusammenfassung soll maximal vier Seiten inklusive Abbildungen/Tabellen betragen. Der Fokus liegt auf einer prägnanten, inhaltlich dichten Darstellung.
+In der Zusammenfassung soll deutlich werden,
+• welche Fragestellungen Sie verfolgt haben,
+• welche Ansätze und Methoden Sie gewählt haben und warum,
+• welche Ergebnisse Sie erzielt haben,
+• welche Schwierigkeiten oder Grenzen aufgetreten sind,
+• und welchen Zwischenstand Ihre Arbeit am Ende der Bearbeitungszeit erreicht hat.
+Es ist ausdrücklich nicht erforderlich, ein vollständiges oder optimales Endergebnis zu präsen-tieren. Vielmehr soll nachvollziehbar werden, wie Sie mit dem Thema umgegangen sind und welche Erkenntnisse Sie aus Ihrer Arbeit gewonnen haben.
+Zur Unterstützung der Darstellung sind geeignete Visualisierungen (wie Abbildungen und Ta-bellen) zu verwenden. Diese sollen gezielt eingesetzt werden und zur inhaltlichen Klarheit beitra-gen. Tabellen und Abbildungen sind fortlaufend zu nummerieren, mit einer kurzen Beschreibung zu versehen und im Text zu referenzieren.
+An geeigneten Stellen sollen klickbare Verweise auf relevante Einträge, Abbildungen oder Ta-bellen im Logbuch integriert werden, um detaillierte Informationen zugänglich zu machen, ohne den Fließtext der Zusammenfassung zu überfrachten.
+1.5 Einschätzung der Gruppenmitglieder
+In diesem Teil des e-Portfolios reflektieren Sie die Zusammenarbeit innerhalb Ihrer Gruppe. Ziel ist nicht, eine Bewertung der Leistung anderer Personen, sondern eine sachliche und faire Einschätzung der gemeinsamen Arbeitsweise.
+Für jedes Gruppenmitglied geben Sie mindestens eine Stärke und eine Schwäche an, die sich aus der Zusammenarbeit im Projekt ergeben haben.
+Die Einschätzung soll nachvollziehbar begründet und respektvoll formuliert sein. Pauschale oder rein formelhafte Aussagen sind dabei wenig hilfreich. Der Fokus liegt auf der Reflexion von Arbeitsweisen, Kommunikation und Zusammenarbeit, nicht auf persönlichen Eigenschaften.
+Als Richtwert: 2–4 Sätze pro Person sind ausreichend, wenn eine Stärke und eine Schwäche konkret benannt und kurz begründet werden.
+Die Angaben in diesem Abschnitt werden vertraulich behandelt und nicht an andere Gruppen-mitglieder weitergegeben.
+1.6 Ergebnisse der Gruppe
+Dieser Abschnitt ist nur im e-Portfolio der Sprecherin der Gruppe enthalten.
+In diesem Abschnitt werden die zentralen Ergebnisse der Gruppenarbeit zusammengeführt und eingeordnet. Die Sprecherin fasst die wesentlichen Resultate der einzelnen Gruppenmitglieder in einem gemeinsamen Fließtext zusammen.
+Der Umfang dieses Abschnitts soll maximal drei Seiten inklusive Abbildungen/Tabellen be-tragen. Der Fokus liegt auf einer strukturierten Darstellung, nicht auf einer vollständigen Do-kumentation aller Einzelschritte.
+Es ist ausdrücklich nicht Ziel dieses Abschnitts, die Zusammenfassungen der individuellen Log-bücher oder Portfolios der Gruppenmitglieder aneinanderzureihen. Stattdessen sollen die wich-
+tigsten Ergebnisse ausgewählt, gegenübergestellt und in Beziehung zueinander gesetzt werden.
+Dabei soll erkennbar sein,
+• welche Fragestellungen innerhalb der Gruppe bearbeitet wurden,
+• welche Ergebnisse erzielt wurden,
+• wie sich diese Ergebnisse ergänzen oder unterscheiden,
+• und welchen gemeinsamen Erkenntnisstand die Gruppe erreicht hat.
+Zur Unterstützung der Darstellung sind geeignete Visualisierungen (wie Abbildungen und Ta-bellen) zu verwenden. Diese sollen gezielt eingesetzt werden und zur inhaltlichen Klarheit beitra-gen. Formale Anforderungen an Nummerierung, Beschriftung und Referenzierung entsprechen denen der Zusammenfassung des Logbuchs.
+Abschließend soll eine kurze Einordnung der Ergebnisse erfolgen, einschließlich möglicher Gren-zen der Untersuchungen sowie denkbarer Ansätze für weiterführende Arbeiten.
+1.7 Protokoll der Gruppentreffen
+Dieser Abschnitt ist nur im e-Portfolio der Sprecherin der Gruppe enthalten.
+Im Protokoll der Gruppentreffen dokumentiert die Sprecherin den organisatorischen und inhalt-lichen Verlauf der Zusammenarbeit innerhalb der Gruppe. Ziel ist es, die gemeinsame Arbeits-planung und deren Entwicklung über den Bearbeitungszeitraum nachvollziehbar darzustellen. Der Umfang dieses Abschnitts soll circa ein bis zwei Seiten betragen.
+Für jedes Gruppentreffen sind mindestens anzugeben
+• das Datum des Treffens,
+• die teilnehmenden Gruppenmitglieder,
+• eine kurze Zusammenfassung der besprochenen Inhalte.
+Die Zusammenfassung kann stichpunktartig erfolgen. Wichtig ist, dass aus dem Protokoll her-vorgeht,
+• welche Arbeitsschritte vereinbart wurden,
+• wie Aufgaben innerhalb der Gruppe verteilt wurden,
+• und welche zeitlichen Absprachen getroffen wurden.
+Im Verlauf der Bearbeitung soll zudem erkennbar werden, ob und wie sich die Planung im Laufe des Projekts verändert hat. Anpassungen des Vorgehens sind ausdrücklich zulässig und sollen dokumentiert werden, sofern sie aus neuen Erkenntnissen oder Rahmenbedingungen resultieren. Die Anzahl der Gruppentreffen ist Ihrer Gruppe überlassen. Achten Sie bitte außerdem darauf, die Dokumentation der einzelnen Gruppentreffen visuell klar voneinander zu trennen.
+1.8 Quellen und Hilfsmittel
+Listen Sie hier die verwendeten Hilfsmittel auf, z. B.
+• Webseiten (mit Zugriffsdatum!),
+• Bücher,
+• wissenschaftliche Artikel,
+• Einsatz generativer KI (z.B. kurze Angabe Ihrer Prompts).
+Verwendete Quellen sollen im Text in geeigneter Weise kenntlich gemacht werden. Bitte verwenden Sie dafür einen einheitlichen Zitierstil (bspw. Harvard, APA, Chicago).
+2 Bearbeitungszeit:
+Der Bearbeitungszeitraum beträgt 10 Wochen. Das oben angegebene Datum (15.04.2026) ist der späteste Abgabetermin. Natürlich ist eine frühere Abgabe möglich. Sobald die notwendigen Dateien in Stud.IP hochgeladen sind, gilt das Projekt als final bearbeitet.
+Die reine Bearbeitungszeit – also der Workload – beträgt 2,5CP bzw. umgerechnet 75 Zeit-stunden pro Gruppenmitglied. Hierbei handelt es sich um eine typische Bearbeitungszeit. Das bedeutet auch, dass unter Umständen ein Projekt nicht abschließend fertig ist (was im Allge-meinen sowieso nicht möglich ist, da man nie weiß, wann man fertig ist und ob es nicht doch noch ein besseres Modell gibt). Daher ist die Abgabe des Projekts wie ein Zwischenbericht einzuordnen, über das was man in der vorgegebenen Zeit von 75 Stunden pro Person geschafft hat.
+3 Bewertung
+Für die jeweiligen Bestandteile des e-Portfolios gibt es getrennte Bewertungen (vgl. Tabelle II). Beachten Sie bitte, dass es Bestandteile sowohl mit individueller Bewertung als auch Grup-penbewertung gibt. Nichtsdestotrotz erhält jedes Gruppenmitglied eine individuelle Bewertung auf das e-Portfolio; diese setzt sich aus den individuellen Bewertungen und den Gruppenbewer-tungen (für alle Gruppenmitglieder gleich) zusammen.
+Eine Abstufung der auf ein Kriterium vergebenen Punkte erfolgt in Schritten von einem Punkt. Bei Bedarf können auch halbe Punkte vergeben werden. Die kleinstmögliche Punkt-zahl pro Kriterium ist immer 0.
+4 Bewertungskriterien
+Bestandteil Bewertungsart Gewicht Max. Punkte
+Titel & Allgemeine Form individuell 2,5% 1
+Logbuch individuell 10% 4
+Zusammenfassung des Logbuchs individuell 40% 6 + 4 + 6 = 16
+Einschätzung der Gruppenmitglieder individuell 5% 2
+Ergebnisse der Gruppe Gruppe 25% 10
+Protokoll der Gruppentreffen Gruppe 10% 4
+Quellen und Hilfsmittel Gruppe / individuell 7,5% 3
+Summe 100% 40
+Tabelle II: Gesamtübersicht der Bewertung einzelner Bestandteile des e-Portfolios mit Ge-wichtung für die Gesamtbewertung.
+Punkte Kriterium
+max. 1 Punkt Titel und Allgemeine Form
+1 Portfolio ist eindeutig zuordenbar (Name, Gruppennummer, Thema), alle ge-forderten Bestandteile sind vorhanden und klar voneinander getrennt. Das Dokument ist insgesamt gut lesbar und formal bewertbar.
+0 Mindestens eine dieser Voraussetzungen ist nicht erfüllt (z. B. fehlende Anga-ben, unklare Struktur, formale Mängel, die die Bewertung erschweren).
+Maximal: 1
+Tabelle III: Bewertung Titel und Allgemeine Form
+Punkte Kriterium
+max. 2 Punkte (additiv) Grundlagen
+1 Workload plausibilisiert: Das Logbuch ist so geführt, dass ein Arbeitsaufwand in der Größenordnung von ca. 75 Stunden plausibel wird.
+1 Substanz und Transfer: Einträge dokumentieren tatsächliche Bearbeitungs-schritte und der Methodeneinsatz zeigt eigene Transferleistungen, statt nur Vorlesungsinhalte oder Standardrezepte zu reproduzieren.
+max. 2 Punkte (gestuft) Arbeitsaufwand und Nachvollziehbarkeit:
+2 Der Arbeitsprozess ist überzeugend nachvollziehbar: Zwischenschritte sowie Entscheidungen/Änderungen sind dokumentiert, und eigene Varianten, Ver-gleiche oder Iterationen sind klar erkennbar.
+1 Der Arbeitsprozess ist nachvollziehbar und enthält eigene Entscheidungen/ Anpassungen; Varianten/Iterationen sind jedoch begrenzt oder nur teilweise ausgearbeitet.
+0 Der Arbeitsprozess ist kaum nachvollziehbar oder bleibt überwiegend pauschal.
+Maximal: 4
+Tabelle IV: Bewertung Logbuch
+Punkte Kriterium
+max. 3 Punkte (additiv) Grundlagen
+1 Fragestellung und Ziel klar erkennbar.
+1 Zwischenstand am Ende der Bearbeitungszeit klar beschrieben.
+1 Zentrale Ergebnisse verständlich benannt.
+max. 3 Punkte (gestuft) Arbeitsprozess und Methodeneinsatz:
+3 Erprobung/Iteration klar erkennbar: mehrere sinnvolle Varianten/Ansätze, Methodenauswahl und -einsatz sind begründet, und Entscheidungen werden anhand von Ergebnissen/Evaluation nachvollziehbar getroffen.
+2 Mehrere Schritte/Tests erkennbar; Methodenwahl und Evaluation grundsätz-lich nachvollziehbar, Begründungen oder Vergleiche aber nicht durchgehend ausgearbeitet.
+1 Ein Ansatz oder wenige Tests; Methodeneinsatz nur grob beschrieben, Evalua-tion/Begründungen bleiben knapp.
+0 Arbeitsprozess und Methodeneinsatz nicht sinnvoll erkennbar dargestellt.
+Maximal: 6
+Tabelle V: Bewertung Zusammenfassung (Teil A): Grundlagen und Arbeitsprozess
+Punkte Kriterium
+max. 2 Punkte (gestuft) Grenzen/Unsicherheiten:
+2 Wesentliche Grenzen/Unsicherheiten konkret benannt und passend eingeord-net.
+1 Grenzen/Unsicherheiten genannt, aber eher allgemein oder knapp.
+0 Keine kritische Reflexion erkennbar.
+max. 2 Punkte (gestuft) Schlussfolgerungen/Ausblick:
+2 Schlussfolgerungen und nächster Schritt plausibel und konkret.
+1 Einordnung/Ausblick vorhanden, aber vage oder wenig konkret.
+0 Keine Schlussfolgerungen/kein Ausblick erkennbar.
+Maximal: 4
+Tabelle VI: Bewertung Zusammenfassung (Teil B): Reflexion und Einordnung
+Punkte Kriterium
+max. 3 Punkte (additiv) Abbildungen/Tabellen: formale Mindestqualität
+1 Lesbarkeit & Auflösung (keine Screenshots).
+1 Beschriftung & Legende/Kodierung eindeutig und konsistent.
+1 Einbettung im Text (Caption/Referenz + Take-away).
+max. 3 Punkte (gestuft) Abbildungen/Tabellen: Aussagekraft & Angemessenheit
+3 Sehr passend; nicht irreführend; stützt Argumentation/Entscheidungen klar.
+2 Insgesamt passend; kleinere Schwächen.
+1 Nur bedingt passend; Aussagekraft begrenzt/Interpretation dünn.
+0 Fehlend oder kaum verwertbar/unklar/irreführend.
+Maximal: 6
+Tabelle VII: Bewertung Zusammenfassung (Teil C): Abbildungen und Tabellen
+Punkte Kriterium
+max. 2 Punkte (gestuft) Einschätzung der Gruppenmitglieder:
+2 Für alle Gruppenmitglieder je mindestens eine Stärke und eine Schwäche kon-kret benannt und kurz begründet; respektvoll formuliert; Fokus auf Arbeits-weise/Kommunikation/Zusammenarbeit.
+1 Grundsätzlich vorhanden, aber unvollständig oder überwiegend allgemein/ pauschal; Begründungen eher knapp, geringe Differenzierung.
+0 Fehlend oder nicht verwertbar.
+Maximal: 2
+Tabelle VIII: Bewertung Einschätzung der Gruppenmitglieder
+Punkte Kriterium
+max. 3 Punkte (additiv) Grundlagen
+1 Zielsetzung/Fragestellung klar benannt.
+1 Zentrale Resultate konkret benannt (z. B. Kennzahl, Vergleich, Befund).
+1 Nächster Schritt/Ausblick oder offene Fragen genannt.
+max. 2 Punkte (gestuft) Darstellung der Gruppenergebnisse:
+2 Gut strukturiert; wichtigste Ergebnisse klar dargestellt.
+1 Grundsätzlich verständlich, aber teilweise unübersichtlich oder lückenhaft.
+0 Fehlend oder kaum verwertbar.
+max. 2 Punkte (gestuft) Diskussion und Einordnung:
+2 Ergebnisse eingeordnet (Interpretation/Vergleich); Grenzen/Unsicherheiten oder Ausblick erkennbar.
+1 Einordnung angedeutet, aber knapp oder wenig konkret.
+0 Keine Einordnung erkennbar.
+max. 3 Punkte (additiv) Abbildungen/Tabellen
+1 Lesbarkeit & Auflösung: gut lesbar, ausreichend aufgelöst/als Vektor; keine Screenshots.
+1 Beschriftung & Einbettung: Achsen/Ticks/Einheiten (bzw. Tabellenkopf) klar; Legende wo nötig; Caption/Referenz im Text.
+1 Aussagekraft: passend, nicht irreführend, unterstützt die Einordnung.
+Maximal: 10
+Tabelle IX: Bewertung Ergebnisse der Gruppe
+Punkte Kriterium
+max. 4 Punkte (additiv) Protokoll der Gruppentreffen
+1 Gruppentreffen sind dokumentiert (Datum, Teilnehmende, kurze Zusammen-fassung der Inhalte).
+1 Arbeitsplan/Next Steps sind festgehalten (Aufgaben, Zuständigkeiten, grobe Zeitschiene).
+1 Änderungen/Abweichungen im Verlauf sind erkennbar (Anpassungen nachvoll-ziehbar).
+1 Protokolle sind insgesamt konsistent und für die Arbeitsorganisation erkennbar hilfreich.
+Maximal: 4
+Tabelle X: Bewertung Protokoll der Gruppentreffen
+Punkte Kriterium
+max. 3 Punkte (additiv) Quellen und Hilfsmittel
+1 Auffindbar und prüfbar: Quellen/Hilfsmittel sind eindeutig identifizierbar, z. B. URL mit Zugriffsdatum oder DOI; Datensätze mit Name und Version; Tools/Software mit Name und Version (ggf. mit Link/Repository).
+1 Im Text kenntlich gemacht: Externe Inhalte werden im Text nachvollziehbar referenziert und es wird ein einheitlicher Zitierstil verwendet.
+1 Transparenz bei KI: Einsatz generativer KI ist nachvollziehbar dokumentiert, z. B. durch Angabe der Prompts
+Maximal: 3
+Tabelle XI: Bewertung Quellen und Hilfsmittel.
+5 Abgabe des Portfolios
+Jedes Gruppenmitglied muss ihr e-Portfolio abgeben. Achten Sie darauf, dass bei den individu-ellen Kategorien (siehe auch Allgemeine Form) und der Titelseite alle Informationen vorhanden sind und dass die Sprecherin zusätzlich die Gruppentreffen und Ergebnisse (vgl. Abschnitte 1.6 und 1.7) dokumentiert hat.
+Anschließend exportieren Sie Ihr Portfolio im PDF-Format (Abschnitt 1.1) und benennen es nach dem folgenden Schema:
+KI1_<Gruppennummer>_<Nachname>_Portfolio.pdf
+Ersetzen Sie dabei die ” <Gruppennummer>“ durch Ihre Gruppennummer und
+” <Nachname>“
+durch Ihren Nachnamen. Laden Sie anschließend diese PDF-Datei in Stud.IP in den vorgese-henen Abgabeordner hoch.
+Zusätzlich zur PDF-Datei gibt die Sprecherin der Gruppe eine ZIP-Datei mit dem Programm-code ab. Diese ZIP-Datei enthält den gemeinsam verwendeten Code (z. B. Notebook(s), Skripte, ggf. README) und ist so strukturiert, dass sie ohne Nacharbeit nachvollziehbar geöffnet wer-den kann.
+KI1_<Gruppennummer>_Code.zip
+Ersetzen Sie dabei die ” <Gruppennummer>“ durch Ihre Gruppennummer. Laden Sie anschließend
+diese ZIP-Datei in Stud.IP in den vorgesehenen Abgabeordner hoch.

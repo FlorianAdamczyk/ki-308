@@ -1,0 +1,11 @@
+# Python 3.13 benötigt! TensorFlow ist nicht kompatibel mit Python 3.14+
+# Erstellen: python3.13 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.5,<4.0
+seaborn>=0.12
+scikit-learn>=1.0,<2.0
+tensorflow>=2.18
+jupyter
+ipykernel
+nbstripout

@@ -1,93 +1,121 @@
-# KI1 - Projekt 308
+# KI1 - Projekt 308: Neuronales Netz für den kalifornischen Hauspreis-Datensatz
 
+**Modul:** Künstliche Intelligenz I — WS 2025/26  
+**Dozenten:** Prof. Dr. Christian Heiliger, Dr. Jan-Matthis Waack  
+**Gruppennummer:** 308  
+**Abgabetermin:** 15.04.2026
 
+## Aufgabenstellung
 
-## Getting started
+Entwicklung eines neuronalen Netzes zur Vorhersage von Hauspreisen anhand des
+[California Housing Datensatzes](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)
+(Scikit-learn). Das Modell wird im Vergleich zur linearen Regression (aus der Vorlesung) eingeordnet.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-* [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## Projektstruktur
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.ub.uni-giessen.de/J_V6C6J6Y1/ki1-projekt-308.git
-git branch -M main
-git push -uf origin main
+ki-308/
+├── data.ipynb                           # Hub-Notebook: Übersicht + Baseline
+├── requirements.txt                     # Python-Abhängigkeiten
+├── utils/
+│   ├── data.py                          # Datenladen, Cleaning, Train/Test-Split
+│   ├── plotting.py                      # Einheitliche Visualisierungen
+│   └── evaluation.py                    # R², MAE, RMSE + Modellvergleich
+├── notebooks/
+│   ├── 01_EDA.ipynb                     # Explorative Datenanalyse
+│   ├── 02_Baseline_Lineare_Regression.ipynb
+│   ├── 03_LASSO_Ridge.ipynb             # P1: Regularisierung, Feature-Selektion
+│   ├── 04_Decision_Tree.ipynb           # P2: Regression Trees, Pruning
+│   ├── 05_Ensemble.ipynb                # P3: Random Forest, Gradient Boosting
+│   ├── 06_kNN_Regression.ipynb          # P4: k-Nearest Neighbors
+│   └── 07_Neural_Network.ipynb          # P5: TensorFlow/Keras NN (Kernaufgabe)
+├── results/                             # Exportierte Abbildungen (PNG + PDF)
+├── portfolio/
+│   ├── Logbuch_Template.md              # Vorlage für das individuelle Logbuch
+│   └── create_submission_zip.sh         # ZIP-Skript für die Sprecherin
+└── PDFs/
+    └── Aufgabe.txt / Aufgabe.pdf        # Aufgabenstellung
 ```
 
-## Integrate with your tools
+## Schnellstart
 
-* [Set up project integrations](https://gitlab.ub.uni-giessen.de/J_V6C6J6Y1/ki1-projekt-308/-/settings/integrations)
+### 1. Umgebung einrichten
 
-## Collaborate with your team
+> **⚠️ Hinweis:** TensorFlow ist nicht mit Python 3.14+ kompatibel. Bitte **Python 3.13** verwenden!
 
-* [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+```bash
+# Virtuelle Umgebung erstellen (einmalig) – explizit Python 3.13
+python3.13 -m venv .venv
+source .venv/bin/activate   # Linux/macOS
+# .venv\Scripts\activate    # Windows
 
-## Test and Deploy
+# Abhängigkeiten installieren
+pip install -r requirements.txt
+```
 
-Use the built-in continuous integration in GitLab.
+### 2. Notebooks starten
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+```bash
+jupyter lab
+```
 
-***
+Die Notebooks befinden sich im Ordner `notebooks/` und sind nummeriert:
+starte mit `01_EDA.ipynb`, dann `02_Baseline_Lineare_Regression.ipynb`.
+Das Hub-Notebook `data.ipynb` im Stammverzeichnis gibt eine Gesamtübersicht.
 
-# Editing this README
+### 3. nbstripout einrichten (Pflicht vor dem ersten Commit)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+[nbstripout](https://github.com/kynan/nbstripout) entfernt Notebook-Outputs
+vor Git-Commits, damit das Repository sauber bleibt:
 
-## Suggestions for a good README
+```bash
+pip install nbstripout
+nbstripout --install
+```
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Gemeinsame Konventionen
 
-## Name
-Choose a self-explaining name for your project.
+| Konvention | Wert |
+|-----------|------|
+| `random_state` (überall) | 42 |
+| Test-Anteil | 20 % |
+| Outlier-Quantil | 98 % |
+| Evaluationsmetriken | R², MAE, RMSE (Train + Test) |
+| Abbildungsformat | matplotlib-Export als PNG/PDF (kein Screenshot) |
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Alle Notebooks importieren aus `utils/` — so sind Daten-Split und Metriken
+für alle Modelle direkt vergleichbar.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Abhängigkeiten
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+| Paket | Version |
+|-------|---------|
+| Python | 3.13 (**nicht** 3.14+, TensorFlow-Inkompatibilität) |
+| numpy | ≥ 1.24 |
+| pandas | ≥ 2.0 |
+| matplotlib | ≥ 3.5 |
+| seaborn | ≥ 0.12 |
+| scikit-learn | ≥ 1.0 |
+| tensorflow | ≥ 2.16 |
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Abgabe
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+**Alle Gruppenmitglieder** laden ihr individuelles e-Portfolio hoch:
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+```
+KI1_308_<Nachname>_Portfolio.pdf
+```
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+**Sprecherin** erstellt zusätzlich die Code-ZIP und lädt sie hoch:
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+```bash
+bash portfolio/create_submission_zip.sh
+# Ausgabe: KI1_308_Code.zip
+```
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Beide Dateien werden auf **Stud.IP in den vorgesehenen Abgabeordner** hochgeladen.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## Repository
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+GitLab: https://github.com/FlorianAdamczyk/ki-308
 
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
