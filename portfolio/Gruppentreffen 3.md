@@ -12,11 +12,12 @@
 - Bisherige Arbeitsschritte besprochen
 - Einheitliche Beschriftung des Codes durch installation von `Markdown`)
 - Sortierung des Projektes 
-- 
+- probelme mit python version auf intelmac und tensorflow lösen 
 
 ## Arbeitsziele bis zum nächsten Treffen
 - Florian und Kolja: Datenbereinigung und Datenanalyse
 - Felix: Datentransformation
+- Kolja: Tensorlfow problem lösen 
 
 **Nächstes Treffen:** 27.02.2026, 15:00 Uhr (Discord)
 
