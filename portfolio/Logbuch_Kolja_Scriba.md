@@ -29,7 +29,7 @@
 
 
 **Arbeitsschritte:**
-  •Ich habe Python 3.13 über das Terminal mit Homebrew installiert.
+  	•Ich habe Python 3.13 über das Terminal mit Homebrew installiert.
 	•	Beim Erstellen einer virtuellen Umgebung gab es zunächst ein Problem wegen eines unzulässigen Zeichens im Ordnerpfad.
 	•	Beim Installieren von TensorFlow trat ein Fehler auf, weil TensorFlow Python 3.13 nicht unterstützt.
 	•	Zusätzlich habe ich gelernt, dass auf meinem Intel Mac maximal TensorFlow 2.16.2 unterstützt wird.
@@ -60,13 +60,20 @@
 
 
 **Arbeitsschritte:**
-- ausführen aller unterschiedlichen Aufgaben um Kompatibilität mit python 3.11.14 zu gewährleisten 
+	•	ausführen aller unterschiedlichen Aufgaben um Kompatibilität mit python 3.11.14 zu gewährleisten 
+	•	Ich habe mein aktuelles virtuelles Environment (.venv) aktiviert.
+	•	Ich habe nbstripout im aktiven Environment neu bzw. aktualisiert installiert.
+	•	Ich habe nbstripout --install ausgeführt, damit der Git-Filter neu gesetzt wird.
+	•	Dadurch wurde der alte, ungültige Python-Pfad in der Git-Konfiguration durch den korrekten Pfad meines aktuellen Environments ersetzt.
+	•	Anschließend konnte ich wieder normal git add und git commit ausführen.
 
-**Entscheidungen:**
-- 
+
 
 **Schwierigkeiten / offene Fragen:**
-- 
+  	•	Git hatte auf eine nicht mehr existierende Python-Datei (.venv/bin/python3.13) verwiesen.
+	•	Durch die Neuinstallation wurde der Filter mit dem richtigen Interpreter verknüpft.
+	•	Der Fehler clean filter 'nbstripout' failed trat danach nicht mehr auf.
+	•	Danach konnte ich alles wieder commien
 
 ---
 
