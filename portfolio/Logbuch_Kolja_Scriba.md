@@ -55,8 +55,8 @@
 
 ## Eintrag 3
 
-**Datum:** 21.02.2026 15:30- HH.MM
-**Titel:** eigenständiges Prüfen von den bisherigen Arbeitsschritten
+**Datum:** 21.02.2026 15:30-18:00
+**Titel:** nach Kompatibilitätstest commiten jedoch musste dafür venv geändert werden und Lasso Ridge um Polygrad 3 erweitert 
 
 
 **Arbeitsschritte:**
@@ -66,6 +66,9 @@
 	•	Ich habe nbstripout --install ausgeführt, damit der Git-Filter neu gesetzt wird.
 	•	Dadurch wurde der alte, ungültige Python-Pfad in der Git-Konfiguration durch den korrekten Pfad meines aktuellen Environments ersetzt.
 	•	Anschließend konnte ich wieder normal git add und git commit ausführen.
+	Lasso/Ridge um PolyGrad 3 erweitert  
+
+
 
 
 
@@ -79,8 +82,8 @@
 
 ## Eintrag 3
 
-**Datum:** [Datum]  
-**Titel:** [Titel]  
+**Datum:**   
+**Titel:** Lasso/Ridge um PolyGrad 3 erweitert  
 **Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
 
 **Arbeitsschritte:**
@@ -94,8 +97,26 @@
 - 
 
 ---
+## Eintrag template
 
-## Eintrag 4
+**Datum:** [Datum]  
+**Titel:** [Titel]  
+**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+
+**Arbeitsschritte:**
+- 
+
+**Entscheidungen:**
+- 
+
+**Schwierigkeiten / offene Fragen:**
+
+---
+
+<!-- Weitere Einträge nach dem gleichen Schema -->
+
+<!-- Weitere Einträge nach dem gleichen Schema -->
+## Eintrag template
 
 **Datum:** [Datum]  
 **Titel:** [Titel]  
