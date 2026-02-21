@@ -6,48 +6,61 @@
 
 ---
 
-## Anleitung
-
-Ein Eintrag enthält mindestens:
-- **Datum**
-- **Titel** (kurz und prägnant)
-- **Arbeitsschritte** (stichpunktartig ist ausreichend)
-- Verweis auf das Gruppentreffen, aus dem die Aufgabe hervorgegangen ist
-- Ggf. Abweichungen vom vereinbarten Vorgehen (mit Begründung)
-
-Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausgearbeitet sein.
-
----
-
 ## Eintrag 1
 
 **Datum:** 20.02.2026  
-**Titel:** Projektstart — Aufgabe lesen, Repository einrichten  
-**Aus Gruppentreffen:** Gruppentreffen 1 (20.02.2026)
+**Titel:** Projektstart - Besprechen von Flos Arbeit und Einrichten der Umgebung
+**Aus Gruppentreffen:** Gruppentreffen 3 (20.02.2026)
+**Arbeitsschritte** 
+- Gruppentreffen mit Flo um Projekt erklärt zu bekommen 
+- Probelme beim Start auf meinem Rechner da Python 3.14.3 nicht mit Tensorflow 2.18 funktioniert da ich einen Intel-Mac habe 
 
-**Arbeitsschritte:**
-- Aufgabenstellung gelesen und verstanden
-- Repository geklont, Abhängigkeiten installiert (`pip install -r requirements.txt`)
-- `nbstripout --install` eingerichtet
-- Erste Übersicht über den California Housing Datensatz verschafft
-  (`fetch_california_housing()`, 8 Features, Zielvariable: `MedHouseVal`)
+ **Schwierigkeiten:** 
+- Verständnis für Architektur und aufbau von IOS mit VSS Code auf Intelbasierten Macs 
 
-**Entscheidungen:**
-- _z.B. Skalierungsmethode, welche Features betrachtet werden, ..._
 
-**Schwierigkeiten / offene Fragen:**
-- _z.B. Frage zu Hyperparameter-Wahl bei NN_
 
 ---
 
 ## Eintrag 2
 
-**Datum:** [Datum]  
-**Titel:** [Titel]  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Datum:** 21.02.2026 13:00-15:30 
+**Titel:** Einrichtung der Python-Entwicklungsumgebung
+
 
 **Arbeitsschritte:**
-- 
+  •Ich habe Python 3.13 über das Terminal mit Homebrew installiert.
+	•	Beim Erstellen einer virtuellen Umgebung gab es zunächst ein Problem wegen eines unzulässigen Zeichens im Ordnerpfad.
+	•	Beim Installieren von TensorFlow trat ein Fehler auf, weil TensorFlow Python 3.13 nicht unterstützt.
+	•	Zusätzlich habe ich gelernt, dass auf meinem Intel Mac maximal TensorFlow 2.16.2 unterstützt wird.
+	•	Deshalb bin ich auf Python 3.11 umgestiegen, da diese Version stabil mit TensorFlow funktioniert.
+	•	Ich habe verstanden, dass das Terminal und das Jupyter-Notebook unterschiedliche Python-Interpreter verwenden können.
+	•	Der Fehler „ModuleNotFoundError: No module named ‘numpy’“ entstand, weil das Notebook nicht die richtige virtuelle Umgebung nutzte.
+	•	Ich habe gelernt, wie man in VS Code den richtigen Kernel auswählt und die virtuelle Umgebung korrekt verbindet.
+	•	Am Ende habe ich mein Setup so angepasst, dass Python-Version, virtuelle Umgebung und Notebook-Kernel übereinstimmen.
+
+**Entscheidungen:**
+  •Ich habe Python 3.11.14 installiert und werde forthin damit Arbeiten, da keine neuere Version möglich ist
+
+**Schwierigkeiten:**
+	•	Es war zunächst unklar, welche TensorFlow-Version auf meinem Intel Mac überhaupt verfügbar ist
+	•	Ich hatte Probleme beim Erstellen der virtuellen Umgebung wegen eines ungültigen Zeichens im Ordnerpfad
+	•	Es war verwirrend, dass Terminal und Jupyter-Notebook unterschiedliche Python-Interpreter verwenden können
+	•	Der Fehler „ModuleNotFoundError“ war schwer einzuordnen, weil die Pakete eigentlich installiert waren
+	•	Die Auswahl des richtigen Kernels in VS Code war anfangs unübersichtlich.
+	•	Mehrere installierte Python-Versionen auf meinem System haben zusätzlich für Verwirrung gesorgt
+	•	Die Fehlermeldungen von pip waren technisch formuliert und nicht sofort eindeutig verständlich
+
+---
+
+## Eintrag 3
+
+**Datum:** 21.02.2026 15:30- HH.MM
+**Titel:** eigenständiges Prüfen von den bisherigen Arbeitsschritten
+
+
+**Arbeitsschritte:**
+- ausführen aller unterschiedlichen Aufgaben um Kompatibilität mit python 3.11.14 zu gewährleisten 
 
 **Entscheidungen:**
 - 
@@ -70,8 +83,24 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 - 
 
 **Schwierigkeiten / offene Fragen:**
+
 - 
 
 ---
+
+## Eintrag 4
+
+**Datum:** [Datum]  
+**Titel:** [Titel]  
+**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+
+**Arbeitsschritte:**
+- 
+
+**Entscheidungen:**
+- 
+
+**Schwierigkeiten / offene Fragen:**
+- 
 
 <!-- Weitere Einträge nach dem gleichen Schema -->

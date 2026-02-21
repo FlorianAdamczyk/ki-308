@@ -41,7 +41,7 @@ ki-308/
 
 ### 1. Umgebung einrichten
 
-> **⚠️ Hinweis:** TensorFlow ist nicht mit Python 3.14+ kompatibel. Bitte **Python 3.13** verwenden!
+> **⚠️ Hinweis:** TensorFlow ist nicht mit Python 3.14+ kompatibel. Bitte **Python 3.13** verwenden! für Intel Mac User ist leider auch 3.13 zu neu es muss 3.11.14 genutzt werden deswegen wurde auch Tensorflow auf 2.10 zurückgestuft 
 
 ```bash
 # Virtuelle Umgebung erstellen (einmalig) – explizit Python 3.13
@@ -101,7 +101,7 @@ für alle Modelle direkt vergleichbar.
 ## Abgabe
 
 **Alle Gruppenmitglieder** laden ihr individuelles e-Portfolio hoch:
-
+(dafür existiert ein vorgefertigtes (Logbuch_Template.md) dieses einmal kopieren und dann in den Orner packen) 
 ```
 KI1_308_<Nachname>_Portfolio.pdf
 ```
