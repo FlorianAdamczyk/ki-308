@@ -9,6 +9,7 @@ Vorlage: HA10.ipynb (Cut-offs + 98%-Quantil-Outlier-Entfernung)
 
 import numpy as np
 import pandas as pd
+from typing import Union
 from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
@@ -116,3 +117,104 @@ def get_train_test_split(
         return X_train, X_test, y_train, y_test, sc, feature_names
 
     return X_train, X_test, y_train, y_test, feature_names
+
+
+
+
+def Min_Max_Scaler(input: Union[pd.DataFrame, np.ndarray], min_val: float = 0.0, max_val: float = 1.0) -> Union[pd.DataFrame, np.ndarray]:
+    """Skaliere Datensatz mit Min-Max-Scaler.
+
+    Args:
+        input: DataFrame oder NumPy-Array mit dem zu skalierendem Datensatz.
+        min_val: Minimaler Wert nach Skalierung.
+        max_val: Maximaler Wert nach Skalierung.
+
+
+    Returns:
+        Skaliertes DataFrame oder NumPy-Array mit denselben Dimensionen und Datentyp wie input.
+    """
+ 
+    input = input.copy()
+
+    scaler = MinMaxScaler(feature_range=(min_val, max_val))
+
+    if isinstance(input, pd.DataFrame):
+        features = input.iloc[:, :-1]
+        target_feature = input.iloc[:, -1]
+        
+        x_scaled = scaler.fit_transform(features)
+        x_scaled_df = pd.DataFrame(x_scaled, columns=input.columns[:-1])
+        y_df = pd.DataFrame(target_feature, columns=[input.columns[-1]])
+        output_df = pd.concat([x_scaled_df, y_df], axis=1)
+        return output_df
+    
+    if isinstance(input, np.ndarray):
+        features = input[:, :-1]
+        target_feature = input[:, -1].reshape(-1, 1)
+        
+        x_scaled = scaler.fit_transform(features)
+        output_np = np.concatenate([x_scaled, target_feature], axis=1)
+        return output_np
+
+
+
+
+def Feature_Min_Max_Scaler(input: pd.DataFrame, feature: str, min_val: float = 0.0, max_val: float = 1.0) -> pd.DataFrame:
+    """Skaliere einzelnes Feature mit Min-Max-Scaler.
+
+    Args:
+        input: DataFrame mit dem zu skalierendem Datensatz.
+        target_feature: Name des Features, das skaliert werden soll.
+        min_val: Minimaler Wert nach Skalierung.
+        max_val: Maximaler Wert nach Skalierung.
+
+
+    Returns:
+        Skaliertes NumPy-Array aus dem target_feature und dem durchschnittlichem Hauspreis.
+    """
+    input = input.copy()
+
+    if not isinstance(input, pd.DataFrame):
+        raise TypeError("Input muss ein DataFrame sein, um Feature_Min_Max_Scaler zu verwenden.")
+
+    values = input[[feature]].values
+
+    scaler = MinMaxScaler(feature_range=(min_val, max_val))    
+    x_scaled = scaler.fit_transform(values)
+    input[feature] = x_scaled
+    return input
+        
+        
+
+
+def Standard_Scaler(input: Union[pd.DataFrame, np.ndarray]) -> Union[pd.DataFrame, np.ndarray]:
+    """Skaliere Datensatz mit StandardScaler.
+
+    Args:
+        input: DataFrame oder NumPy-Array mit dem zu skalierendem Datensatz.
+
+    Returns:
+        Skaliertes DataFrame oder NumPy-Array mit denselben Dimensionen und Datentyp wie input.
+    """
+    
+    input = input.copy()
+
+    scaler = StandardScaler()
+
+    if isinstance(input, pd.DataFrame):
+        features = input.iloc[:, :-1]
+        target_feature = input.iloc[:, -1]
+        
+        x_scaled = scaler.fit_transform(features)
+        x_scaled_df = pd.DataFrame(x_scaled, columns=input.columns[:-1])
+        y_df = pd.DataFrame(target_feature, columns=[input.columns[-1]])
+        output_df = pd.concat([x_scaled_df, y_df], axis=1)
+        return output_df
+    
+    if isinstance(input, np.ndarray):
+        features = input[:, :-1]
+        target_feature = input[:, -1].reshape(-1, 1)
+        
+        x_scaled = scaler.fit_transform(features)
+        output_np = np.concatenate([x_scaled, target_feature], axis=1)
+        return output_np
