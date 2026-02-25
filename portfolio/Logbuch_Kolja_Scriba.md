@@ -82,19 +82,20 @@
 
 ## Eintrag 3
 
-**Datum:**   
-**Titel:** Lasso/Ridge um PolyGrad 3 erweitert  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Datum:**   25.02.2026 10:00 - 
+**Titel:** Neural Network Logbuch
+**Aus Gruppentreffen:** Eigenständig
 
 **Arbeitsschritte:**
+- lokaler Main Breach und origin main Breach auf Git Hub haben unterschiedliche Commits 
+- Lösung dafür git pull --rebase origin main sorgt dafür dass die lokalen Commits oben auf die Remote Änderungen draufgesetzt werden 
 - 
 
 **Entscheidungen:**
 - 
 
 **Schwierigkeiten / offene Fragen:**
-
-- 
+- Verständnis warum Main Breach und Origin Breach unterschiedliche Commits haben 
 
 ---
 ## Eintrag template
