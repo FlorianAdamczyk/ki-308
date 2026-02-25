@@ -82,14 +82,27 @@
 
 ## Eintrag 3
 
-**Datum:**   25.02.2026 10:00 - 
-**Titel:** Neural Network Logbuch
+**Datum:**   25.02.2026 10:00 - 17:00
+**Titel:** Neural Network Logbuch Early Stop eingefügt um Overfitting beim NN zu vermeiden 
 **Aus Gruppentreffen:** Eigenständig
 
 **Arbeitsschritte:**
-- lokaler Main Breach und origin main Breach auf Git Hub haben unterschiedliche Commits 
-- Lösung dafür git pull --rebase origin main sorgt dafür dass die lokalen Commits oben auf die Remote Änderungen draufgesetzt werden 
-- 
+	•	lokaler Main Breach und origin main Breach auf Git Hub haben unterschiedliche Commits 
+  	•	Lösung dafür git pull --rebase origin main sorgt dafür dass die lokalen Commits oben auf die Remote Änderungen draufgesetzt werden 
+  	•	versuchen eines Early Stopping 
+  	•	für die implementierung wurde eine Copy von Notebook 5 erstellt 
+	•	Early Stopping in der Funktion train_and_evaluate() implementiert
+	•	Keras-Callback EarlyStopping verwendet
+	•	Überwachung des Validierungsfehlers (monitor="val_loss")
+	•	patience=20 gesetzt → Training stoppt nach 20 Epochen ohne Verbesserung
+	•	restore_best_weights=True aktiviert → beste Gewichte werden automatisch wiederhergestellt
+	•	Callback in model.fit() über callbacks=[early_stop] eingebunden
+	•	Ziel: Overfitting vermeiden und Trainingszeit reduzieren
+	•	Beobachtung: Bei 100 Epochen kein vorzeitiger Abbruch → Modell zeigte noch Verbesserung
+	•	Maximale Epochenzahl auf 300 erhöht
+	•	Training stoppte automatisch bei Epoche 74
+	•	Overfitting wurde dadurch reduziert
+	•	Trainingszeit wurde effizient genutzt
 
 **Entscheidungen:**
 - 
