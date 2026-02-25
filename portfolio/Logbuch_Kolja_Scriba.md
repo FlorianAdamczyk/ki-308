@@ -82,7 +82,7 @@
 
 ## Eintrag 3
 
-**Datum:**   25.02.2026 10:00 - 17:00
+**Datum:**   25.02.2026 10:00 - 18:00
 **Titel:** Neural Network Logbuch Early Stop eingefügt um Overfitting beim NN zu vermeiden 
 **Aus Gruppentreffen:** Eigenständig
 
