@@ -10,7 +10,7 @@
 - `notebook-stripout` verwenden, damit das Ausführen von Zellen nicht automatisch committet wird
 - PYthon3.11 und 3.13 installiert 
 - Bisherige Arbeitsschritte besprochen
-- Einheitliche Beschriftung des Codes durch installation von `Markdown`)
+- Einheitliche Beschriftung des Codes durch installation von `Markdown`
 - Sortierung des Projektes 
 - probelme mit python version auf intelmac und tensorflow lösen 
 
