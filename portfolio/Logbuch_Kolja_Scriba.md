@@ -113,12 +113,16 @@
 ---
 ## Eintrag template
 
-**Datum:** [Datum]  
-**Titel:** [Titel]  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Datum:** 26.02.2026  10:00-16.00
+**Titel:** l2 regularisierung und vergleich der verschiednene
+**Aus Gruppentreffen:** Eigenständig
 
 **Arbeitsschritte:**
-- 
+	•	Unterschiedliche Regularisierungsverfahren integriert (L2, Dropout, L2 + Dropout)
+	•	Overfitting-Gap berechnet und Modelle systematisch verglichen
+	•	Vergleichstabelle mit R² Train, R² Test, MAE Test, Epochen und Parameteranzahl erstellt
+	•	Ergebnisse interpretiert und strukturell überarbeitet
+	•	Struktur des Notebooks reflektiert
 
 **Entscheidungen:**
 - 
