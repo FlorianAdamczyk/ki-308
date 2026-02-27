@@ -1,6 +1,6 @@
 # Gruppentreffen 1
 
-**Anwesend:** alle
+**Anwesend:** [Florian, Kolja, Felix N., Felix H., Björn]
 
 **Datum:** 11.02.2026  
 **Uhrzeit:** 13:30 Uhr – 15:45 Uhr
@@ -15,7 +15,7 @@
 - Bestimmen des Gruppensprechers
 - Festlegung, dass funktional programmiert werden soll, um Übersicht auch zu fortgeschrittenem Zeitpunkt zu gewährleisten
 - Erste Aufgabenauflistung / Einteilung
-  - Datensatz bereinigen — dazu Informationen aus Vorlesung (Florian, Kolja)
+  - Datensatz bereinigen — dazu Informationen aus Vorlesung (Florian)
 - Nächstes Treffen: **Di. 17.02. 11:00 Uhr**
 
 ---
