@@ -80,7 +80,7 @@
 
 ---
 
-## Eintrag 3
+## Eintrag 4
 
 **Datum:**   25.02.2026 10:00 - 18:00
 **Titel:** Neural Network Logbuch Early Stop eingefügt um Overfitting beim NN zu vermeiden 
@@ -111,7 +111,7 @@
 - Verständnis warum Main Breach und Origin Breach unterschiedliche Commits haben 
 
 ---
-## Eintrag template
+## Eintrag 5
 
 **Datum:** 26.02.2026  10:00-16.00
 **Titel:** l2 regularisierung und vergleich der verschiednene
@@ -130,6 +130,58 @@
 **Schwierigkeiten / offene Fragen:**
 
 ---
+## Eintrag 6
+
+**Datum:** 06.03.2026 13:00-18:00)
+**Titel:** Neuronales Netz verbessern  
+**Aus Gruppentreffen:** Treffen 4
+
+**Arbeitsschritte:**
+  	•	Projektstruktur im Repository angelegt und verschiedene Notebook-Dateien erstellt (EDA, Baseline, Scaling, NN).
+	•	Datensatz California Housing Dataset geladen.
+	•	Zielvariable (y) und Feature-Matrix (X) definiert.
+	•	Datenvorbereitung über eigene Funktionen (load_and_clean_data, get_train_test_split) durchgeführt.
+	•	Trainings- und Testdaten erstellt (x_train, x_test, y_train, y_test).
+	•	Features skaliert (Standardisierung), um sie für neuronale Netze geeignet zu machen.
+	•	Validierungsdatensatz aus den Trainingsdaten erstellt.
+	•	Dimensionen der Trainings-, Validierungs- und Testdaten überprüft.
+	•	TensorFlow/Keras in der virtuellen Umgebung eingebunden.
+	•	Imports für:
+	•	TensorFlow
+	•	Keras
+	•	Layers
+	•	EarlyStopping
+	•	Pandas
+	•	Matplotlib eingerichtet.
+	•	Eigene Modellfunktion build_model_regularized erstellt.
+	•	Trainingsfunktion train_and_evaluate implementiert.
+	•	Early Stopping zur Vermeidung von Overfitting eingebaut.
+	•	Verschiedene neuronale Netzarchitekturen definiert:
+	•	kleines Modell [64, 32]
+	•	größeres Modell [128, 64, 32]
+	•	Verschiedene Regularisierungsmethoden getestet:
+	•	kein Regularizer
+	•	L1 Regularisierung
+	•	L2 Regularisierung
+	•	L1 + L2 Regularisierung
+	•	Dropout als zusätzliche Regularisierung implementiert.
+	•	Mehrere Modelle automatisiert in einer Schleife trainiert.
+	•	Trainingsverlauf (Loss und Validation Loss) gespeichert.
+	•	Ergebnisse der Modelle in einem Dictionary gespeichert.
+	•	Ergebnisse als Tabelle (DataFrame) zusammengefasst.
+	•	Bestes Modell anhand des Testfehlers ausgewählt.
+	•	Trainingsverlauf des besten Modells visualisiert.
+
+
+
+**Schwierigkeiten / offene Fragen:**
+	•	Kernel-Neustart in VS Code Notebook versucht.
+	•	Fehler durch nicht definierte Variablen (x_train, X_train_scaled) untersucht.
+	•	Unterschiedliche Variablennamen zwischen Codeblöcken korrigiert.
+	•	Notebook-Zellen in korrekter Reihenfolge ausgeführt.
+
+
+
 
 <!-- Weitere Einträge nach dem gleichen Schema -->
 
