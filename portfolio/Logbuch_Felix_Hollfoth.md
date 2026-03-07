@@ -99,6 +99,8 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
 
+* Spalte longitude negative Werte????!!!!!
+
 ---
 
 
