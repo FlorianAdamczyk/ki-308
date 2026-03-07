@@ -6,6 +6,13 @@
 
 ---
 
+## Generelle Ideen:
+
+* Spalte longitude negative Werte????!!!!
+* Starke Korrelation zwischen BedRomms und Rooms oder Latitude und Langitude, eventuell doppelt gelernt oder sowas?
+* starke korrelation zwischen MedInc und median_house_value mal einzelnd betrachten
+* vorhandene Analyse: https://medium.com/@advika5109/neural-networks-for-real-estate-predictions-a-comprehensive-analysis-of-the-california-housing-0e79cd642c36
+
 ## Anleitung
 
 Ein Eintrag enthält mindestens:
@@ -91,15 +98,22 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 
 
-## Eintrag 4
+## Eintrag 5
 
-**Datum:** 03.03.2026
-**Titel:** [Titel]
-**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+**Datum:** 07.03.2026
+**Titel:** Bestimmung von Hyperparametern
+**Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
-**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+**Arbeitsschritte:**
 
-* Spalte longitude negative Werte????!!!!!
+* Da die Konvergenz eines Verfahrens häufig sehr stark von dem Wertebereich und der dazugehörigen Aktivierungsfunktion abhänkt wird über folgende Kombinationen iteriert:
+  * Aktivierungsfunktionen: relu, 'tanh', 'sigmoid', 'elu', 'selu', 'leaky_relu'
+  * Datenskalierung: keine, standard, min0_max1
+* Außer den in den Vorlesung bekannten Aktivierungsfunktionen wird selu mitberücksichtigt, da sie beim Durchlauf die Aktivierungen normalisieren kann. Vorallem für tiefere Netze interessant, falls mehr als zwei hidden layer sich als nützlich erweisen (https://www.geeksforgeeks.org/deep-learning/selu-activation-function-in-neural-network/)
+* Im Training-Score, sowie auch bis auf eine Ausnahme im Test-Score ist die Standardisierung die beste Option. Dahingehen sorgt keine Skalierung dafür, dass einige Modelle je nach Aktivierungsfunktion sogar schlechter sind als der Mittelwert. Das kann an den großen Unterschiedenen im Wertebereich der Features liegen
+* Beste Test-Score zeigt sich beim tanh mit der Standardisierung mit 0,7668.
+* Abweichung zum Trainingsscore liegt bei 3,8 %, welches leichtes overfitting andeutet aber als noch nicht problematisch angesehen wird
+* Relu bietet mit 6,1 % Abweichung das größte overfitting an und liefert den zweitbesten score mit 0,7618
 
 ---
 
