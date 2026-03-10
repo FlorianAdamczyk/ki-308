@@ -118,7 +118,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 ## Eintrag 6
 
 **Datum:** 09.03.2026
-**Titel:** Bestimmung von Hyperparametern (Lernrate, Batch-Size und Epochenanzahl)
+**Titel:** Bestimmung von Hyperparametern (Lernrate, Batch-Size)
 **Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
 **Arbeitsschritte:**
@@ -128,9 +128,23 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 * Lernrate konstant über 0,74 im Intervall [0,0032; 0,0072]
 * Bester Einzelwert bei 0,0054 welche aber auch deutlich auf Zufall im Modell hindeutet -> Lernrate bei 0,0054 mehrfach ausgeführt und Schwankung beobachtet
 * Schwankung bei erneuter Ausführung von über 3 % erkannt -> Training der Hyperparamter liegt in diesem Schwankungsbereich -> Statistische Untersuchung der Schwankung bei erneuter Ausführung
+
+---
+
+## Eintrag 7
+
+**Datum:** 10.03.2026
+**Titel:** Bestimmung von Hyperparametern (Erneute Ausführungen, Epochenanzahl
+**Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
+
+**Arbeitsschritte:**
+
+* Histogramm über 100 Modelle mit konstanten Parametern erstellt -> wenige Modelle 0,7 und 0,72; meisten Modelle liegen zwischen 0,74 und 0,765
 * 
 
 ---
+
+
 
 ## Eintrag 4
 
@@ -139,3 +153,53 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 **Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
 
 **Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+
+---
+
+
+
+## Eintrag 4
+
+**Datum:** 03.03.2026
+**Titel:** [Titel]
+**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+
+**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+
+---
+
+
+
+## Eintrag 4
+
+**Datum:** 03.03.2026
+**Titel:** [Titel]
+**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+
+**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+
+---
+
+
+
+## Eintrag 4
+
+**Datum:** 03.03.2026
+**Titel:** [Titel]
+**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+
+**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+
+---
+
+
+
+## Eintrag 4
+
+**Datum:** 03.03.2026
+**Titel:** [Titel]
+**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+
+**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+
+---
