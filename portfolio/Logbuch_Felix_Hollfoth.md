@@ -105,7 +105,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 **Arbeitsschritte:**
 
 * Da die Konvergenz eines Verfahrens häufig sehr stark von dem Wertebereich und der dazugehörigen Aktivierungsfunktion abhänkt wird über folgende Kombinationen iteriert:
-  * Aktivierungsfunktionen: relu, 'tanh', 'sigmoid', 'elu', 'selu', 'leaky_relu'
+  * Aktivierungsfunktionen: 'relu', 'tanh', 'sigmoid', 'elu', 'selu', 'leaky_relu'
   * Datenskalierung: keine, standard, min0_max1
 * Außer den in den Vorlesung bekannten Aktivierungsfunktionen wird selu mitberücksichtigt, da sie beim Durchlauf die Aktivierungen normalisieren kann. Vorallem für tiefere Netze interessant, falls mehr als zwei hidden layer sich als nützlich erweisen (https://www.geeksforgeeks.org/deep-learning/selu-activation-function-in-neural-network/)
 * Im Training-Score, sowie auch bis auf eine Ausnahme im Test-Score ist die Standardisierung die beste Option. Dahingehen sorgt keine Skalierung dafür, dass einige Modelle je nach Aktivierungsfunktion sogar schlechter sind als der Mittelwert. Das kann an den großen Unterschiedenen im Wertebereich der Features liegen
@@ -134,25 +134,34 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 ## Eintrag 7
 
 **Datum:** 10.03.2026
-**Titel:** Bestimmung von Hyperparametern (Erneute Ausführungen, Epochenanzahl
+**Titel:** Bestimmung von Hyperparametern (Erneute Ausführungen, Epochenanzahl)
 **Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
 **Arbeitsschritte:**
 
 * Histogramm über 100 Modelle mit konstanten Parametern erstellt -> wenige Modelle 0,7 und 0,72; meisten Modelle liegen zwischen 0,74 und 0,765
-* 
+  * Mittelwert: 0,7481
+  * Varianz: 0,0002
+  * Standardabweichung: 0,0124
+* Epochen betrachtet bis 10.000 -> ab 500 Epochen wird Overfitting stärker aber bis 500 Epochen verbessert sich auch Test-Score -> Entscheidung einen Verlauf des MAE-Wertes auf den Testdaten pro Epoche ausgeben zu lassen
+* MAE-Wert zeigt ein Minimum bei 500, daher bis 1000 Epochen laufen lassen
+* Bis 1000 Epochen zeigt sich aber keine weitere Verbesserung mehr -> Minimum hier bei circa 300 Epochen. Vor 300 Epochen sieht man in beiden Plots eine Verringerung des MAE, daher sollten auf jeden Fall mehr als 100 Epochen trainiert werden, eher über 300
 
 ---
 
 
 
-## Eintrag 4
+## Eintrag 8
 
-**Datum:** 03.03.2026
-**Titel:** [Titel]
-**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+**Datum:** 10.03.2026
+**Titel:** Random Search
+**Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
-**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+**Arbeitsschritte:**
+
+* Bis jetzt wurden sich nur einzelne Hyperparameter angeschaut, daher mal über verschiedene Hyperparameter testen mittels Random Search (https://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf) -> Wegen Rechenzeit und Ergebnissen wird dies GridSearch bevorzugt
+* 
+
 
 ---
 
