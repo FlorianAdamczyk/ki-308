@@ -149,8 +149,6 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 ---
 
-
-
 ## Eintrag 8
 
 **Datum:** 10.03.2026
@@ -160,12 +158,24 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 **Arbeitsschritte:**
 
 * Bis jetzt wurden sich nur einzelne Hyperparameter angeschaut, daher mal über verschiedene Hyperparameter testen mittels Random Search (https://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf) -> Wegen Rechenzeit und Ergebnissen wird dies GridSearch bevorzugt
-* 
-
+* Über 100 Modelle konnte ein Test-Score von 0,7759 erreich werden.
+* Da die Verbesserung an Hyperparametern zu stagnieren scheint werden alternativen ausprobiert. Nach Recherche wird LR-Schedule ausprobiert -> zeigt keine signifikanten Verbesserungen
 
 ---
 
+## Eintrag 9
 
+**Datum:** 11.03.2026
+**Titel:** Feature Selektion
+**Aus Gruppentreffen:** /
+
+**Arbeitsschritte:**
+
+* Da die Variation von Hyperparametern keine wesentliche Verbesserung des Testscores zeigt wird hier nicht mehr Zeit reingesteckt und andere Wege gegangen (nicht in Gruppentreffen abgestimmt)
+* Idee nur auf die wichtigesten Features zu trainieren um Informationsgehalt zu bestimmen
+* Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls rauschen mit ein und eventuell nur niedrigen Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
+
+---
 
 ## Eintrag 4
 
@@ -177,8 +187,6 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 ---
 
-
-
 ## Eintrag 4
 
 **Datum:** 03.03.2026
@@ -188,20 +196,6 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 **Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
 
 ---
-
-
-
-## Eintrag 4
-
-**Datum:** 03.03.2026
-**Titel:** [Titel]
-**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
-
-**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
-
----
-
-
 
 ## Eintrag 4
 
