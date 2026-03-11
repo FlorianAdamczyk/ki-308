@@ -8,9 +8,6 @@
 
 ## Generelle Ideen:
 
-* Spalte longitude negative Werte????!!!!
-* Starke Korrelation zwischen BedRomms und Rooms oder Latitude und Langitude, eventuell doppelt gelernt oder sowas?
-* starke korrelation zwischen MedInc und median_house_value mal einzelnd betrachten
 * vorhandene Analyse: https://medium.com/@advika5109/neural-networks-for-real-estate-predictions-a-comprehensive-analysis-of-the-california-housing-0e79cd642c36
 
 ## Anleitung
@@ -90,6 +87,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 **Arbeitsschritte:**
 
 * Beim erstellen eines ersten neuronalen Netzes kam der Fehler NaN. Fehlerursache (Vermutungen):
+
   * Das Dataframe ist nach dem skalieren intern beschädigt, trotz bzw. wegen eingebauter Rückumwandlung
   * Beim Konventieren in Numpy entstehen echte NaNs, die im Dataframe enthalten bleiben
 * Gruppenmitglied Florian hat in der Funktion: get_train_test_split() ebenfalls einen scaler miteinprogrammiert, welcher diesen Fehler nicht enthält, weshalb dieser absofort genutzt wird
@@ -166,7 +164,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 ## Eintrag 9
 
 **Datum:** 11.03.2026
-**Titel:** Feature Selektion
+**Titel:** Feature Selektion und Qualitätsbeurteilung mittels Residuen Plots bzw. -Histogramme
 **Aus Gruppentreffen:** /
 
 **Arbeitsschritte:**
@@ -175,6 +173,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 * Idee nur auf die wichtigesten Features zu trainieren um Informationsgehalt zu bestimmen
 * Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weil weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls rauschen mit ein und eventuell nur niedrigen Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
 * Random Search nur auf vier Features angewendet, da es ein Konsistenteres Modell verspricht (abends starten)
+* Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias, Cluster o.ä. eine Verbesserung wird hier erstmal nicht vorgeschlagen
 
 ---
 

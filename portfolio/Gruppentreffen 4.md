@@ -1,8 +1,8 @@
 # Gruppentreffen 4
 
 **Anwesend:** [Florian, Kolja, Felix N., Felix H., Björn]
-**Datum:** 27.02.2026  
-**Uhrzeit:** 15:00 Uhr - 17.15 Uhr  
+**Datum:** 27.02.2026
+**Uhrzeit:** 15:00 Uhr - 17.15 Uhr
 **Ort:** Discord
 
 ---
@@ -19,7 +19,7 @@
 - Random_State sollte größtenteils beibehalten werden, während des Programmierens
 - Endgültige Abgabe bis spätestens Gründonnerstag
 - Aufgabenverteilung
-  - Felix: verscheidene Aktivierungsfunktionen prüfen, Lernrate, Batchsize
+  - Felix: verscheidene Aktivierungsfunktionen prüfen, Lernrate, Batchsize, Epochenanzahl und Variation bei erneutem lernen mit selben Parametern
   - Kolja: versch. Lossfunktionen, Anzahl und Breite der Hidden Layers
   - Flo: bisher sehr großer Workload, daher etwas in Aufgaben zurücknehmen
 
