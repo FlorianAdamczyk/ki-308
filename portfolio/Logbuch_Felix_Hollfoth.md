@@ -173,7 +173,8 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 * Da die Variation von Hyperparametern keine wesentliche Verbesserung des Testscores zeigt wird hier nicht mehr Zeit reingesteckt und andere Wege gegangen (nicht in Gruppentreffen abgestimmt)
 * Idee nur auf die wichtigesten Features zu trainieren um Informationsgehalt zu bestimmen
-* Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls rauschen mit ein und eventuell nur niedrigen Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
+* Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weil weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls rauschen mit ein und eventuell nur niedrigen Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
+* Random Search nur auf vier Features angewendet, da es ein Konsistenteres Modell verspricht (abends starten)
 
 ---
 
