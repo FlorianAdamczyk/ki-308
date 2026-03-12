@@ -197,7 +197,9 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 * Hyperparameter Lernrate, Batch-Size und Epochenanzahl sind betroffen -> Modelle neu trainieren zum Test
 * Zeigt sich, dass die Standardisierung insgesamt den Score leicht verbessert, aber das Verhalten bezüglich lernrate identisch ist wie mit den alten Daten
 * output collaps konnte behoben werden, in der neuen Funktion in der Print ausgabe, war ein Fehler, weshalb 100 Zeichen hintereinander ausgegeben werden sollten und dadruch der output collabiert ist
-* 
+* Ensable zeigt Verbesserung im Score
+* Alle Kombinationen der Modelle ausprobieren -> Je mehr Modelle, desto besser der Score und wenn die Modelle eine andere Featureanzahl haben wird der score auch besser
+* Neue Modelle auf 2 und 3 Features trainiert um ensable zu erweitern
 
 ---
 
