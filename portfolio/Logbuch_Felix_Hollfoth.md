@@ -177,13 +177,23 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 ---
 
-## Eintrag 4
+## Eintrag 10
 
-**Datum:** 03.03.2026
-**Titel:** [Titel]
-**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+**Datum:** 12.03.2026
+**Titel:** Ensable zur Stabilisierung von Ausreißern
+**Aus Gruppentreffen:** /
 
-**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+**Arbeitsschritte:**
+
+* Noch keine Information über Hyperparameter zur Netzstruktur, da entgegen Gruppentreffen 4 es zu einer Verzögerung kam. Kein Commit erkennbar.
+* Parameterreduzierung, Dropout etc. soll von weiteren Gruppenmitgliedern übernommen werden.
+* Suche nach weiteren Möglichkeiten, welche bereits noch nicht vergeben sind
+* Mittels Ensable sollen Ausreißer geglättet und das Modell stabilisiert werden
+* funktion evaluate_predictions nicht für ensable ausgelegt, da keine Trainingsdaten übergeben werden sollen, daher Funktion evaluate_test_predictions() geschrieben
+* Fehler: Outputs are collapsed... (sollte eigentlich nur ein score ausgeben)
+* Interpreter gesetzt aber numpy etc. wird in evaluation.py nicht erkannt
+* setting.json angepasst, damit alle files den selben Kernel nutzen
+* 
 
 ---
 

@@ -80,6 +80,34 @@ def evaluate_predictions(y_train, y_train_pred, y_test, y_test_pred, model_name:
     return results
 
 
+def evaluate_test_predictions(y_test, y_test_pred, model_name: str="Modell"):
+    """Evaluiere direkt aus Test Daten (z.B. für Ensables).
+
+    Args:
+        y_test: Tatsächlicher Wert.
+        y_test_pred: Vorhergesagter Wert.
+        model_name: Name für die Ausgabe.
+
+    Returns:
+        dict mit allen Metriken.
+    """
+    results = {
+        "Modell": model_name,
+        "R² Test": r2_score(y_test, y_test_pred),
+        "MAE Test": mean_absolute_error(y_test, y_test_pred),
+        "RMSE Test": np.sqrt(mean_squared_error(y_test, y_test_pred))
+    }
+
+    print(f"\n{'=<'*50}")
+    print(f"  {model_name}")
+    print(f"{'='*50}")
+    print(f"  R² Score:  Test = {results['R² Test']:.4f}")
+    print(f"  MAE:       Test = {results['MAE Test']:.4f}")
+    print(f"  RMSE:      Test = {results['RMSE Test']:.4f}")
+    print(f"{'='*50}")
+    
+    return None
+
 # Globaler Speicher für Modellvergleiche
 _results_list: list[dict] = []
 
