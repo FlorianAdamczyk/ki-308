@@ -199,7 +199,9 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 * output collaps konnte behoben werden, in der neuen Funktion in der Print ausgabe, war ein Fehler, weshalb 100 Zeichen hintereinander ausgegeben werden sollten und dadruch der output collabiert ist
 * Ensable zeigt Verbesserung im Score
 * Alle Kombinationen der Modelle ausprobieren -> Je mehr Modelle, desto besser der Score und wenn die Modelle eine andere Featureanzahl haben wird der score auch besser
-* Neue Modelle auf 2 und 3 Features trainiert um ensable zu erweitern
+* Neue Modelle auf 2 und 3 Features trainiert um ensable zu erweitern -> Zu wenig Features, Modelle zu schlecht und auch keine Hilfe für Ensable
+* Mit random search 5 gute Modelle trainiert mit verschiedenen Hyperparametern und diese mit ensable zu einer Prediction zusammengeführt
+* Ergebnisse daraus:
 
 ---
 
