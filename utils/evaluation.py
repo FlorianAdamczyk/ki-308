@@ -98,7 +98,7 @@ def evaluate_test_predictions(y_test, y_test_pred, model_name: str="Modell"):
         "RMSE Test": np.sqrt(mean_squared_error(y_test, y_test_pred))
     }
 
-    print(f"\n{'=<'*50}")
+    print(f"\n{'='*50}")
     print(f"  {model_name}")
     print(f"{'='*50}")
     print(f"  R² Score:  Test = {results['R² Test']:.4f}")

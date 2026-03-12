@@ -192,7 +192,11 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 * funktion evaluate_predictions nicht für ensable ausgelegt, da keine Trainingsdaten übergeben werden sollen, daher Funktion evaluate_test_predictions() geschrieben
 * Fehler: Outputs are collapsed... (sollte eigentlich nur ein score ausgeben)
 * Interpreter gesetzt aber numpy etc. wird in evaluation.py nicht erkannt
-* setting.json angepasst, damit alle files den selben Kernel nutzen
+* setting.json angepasst, damit alle files den selben Kernel nutzen -> Fehler in evaluation.py weg, aber nicht die Lösung für das output collaps Problem
+* Kernel ist abgestützt und müsste neu gestartet werden -> beim ausführen der oberen Zellen ist aufgefallen, dass nicht die skalierten Daten verwendet wurden, sondern durch den einen Schleifendurchlauf die durch den Min0_Max1_scalierten Daten, da der score hier aber ähnlich war erwarte ich keine deutlichen Änderungen an den Hyperparametern
+* Hyperparameter Lernrate, Batch-Size und Epochenanzahl sind betroffen -> Modelle neu trainieren zum Test
+* Zeigt sich, dass die Standardisierung insgesamt den Score leicht verbessert, aber das Verhalten bezüglich lernrate identisch ist wie mit den alten Daten
+* output collaps konnte behoben werden, in der neuen Funktion in der Print ausgabe, war ein Fehler, weshalb 100 Zeichen hintereinander ausgegeben werden sollten und dadruch der output collabiert ist
 * 
 
 ---
