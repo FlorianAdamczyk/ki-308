@@ -183,7 +183,7 @@
 ---
 ## Eintrag 7
 
-**Datum:** 12.03.2026
+**Datum:** 12.03.2026 10:00-20:00
 **Titel:** Erweiterung und Bereinigung des neuronalen Netzes (Regularisierung L1–L3)
 **Aus Gruppentreffen:** Gruppentreffen 4
 
@@ -213,7 +213,7 @@
 ---
 ## Eintrag 8
 
-**Datum:** 13.03.2026
+**Datum:** 13.03.2026 9:00-19:00
 **Titel:** Ausführung und Auswertung des neuronalen Netzvergleichs
 **Aus Gruppentreffen:** Gruppentreffen 4
 
