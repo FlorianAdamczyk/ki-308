@@ -8,7 +8,7 @@
 
 ## Eintrag 1
 
-**Datum:** 20.02.2026  
+**Datum:** 20.02.2026  10:00-12:00
 **Titel:** Projektstart - Besprechen von Flos Arbeit und Einrichten der Umgebung
 **Aus Gruppentreffen:** Gruppentreffen 3 (20.02.2026)
 **Arbeitsschritte** 
@@ -17,8 +17,6 @@
 
  **Schwierigkeiten:** 
 - Verständnis für Architektur und aufbau von IOS mit VSS Code auf Intelbasierten Macs 
-
-
 
 ---
 
