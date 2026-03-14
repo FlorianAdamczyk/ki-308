@@ -180,7 +180,62 @@
 	•	Unterschiedliche Variablennamen zwischen Codeblöcken korrigiert.
 	•	Notebook-Zellen in korrekter Reihenfolge ausgeführt.
 
+---
+## Eintrag 7
 
+**Datum:** 12.03.2026
+**Titel:** Erweiterung und Bereinigung des neuronalen Netzes (Regularisierung L1–L3)
+**Aus Gruppentreffen:** Gruppentreffen 4
+
+**Arbeitsschritte:**
+- Bestehendes Notebook zum neuronalen Netz für die Regressionsaufgabe weiterentwickelt.
+- Verschiedene Regularisierungsmethoden (L1, L2, L1+L2 sowie eigener L3-Regularizer) in das Modell integriert.
+- Eine allgemeine Modellfunktion (`build_model_regularized`) erstellt, um unterschiedliche Hidden-Layer-Strukturen und Regularisierungen flexibel testen zu können.
+- Mehrere Modellkonfigurationen über ein `model_configs` Dictionary definiert (Plain NN, L1, L2, L1+L2, L3).
+- Trainingsschleife implementiert, die automatisch alle Modellvarianten trainiert und auswertet.
+- Ergebnisse (Test MSE, Test MAE, Parameteranzahl, Trainingsdauer) in einer gemeinsamen Tabelle gespeichert.
+- Fehler im Code behoben, insbesondere das Überschreiben der Dictionaries für Ergebnisse und Trainingshistorien.
+- Zusätzlich die trainierten Modelle in `trained_models` gespeichert, um später automatisch das beste Modell auswählen zu können.
+- Automatische Auswahl des besten Modells über die sortierte Ergebnistabelle (`results_df`) umgesetzt.
+- Trainingsverlauf des besten Modells visualisiert.
+- Vorbereitung des Vergleichs zwischen neuronalen Netzen und linearer Regression.
+
+**Entscheidungen:**
+- Eine zentrale Modellfunktion für alle Regularisierungsvarianten verwendet, um redundanten Code zu vermeiden.
+- Die Modellkonfigurationen über ein Dictionary gesteuert, damit neue Varianten leicht ergänzt werden können.
+- Das beste Modell automatisch anhand des Testfehlers bestimmen lassen, statt es manuell auszuwählen.
+
+**Schwierigkeiten / offene Fragen:**
+- Syntaxfehler im Modellkonfigurationsblock (fehlende Kommata) führten zunächst zu Problemen beim Ausführen der Trainingsschleife.
+- Zwischenzeitlich wurden Ergebnisse versehentlich überschrieben, da Dictionaries innerhalb der Schleife neu initialisiert wurden.
+- Teilweise existieren im Notebook noch ältere Testblöcke für einzelne Modelle, die eventuell später bereinigt oder klarer als Zwischenschritte gekennzeichnet werden sollten.
+- 
+---
+## Eintrag 8
+
+**Datum:** 13.03.2026
+**Titel:** Ausführung und Auswertung des neuronalen Netzvergleichs
+**Aus Gruppentreffen:** Gruppentreffen 4
+
+**Arbeitsschritte:**
+- Notebook vollständig neu gestartet und alle Zellen erneut ausgeführt, um sicherzustellen, dass alle Modelle konsistent trainiert werden.
+- Implementierten Modellvergleich mit verschiedenen Regularisierungsmethoden (Plain, L1, L2, L1+L2 und L3) getestet.
+- Trainingsschleife überprüft und kontrolliert, ob alle Modellvarianten korrekt trainiert und in den Ergebnisstrukturen gespeichert werden.
+- Ergebnisse in einer Tabelle (`results_df`) zusammengeführt und nach Testfehler sortiert.
+- Automatische Auswahl des besten Modells anhand des niedrigsten Testfehlers umgesetzt.
+- Trainingsverlauf des besten Modells visualisiert und auf mögliche Overfitting-Anzeichen überprüft.
+- Vergleich zwischen neuronalen Netzen und linearer Regression vorbereitet.
+- Notebookstruktur überprüft und alte Testblöcke als Zwischenschritte identifiziert.
+
+**Entscheidungen:**
+- Das beste neuronale Netz wird automatisch über die sortierte Ergebnistabelle bestimmt.
+- Für die Modellarchitektur und Regularisierung wird ein gemeinsames Konfigurationssystem verwendet, um zukünftige Erweiterungen zu erleichtern.
+- Die verschiedenen Modellvarianten werden systematisch verglichen, um den Einfluss der Regularisierung auf die Generalisierungsfähigkeit zu untersuchen.
+
+**Schwierigkeiten / offene Fragen:**
+- Sicherstellen, dass ältere Testmodelle im Notebook klar von der finalen Vergleichsstruktur getrennt sind.
+- Überlegen, ob einige der früheren Testabschnitte im Notebook für die finale Abgabe reduziert oder stärker kommentiert werden sollten.
+- 
 
 
 <!-- Weitere Einträge nach dem gleichen Schema -->

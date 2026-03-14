@@ -215,8 +215,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 * Commit nicht mehr möglich
 * Beim Zusammenlegen auf den Main Pfad wären alle Änderungen weg
-* Änderungen wiederherstellen war nicht möglich, da eine Änderung bei 05_Neural_Network_Kolja vorgelegen hat
-* 
+* Änderungen wiederherstellen war nicht möglich, da eine Änderung bei 05_Neural_Network_Kolja vorgelegen hat (merge Konflikt)
 
 ---
 
