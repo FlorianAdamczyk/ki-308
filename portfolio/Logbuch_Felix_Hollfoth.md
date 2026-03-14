@@ -205,13 +205,18 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 ---
 
-## Eintrag 4
+## Eintrag 11
 
-**Datum:** 03.03.2026
-**Titel:** [Titel]
-**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+**Datum:** 14.03.2026
+**Titel:** Git Probleme
+**Aus Gruppentreffen:** /
 
-**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+**Arbeitsschritte:**
+
+* Commit nicht mehr möglich
+* Beim Zusammenlegen auf den Main Pfad wären alle Änderungen weg
+* Änderungen wiederherstellen war nicht möglich, da eine Änderung bei 05_Neural_Network_Kolja vorgelegen hat
+* 
 
 ---
 
