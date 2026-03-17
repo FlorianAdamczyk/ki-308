@@ -42,17 +42,29 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 ## Eintrag 2
 
 **Datum:** 17.03.2026 
-**Titel:** [Titel]  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Titel:** [Allgemeine Einarbeitung]  
+**Aus Gruppentreffen:** [Treffen 4, 5"]
 
 **Arbeitsschritte:**
-- 
-
+- Vorbereitung VS-Code und Neuinitialisierung Python environment 
+  - Problemlösen Tensorflow
+  - Pakete installiert 
+- Einlesen in neuste Änderungen der Gruppenmitglieder
+- Aufarbeitung Vorlesungsinhalte
+- einarbeitung in Git 
+- Gruppentreffen 5 (siehe Gruppentreffen)
+  - Absprache zur Zeitaufteilung und Bearbeitung der NN
+- logbuch angelegt 
+- Recherche allgemein zu vorgehen beim Aufbau neuronaler Netze
+- Ausarbeitung zu Ideen zu:
+  - random search, grid search, Datentransformation, drop out und weigth decay
 **Entscheidungen:**
-- 
+- Python 3.11.15 verwenden 
+- Absprache mit Björn zur Zusammenfassung und weiteren Optimierung der NN von Kolja und Felix H.
+
 
 **Schwierigkeiten / offene Fragen:**
-- 
+- Python environment (gelöst)
 
 ---
 
