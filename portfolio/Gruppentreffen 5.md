@@ -6,12 +6,12 @@
 **Ort:** Discord
 
   
-## Besprochene Punkte
+## Besprochene TOPs
 
 Die Projekte von Kolja und Felix H. wurden vorgestellt und erklärt 
 
 
-Zukünftige Aufgabenverteilung 
+## Zukünftige Aufgabenverteilung 
 
 - Die Erkenntnisse von Felix H. haben einen großen nutzen für das Endergebnis 
   - manche Features haben genauso großes Rauschen wie Informationsgewinn 
@@ -28,7 +28,7 @@ Person 2: Modellvergleich
     -   Vergleich mit NN und linearer Regression
     -   Ergebnisse tabellarisch und grafisch darstellen
 
-Ziel
+#### Ziel
     -   Zusammenfassung der Ergebnisse 
     -   Erweiterung des Projekts durch zusätzliche Experimente mit Hyperparametern
     -   Bessere Einordnung der Modellleistung
@@ -36,7 +36,7 @@ Ziel
     -   Björn und Felix wurden beauftragt die Ergebnisse nun besser zusammenzufassen und verständlich zu erklären.
     -   Latex Vorlage für Gruppenergebnisse 
 
-Weitere TOP:
+#### Weitere TOP:
 - Einigung auf Zitierstil Havard
 - Zeitliche Aufteilung des weiteren Vorgehens für Felix N. und Björn in der nächsten Woche
 - Aufbereiten Code Felix H.
