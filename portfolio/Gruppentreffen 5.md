@@ -5,10 +5,19 @@
 **Uhrzeit:** 17:00 Uhr - 18:00 Uhr
 **Ort:** Discord
 
-## zu Besprechende Punkte
+  
+## Besprochene Punkte
 
-Aufgabenverteilung
+Die Projekte von Kolja und Felix H. wurden vorgetsellt und erklärt 
 
+
+Zukünftige Aufgabenverteilung 
+
+- Die Erkenntnisse von Felix H. haben einen großen nutzen für das Endergebnis 
+  - manche Features haben genauso großes Rauschen wie Informationsgewinn 
+  - somit hat Felix sich auf ein paar Features beschränkt und kam auf bessere Ergebnis
+  - die variation bei erneutem Ausführen ist zu groß worduch eine verbesseerung der Hyperparameter nicht so ratsam wäre 
+  
 Person 1: Hyperparameter-Optimierung
     -   Lernrate, Batch Size, Architektur, Regularisierung systematisch testen
     -   Ergebnisse vergleichen und bestes Modell bestimmen
@@ -23,7 +32,6 @@ Ziel
     -   Erweiterung des Projekts durch zusätzliche Experimente
     -   Bessere Einordnung der Modellleistung
     -   Erhöhung der wissenschaftlichen Tiefe
+    -   Björn und Felix wurden beauftragt die Ergebnisse nun besser zusammenzufassen und verständlich zu erklären. 
 
-Bewertung einzelner Mitglieder 
-  
-## Besprochene Punkte
+
