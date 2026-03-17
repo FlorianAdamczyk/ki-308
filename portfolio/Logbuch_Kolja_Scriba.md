@@ -8,7 +8,7 @@
 
 ## Eintrag 1
 
-**Datum:** 20.02.2026  10:00-12:00
+**Datum:** 20.02.2026  9:00-12:00
 **Titel:** Projektstart - Besprechen von Flos Arbeit und Einrichten der Umgebung
 **Aus Gruppentreffen:** Gruppentreffen 3 (20.02.2026)
 **Arbeitsschritte** 
@@ -22,7 +22,7 @@
 
 ## Eintrag 2
 
-**Datum:** 21.02.2026 13:00-15:30 
+**Datum:** 21.02.2026 10:00-15:30 
 **Titel:** Einrichtung der Python-Entwicklungsumgebung
 
 
@@ -53,7 +53,7 @@
 
 ## Eintrag 3
 
-**Datum:** 21.02.2026 15:30-18:00
+**Datum:** 21.02.2026 10:30-18:00
 **Titel:** nach Kompatibilitätstest commiten jedoch musste dafür venv geändert werden und Lasso Ridge um Polygrad 3 erweitert 
 
 
@@ -111,7 +111,7 @@
 ---
 ## Eintrag 5
 
-**Datum:** 26.02.2026  10:00-16.00
+**Datum:** 26.02.2026  10:00-18:00
 **Titel:** l2 regularisierung und vergleich der verschiednene
 **Aus Gruppentreffen:** Eigenständig
 
@@ -122,15 +122,11 @@
 	•	Ergebnisse interpretiert und strukturell überarbeitet
 	•	Struktur des Notebooks reflektiert
 
-**Entscheidungen:**
-- 
 
-**Schwierigkeiten / offene Fragen:**
 
----
 ## Eintrag 6
 
-**Datum:** 06.03.2026 13:00-18:00)
+**Datum:** 06.03.2026 10:00-18:00
 **Titel:** Neuronales Netz verbessern  
 **Aus Gruppentreffen:** Treffen 4
 
@@ -236,10 +232,10 @@
 
 
 -----
-## Eintrag 9 10:00 - 17:00 Uhr 
+## Eintrag 9 
 
 
- **Datum:** 14.03.2026  
+ **Datum:** 14.03.2026  10:00 -17:00 Uhr
 **Titel:** Fehlerbehebung und Abschluss Notebook Neuronales Netz  
 **Aus Gruppentreffen:** Eigenständig  
 
@@ -261,6 +257,24 @@
   	•	Kurzzeitige Probleme beim Neustart des Jupyter-Kernels in VS Code.  
 
 ---
+
+## Eintrag 10
+
+**Datum:** 16.03.2026 10:00-16:00 Uhr 
+**Titel:** Verfassen der Zusammenfassung vom Logbuch 
+**Aus Gruppentreffen:** Eigenstädig
+
+**Arbeitsschritte:**
+- Zusammenfassen vom Logbuch
+- erstellen von anschaulichen Bildern für die Zusammenfassung
+
+
+  
+
+**Schwierigkeiten / offene Fragen:**
+- 
+
+
 
 <!-- Weitere Einträge nach dem gleichen Schema -->
 
