@@ -186,6 +186,58 @@ Acht Notebooks angelegt, die den Phasen des Masterplans entsprechen. Für jedes 
 
 ---
 
+---
+
+## Eintrag 6 – Code-Review, Gruppentreffen 5 und Git-Support
+**Datum:** 14.03.–17.03.2026
+**Zeitraum:** Verteilt über mehrere Tage, Gruppentreffen am 17.03. (17:00–19:00 Uhr)
+**Gesamtzeit: ca. 6 h**
+
+### Arbeitsschritte
+
+#### 1. Code-Review und Beobachtung der Contributions *(ca. 1,5 h)*
+- Zwischen dem 14. und 17. März kontinuierlich den Git-Commit-Verlauf beobachtet und neue Contributions der Teammitglieder verfolgt. Insgesamt wurden in diesem Zeitraum ca. 30–40 Commits von verschiedenen Teammitgliedern eingereicht. *(ca. 30 min)*
+- **Felix H.:** Mehrere Commits zu seinem Neuronalen-Netz-Notebook (`05_Neural_Network_Felix.ipynb`): Feature-Selektion implementiert, Random Search mit 100 Modellen durchgeführt, Learning-Rate-Schedule integriert, verschiedene Ensemble-Methoden getestet. Bester Testscore: R² = 0.7946. Code durchgelesen und Ansätze nachvollzogen. *(ca. 45 min)*
+- **Kolja:** Weiterarbeit an seinem NN-Notebook (`05_Neural_Network_Kolja.ipynb`), Training stabilisiert, Vergleich mit anderen Modellen ergänzt. Mehrere Logbuch-Einträge committed. *(ca. 15 min)*
+- **Felix N. und Björn:** Initiale Logbücher angelegt (`Logbuch_Felix_Neumann.md`, `Logbuch_Björn_Becker.md` vermutlich). Beide haben begonnen, ihre Arbeit zu dokumentieren. *(ca. 20 min)*
+
+#### 2. Gruppentreffen 5 am 17.03. (17:00–19:00 Uhr) *(ca. 2 h)*
+- Teilnahme am Gruppentreffen 5 via Discord. Alle fünf Teammitglieder anwesend (Florian, Kolja, Felix N., Felix H., Björn). *(ca. 2 h)*
+- **Vorstellung der Zwischenergebnisse:** Kolja und Felix H. haben ihre bisherigen Ergebnisse zu den Neuronalen Netzen präsentiert. Felix H. hat seine Erkenntnisse zur Feature-Selektion vorgestellt: Manche Features tragen mehr Rauschen als Informationsgewinn bei; durch Reduktion auf wenige relevante Features konnte er bessere Ergebnisse erzielen. Außerdem wurde festgestellt, dass die Variation bei erneutem Trainieren sehr groß ist, was eine systematische Hyperparameter-Optimierung erschwert. *(in obigen 2 h enthalten)*
+- **Aufgabenverteilung für die Endphase besprochen:** Person 1 soll Hyperparameter-Optimierung durchführen (Lernrate, Batch Size, Architektur, Regularisierung), Person 2 soll Modellvergleich mit alternativen Modellen (Random Forest, Gradient Boosting) durchführen. Björn und Felix N. wurden beauftragt, die bisherigen Ergebnisse zu konsolidieren und verständlich zu dokumentieren. *(in obigen 2 h enthalten)*
+- **Organisatorisches:** Einigung auf Zitierstil (Harvard), LaTeX-Vorlage für Gruppenergebnisse soll erstellt werden, mindestens ein weiteres Treffen in KW 13 geplant (Datum noch offen). *(in obigen 2 h enthalten)*
+- **GitHub-Probleme thematisiert:** Mehrere Teammitglieder berichteten von Schwierigkeiten mit Git-Befehlen (Push, Pull, Merge-Konflikte). Vereinbart, dass ich nach dem Treffen Unterstützung leiste. *(in obigen 2 h enthalten)*
+
+#### 3. Git/GitHub-Support für Björn und Felix N. *(ca. 2,5 h)*
+- **Björn:** Beim Gruppentreffen hat Björn Probleme beim Pushen seines Logbuchs gemeldet. Gemeinsam via Screensharing (Discord) das Problem analysiert: Lokale Änderungen waren nicht committed, außerdem lagen Remote-Änderungen vor, die noch nicht gepullt wurden. *(ca. 45 min)*
+  - Schritt für Schritt durch den Workflow geführt: `git status` → `git add portfolio/Logbuch_Björn_Becker.md` → `git commit -m "Logbuch erstellt"` → `git pull --rebase` → `git push`. Push erfolgreich durchgeführt. *(in obigen 45 min enthalten)*
+  - Zusätzlich erklärt, wie man Merge-Konflikte in VS Code löst (Konfliktmarker `<<<<<<<`, `=======`, `>>>>>>>` identifizieren, gewünschte Version auswählen oder manuell integrieren, dann `git add` und `git rebase --continue`). *(ca. 20 min)*
+  - **Notebook-Output-Problem:** Björn hatte beim Committen von Koljas Notebook (`05_Neural_Network_Kolja.ipynb`) bemerkt, dass die Datei über 1000 Zeilen Output enthielt, obwohl `nbstripout` eingerichtet war. Problem identifiziert: `nbstripout` war auf Björns System nicht als Git-Hook installiert. Gemeinsam `nbstripout --install` ausgeführt und mit einem Test-Commit verifiziert. Commit `01cb181` ("Problemlösung") reduzierte die Notebook-Datei von 1080 auf 71 Zeilen. *(ca. 30 min)*
+
+- **Felix N.:** Felix N. hatte Schwierigkeiten beim Initialisieren seines Logbuchs und beim Pushen. Problem ähnlich wie bei Björn: Unklare Reihenfolge von Add, Commit, Pull, Push. *(ca. 30 min)*
+  - Git-Workflow nochmals Schritt für Schritt erklärt: Lokale Änderungen → `git add` → `git commit` → `git pull` (um Remote-Änderungen zu holen) → `git push`. *(in obigen 30 min enthalten)*
+  - Visual Studio Code als Git-GUI vorgestellt: Source-Control-Tab gezeigt, Staging-Bereich erklärt, Commit-Message-Feld demonstriert. Felix N. hat dann eigenständig sein Logbuch committed und gepusht (Commit `be44740`: "initial logbook Felix_Neumann"). *(ca. 25 min)*
+
+- **Felix H.:** Felix H. hatte am 14.03. zwei Merge-Konflikte gehabt (Commits `b75b0b4` und `84a2e01`: "Git Konflikt"). Nachträglich den Diff dieser Commits angeschaut: Konflikte in `05_Neural_Network_Felix.ipynb` und `Logbuch_Felix_Hollfoth.md`. Felix H. hatte die Konflikte bereits selbst gelöst, aber ich habe ihm nachträglich erklärt, wie man solche Konflikte vermeiden kann (häufiger pullen, kleinere Commits, Kommunikation im Team). *(ca. 20 min)*
+
+### Entscheidungen
+| Entscheidung | Begründung |
+|---|---|
+| Git-Support via Screensharing (Discord) | Ermöglicht direkte visuelle Anleitung und schnellere Problemlösung |
+| VS Code als Git-GUI empfohlen | Niedrigere Einstiegshürde für Teammitglieder mit wenig Git-Erfahrung |
+
+### Schwierigkeiten
+- **Git-Workflow-Verständnis:** Björn und Felix N. hatten beide anfängliche Schwierigkeiten mit der korrekten Reihenfolge von Git-Befehlen (Add → Commit → Pull → Push). Beide haben jetzt ein grundlegendes Verständnis.
+- **`nbstripout` nicht auf allen Systemen aktiv:** Kolja undd vermutlich Björn hatte `nbstripout` nicht als Git-Hook installiert, obwohl es in der `Ressources.md` dokumentiert war. Problem gelöst, aber zeigt, dass die initiale Setup-Dokumentation möglicherweise noch nicht von allen Teammitgliedern vollständig umgesetzt wurde.
+- **Merge-Konflikte bei Felix H.:** Zwei Merge-Konflikte in einer Woche deuten darauf hin, dass die Team-Kommunikation über parallele Änderungen noch verbessert werden kann.
+
+### Nächste Schritte
+- Weitere Unterstützung bei Git-Problemen anbieten, falls nötig.
+- Aufbereitung der Ergebnisse im nächsten Gruppentreffen (KW 13) verfolgen.
+- Prüfen, ob alle Teammitglieder `nbstripout` korrekt installiert haben.
+
+---
+
 ## Zeitübersicht (Gesamtprojekt)
 
 | Eintrag | Datum | Tätigkeit | Zeit |
@@ -195,4 +247,5 @@ Acht Notebooks angelegt, die den Phasen des Masterplans entsprechen. Für jedes 
 | 3 | 20.–25.02.2026 | Projektstruktur, Utils, Notebooks, EDA, Baseline | ca. 35 h |
 | 4 | 20.02.2026 | Python-Versionskonflikt macOS | ca. 2 h |
 | 5 | 23.–26.02.2026 | Neuronales Netz & Auswertung | ca. 11 h |
-| **Gesamt** | | | **ca. 55 h** |
+| 6 | 14.–17.03.2026 | Code-Review, Gruppentreffen 5, Git-Support | ca. 6 h |
+| **Gesamt** | | | **ca. 61 h** |
