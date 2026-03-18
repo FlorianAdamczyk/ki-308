@@ -66,7 +66,7 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 
 ---
 
-## Eintrag 4
+## Eintrag 3
 
 **Datum:** [18.03.2026]  
 **Titel:** [Anfänge und erste Erkenntnisse]  
@@ -189,21 +189,26 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 - Ich hoffte Zusammenänge sehen zu können, aber das ist nicht der Fall. Deswegen werde ich den Code erneut Ausführen und die besten Ergebnisse sammeln. Ich erhoffe mir mit einer größeren Menge an Daten eine gescheite lineare Regression durchzuführen, um Zusammenhänge zu verstehen. 
 
 - Beim Nochmal drüber Nachdenken bin ich nun nicht mehr so überzeugt, dass die lin. reg so viel bringt. Frage ChatGPT: Welche anderen Möglichkeiten gibt es, die Daten in eine verständliche Form zu bringen? - PDP mit RandomForestGenerator
-  - die PDP sind schwer nachzuvollziehen, aber,
+  - die PDP grenzen die Hyperparameter weiter ein
   - so wie Florian die Feature Importance herausgefunden hat, kann man jetzt die Hyperparameter Importance aus dem Random Forest ausgeben lassen
+    - Jetzt kann man iterativ Random-/ oder Grid-Search machen und die Hyperparameter weiter eingrenzen
+
+![Hyperparameter Importance](C:\KI_2026\KI_308\ki-308\results\Hyperparameters_Feature_Importance.png)
+![PDP](C:\KI_2026\KI_308\ki-308\results\pdp.png)
 
 
 **Entscheidungen:**
-- 
+- Morgen mache ich das ganze nochmal mit einem Größeren Datensatz
+- Ich möchte schauen wie gut die Netze werden, wenn man den Vorgang mehrfach Wiederholt
 
 **Schwierigkeiten / offene Fragen:**
-- 
+- Macht es Sinn, die Zeit aufzuwenden mehr Daten anzusammeln? Wie gut kann das werden? Laufe ich in eine Sackgasse?
 
 ---
 
 ---
 
-## Eintrag 3
+## Eintrag 4
 
 **Datum:** [Datum]  
 **Titel:** [Titel]  
