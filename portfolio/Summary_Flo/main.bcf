@@ -168,7 +168,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortlocale</bcf:key>
-      <bcf:value>english</bcf:value>
+      <bcf:value>ngerman</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortingtemplatename</bcf:key>
@@ -2377,10 +2377,7 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">tau.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">PFGPlots</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">PFGPlots</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">davis2023signalflow</bcf:citekey>
-    <bcf:citekey order="3" intorder="2">bell2022codefont</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">nbstripout</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="ynt">
