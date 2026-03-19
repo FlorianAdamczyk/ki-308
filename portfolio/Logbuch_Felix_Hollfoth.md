@@ -132,9 +132,11 @@
 * Standardabweichung zeigt, dass die bisher betrachtete Entwicklung von Hyperparameter genauso schwankt wie der Testscore bei erneuter Ausführung, daher werden neue Hyperparameter betrachten und deren Einfluss untersucht
 * folgende batch-size werden Betrachten für eine grobe Einordnung: batch_size = [4, 8, 16, 32, 64, 128, 256, 512] -> zwischen einer batch-size von 16 bis 128 werden die Modelle alle stabil innerhalb der Standardabweichung trainiert
 * Epochen betrachtet: epochs = [10, 50, 100, 200, 500, 1000, 10000] -> ab 500 Epochen wird Overfitting stärker; bis 500 Epochen verbessert sich der Test-Score -> Entscheidung einen Verlauf des MAE-Wertes auf den Testdaten pro Epoche ausgeben zu lassen
+  Overfitting durch zu viele Epochen:
+  ![Bild](../results/epochenanzahl%20results.png)
 * MAE-Wert zeigt ein Minimum bei 500; Da nur bis 500 Epochen trainiert wurde wird ein neues Training bis 1000 Epochen laufen gelassen
 * Bis 1000 Epochen zeigt sich keine weitere Verbesserung -> Minimum hier bei circa 300 Epochen.
-* In beiden Verläufen sieht man bis 300 Epochen eine Verringerung des MAE, daher sollten auf jeden Fall mehr als 100 Epochen trainiert werden (mindestens 300)
+* In beiden Verläufen sieht man bis 300 Epochen eine Verringerung des MAE, daher sollten auf jeden Fall mehr als 100 Epochen trainiert werden (mindestens 300 weniger als 500 wegen overfitting)
 
 ---
 
@@ -147,8 +149,9 @@
 **Arbeitsschritte:**
 
 * Da sich die Hyperparameter gegenseitig beeinflusses muss ein finales Training auf einer Kombination von Hyperparametern basieren -> daher über verschiedene Hyperparameter testen mittels Random Search -> Wegen der benötigten Rechenzeit und zu erwarteten Ergebnissen wird RandomSearch GridSearch bevorzugt (randomsearch2012)
-* Über 100 Modelle konnte ein Test-Score von 0,7759 erreich werden.
-* Da die Verbesserung an Hyperparametern zu stagnieren scheint werden alternativen ausprobiert. Nach Recherche wird LR-Schedule ausprobiert -> zeigt keine signifikanten Verbesserungen
+* Bei über 100 Modellen konnte ein Test-Score von 0,7759 erreich werden.
+* Da die Verbesserung an Hyperparametern zu stagnieren scheint werden alternativen ausprobiert. Nach Recherche wird LR-Schedule ausprobiert (copilot2026-1)
+* LR-Schedule zeigt keine signifikanten Verbesserungen
 
 ---
 
@@ -160,12 +163,14 @@
 
 **Arbeitsschritte:**
 
-* Da die Variation von Hyperparametern keine wesentliche Verbesserung des Testscores zeigt wird hier nicht mehr Zeit reingesteckt und andere Wege gegangen (nicht in Gruppentreffen abgestimmt)
-* Vergleich mit bereits trainierten Modellen, um Score einzuschätzen: https://medium.com/@advika5109/neural-networks-for-real-estate-predictions-a-comprehensive-analysis-of-the-california-housing-0e79cd642c36
-* Idee nur auf die wichtigesten Features zu trainieren um Informationsgehalt zu bestimmen
-* Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weil weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls rauschen mit ein und eventuell nur niedrigen Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
-* Random Search nur auf vier Features angewendet, da es ein Konsistenteres Modell verspricht (abends starten)
-* Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias, Cluster o.ä. eine Verbesserung wird hier erstmal nicht vorgeschlagen
+* Variation von Hyperparametern zeigt keine wesentliche Verbesserung des Testscores, weshalb andere Wege gegangen werden (nicht in Gruppentreffen abgestimmt)
+* Vergleich mit bereits trainierten Modellen, um Score einzuschätzen (califoniahousing2025) -> Score liegt bei ungefähr 0,80 aber es gibt keine genauen Angaben zu Lernrate etc. -> Mehr Variation in der Netz Breite und Tiefe (wird allerdings parallel von Kolja untersucht laut Gruppentreffen 4, aber die Ergebnisse von Kolja sind noch nicht gepusht, daher kann ich Sie nicht übernehmen zum Training)
+* Idee die Ergebnisse genauer zu Interpretieren um Rückschlüsse auf optimale Hyperparametern ziehen zu können, daher wird nur auf die wichtigesten Features trainiert um den Informationsgehalt zu bestimmen
+* Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls Rauschen mit ein und nur den selben Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
+ ![Bild](../results/nn_residuals_histogramme_vergleich_featureanzahl.png)
+* Random Search nur auf vier Features angewendet, da es ein konsistenteres Modell verspricht
+* Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias, Cluster o.ä. -> eine Verbesserung wird hier erstmal nicht vorgeschlagen (Datenbereinigung ist in Ordnung)
+ 
 
 ---
 
@@ -173,7 +178,7 @@
 
 **Datum:** 12.03.2026
 **Titel:** Ensable zur Stabilisierung von Ausreißern
-**Aus Gruppentreffen:** /
+**Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
 **Arbeitsschritte:**
 
