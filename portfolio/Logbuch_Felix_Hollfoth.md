@@ -6,24 +6,6 @@
 
 ---
 
-## Generelle Ideen:
-
-* vorhandene Analyse: https://medium.com/@advika5109/neural-networks-for-real-estate-predictions-a-comprehensive-analysis-of-the-california-housing-0e79cd642c36
-
-## Anleitung
-
-Ein Eintrag enthält mindestens:
-
-- **Datum**
-- **Titel** (kurz und prägnant)
-- **Arbeitsschritte** (stichpunktartig ist ausreichend)
-- Verweis auf das Gruppentreffen, aus dem die Aufgabe hervorgegangen ist
-- Ggf. Abweichungen vom vereinbarten Vorgehen (mit Begründung)
-
-Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausgearbeitet sein.
-
----
-
 ## Eintrag 1
 
 **Datum:** 16.02.2026
@@ -32,13 +14,12 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Arbeitsschritte:**
 
-- Repository geklont, Abhängigkeiten installiert (`pip install -r requirements.txt`)
-- `nbstripout --install` eingerichtet
+- VS Code gedownloaded und Repository geklont
 - Python 3.14.3 installiert
-- Erste Übersicht über den California Housing Datensatz verschafft
-  (`fetch_california_housing()`, 8 Features, Zielvariable: `MedHouseVal`)
+- nbstripout heruntergeladen und aktiviert, damit Ausführungen von Notebooks nicht commited werden
+- In den California Housing Datensatz eingearbeitet und sich das Notebook aus der Vorlesung angeschaut
 - Vorlesungsfolien nach relevanten Methoden untersucht
-- Übergordnete Aufgaben zusammengetragen (Datenbereinigung, -analyse, -transformation, Lernen des neuronalen Netztes (layers, units, Aktivierungsfkt. etc., Prüfen auf Overfitting, Validierungsmethoden, Parameterreduzierung, Regularisierung, Vergleich mit linearer Regression) für Vorstellung in nächstem Gruppentreff
+- Übergordnete Aufgaben zusammengetragen (Datenbereinigung, -analyse, -transformation, Lernen des neuronalen Netztes (layers, units, Aktivierungsfkt. etc., Prüfen auf Overfitting, Validierungsmethoden, Parameterreduzierung, Regularisierung, Vergleich mit linearer Regression) für Vorstellung in nächstem Gruppentreff um die Organisation zu erleichtern
 
 ---
 
@@ -52,8 +33,8 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 * Auf Hinweis von Gruppenmitglied Kolja musste Python 3.14 für tensorflow gedowngradet werden. Nach Recherche geht dies nur mit Python 3.10 oder niedriger, daher Python 3.10.13 über pyvenv installiert und bei VS Code als Interpreter und Kernel festlegen
 * Funktionen geschrieben um den Datensatz zu Skalieren mittels MinMaxScaler und Standardscaler (aus Gruppentreff 2 17.02.2026)
-  * wichtig da einige Features sehr große und andere sehr kleine Werte haben -> Probleme beim Gradientenverfahren (Backpropagation)
-  * Intervall kann auf die Aktivierungsfunktion abgestimmt werden
+  * wichtig da einige Features sehr große und andere sehr kleine Werte haben, kann es sonst zu Problemen beim Gradientenverfahren (Backpropagation) geben
+  * Skalierung kann auf die Aktivierungsfunktion abgestimmt werden
   * Funktionen resistent gemacht gegen die Eingabe von DataFrames und Array -> Eingabedatentyp wird auch wieder ausgegeben
   * target_values werden nicht skaliert für die Stabilität und Interpretierbarkeit des Netzes
 
@@ -67,9 +48,9 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Arbeitsschritte:**
 
-* mit der installierten Tensorflow Version aus Eintrag 2 konnto 05_flo_NN.ipynb nicht ausgeführt werden. Numpy ≥ 1.21.1 lies sich unter python < 3.11 nicht installieren.
+* mit der installierten Tensorflow Version aus Eintrag 2 konnte 05_flo_NN.ipynb nicht ausgeführt werden. Numpy ≥ 1.21.1 lies sich unter python < 3.11 nicht installieren.
 * Bei dem wechsel auf Python 3.11. wurde .git verändert und das Repro musste neu geclont werden
-* Durch Konflikte mehrerer Python, .venv und .pyenv Konfigurationen wurden alle komplett gelöscht und ein neues Setup erstellt:
+* Durch Konflikte mehrerer Pythonversionen, .venv und .pyenv Konfigurationen, wurde alles komplett gelöscht und ein neues Setup erstellt:
   * TensorFlow Version: 2.10.1
   * Numpy Version: 1.26.4
   * Pandas Version: 2.3.3
@@ -82,15 +63,19 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Datum:** 07.03.2026
 **Titel:** Probleme mit Not a Number (NaN) beim erstellen des Neuronalen Netzes
-**Aus Gruppentreffen:** Gruppentreffen 2 (17.02.2026)
+**Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
 **Arbeitsschritte:**
 
-* Beim erstellen eines ersten neuronalen Netzes kam der Fehler NaN. Fehlerursache (Vermutungen):
+* Beginn Programmierung (mit den Aufgaben aus Gruppentreffen 4)
+
+  * Hilfsfunktionen werden von Florian genutzt (florians_code)
+  * Daten werden damit geladen, bereinigt und skaliert, sodass für die folgende Analsyse Standardisierte-, Normalisierte Daten von null bis eins und die originalen Daten zur Verfügung stehen
+* Beim erstellen eines ersten Neuronalen Netzes kam der Fehler NaN (Not a Number). Fehlerursache (Vermutungen):
 
   * Das Dataframe ist nach dem skalieren intern beschädigt, trotz bzw. wegen eingebauter Rückumwandlung
-  * Beim Konventieren in Numpy entstehen echte NaNs, die im Dataframe enthalten bleiben
-* Gruppenmitglied Florian hat in der Funktion: get_train_test_split() ebenfalls einen scaler miteinprogrammiert, welcher diesen Fehler nicht enthält, weshalb dieser absofort genutzt wird
+  * Beim konventieren in Numpy entstehen echte NaNs, die im Dataframe enthalten bleiben
+* Gruppenmitglied Florian hat in der Funktion: get_train_test_split() (florians_code) ebenfalls einen scaler miteinprogrammiert, welcher diesen Fehler nicht enthält, weshalb dieser absofort genutzt wird
 
 ---
 
@@ -102,14 +87,17 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Arbeitsschritte:**
 
+* Um die Arbeitsergebnisse vergleichen zu können wird ein Netz als Basis trainiert mit Paramtern aus der Literatur (aktivierungsfunktion2024) und von Florian (florians_code)
 * Da die Konvergenz eines Verfahrens häufig sehr stark von dem Wertebereich und der dazugehörigen Aktivierungsfunktion abhänkt wird über folgende Kombinationen iteriert:
+
   * Aktivierungsfunktionen: 'relu', 'tanh', 'sigmoid', 'elu', 'selu', 'leaky_relu'
   * Datenskalierung: keine, standard, min0_max1
-* Außer den in den Vorlesung bekannten Aktivierungsfunktionen wird selu mitberücksichtigt, da sie beim Durchlauf die Aktivierungen normalisieren kann. Vorallem für tiefere Netze interessant, falls mehr als zwei hidden layer sich als nützlich erweisen (https://www.geeksforgeeks.org/deep-learning/selu-activation-function-in-neural-network/)
-* Im Training-Score, sowie auch bis auf eine Ausnahme im Test-Score ist die Standardisierung die beste Option. Dahingehen sorgt keine Skalierung dafür, dass einige Modelle je nach Aktivierungsfunktion sogar schlechter sind als der Mittelwert. Das kann an den großen Unterschiedenen im Wertebereich der Features liegen
-* Beste Test-Score zeigt sich beim tanh mit der Standardisierung mit 0,7668.
-* Abweichung zum Trainingsscore liegt bei 3,8 %, welches leichtes overfitting andeutet aber als noch nicht problematisch angesehen wird
-* Relu bietet mit 6,1 % Abweichung das größte overfitting an und liefert den zweitbesten score mit 0,7618
+
+  Ergebnisse: ![Bild](../results/Ergebnisse%20Untersuchung%20Aktivierungsfunktion.png)
+* Außer den in den Vorlesung bekannten Aktivierungsfunktionen wird selu mitberücksichtigt, da sie beim Durchlauf die Aktivierungen normalisieren kann. Vorallem für tiefere Netze interessant, falls mehr als zwei hidden layer sich als nützlich erweisen sollten (selu2025)
+* Standardisierung laut Tabelle die beste Option. Dahingehen sorgt keine Skalierung dafür, dass einige Modelle je nach Aktivierungsfunktion sogar schlechter sind als der Mittelwert. Das kann an den großen Unterschiedenen im Wertebereich der Features liegen
+* Beste Test-Score zeigt sich beim tanh mit der Standardisierung mit 0,7668. Für künfige Modelle verwenden.
+* Abweichung von Test- zu Trainingsscore liegt bei 3,8 %, welches leichtes overfitting andeutet aber als noch nicht problematisch angesehen wird, daher erstmal keine weitere Berücksichtigung
 
 ---
 
@@ -121,11 +109,11 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Arbeitsschritte:**
 
-* Lernrate grob bestimmt (Test von alpha = 1E-6 - 10); Resultat: zwischen 0,001 und 0,01 die einzigen Bereiche, in denen der Score auf den Testdaten über 70 % ist
-* Zwischen 0,001 und 0,01 in 50 identischen Schritten durchitteriert -> Ergebnisse schwanken von 0,7177 bis 0,7624
-* Lernrate konstant über 0,74 im Intervall [0,0032; 0,0072]
-* Bester Einzelwert bei 0,0054 welche aber auch deutlich auf Zufall im Modell hindeutet -> Lernrate bei 0,0054 mehrfach ausgeführt und Schwankung beobachtet
-* Schwankung bei erneuter Ausführung von über 3 % erkannt -> Training der Hyperparamter liegt in diesem Schwankungsbereich -> Statistische Untersuchung der Schwankung bei erneuter Ausführung
+* Lernrate grob bestimmt (Test von alpha = 1E-6 bis 10); Resultat: zwischen 0,001 und 0,01 die einzigen Bereiche, in denen der Score auf den Testdaten über 70 % ist
+* Zwischen 0,001 und 0,01 in 50 identischen Schritten durchitteriert -> Ergebnisse schwanken sehr
+  ![Lernrate](../results/Lernrate%20zwischen%201E-3%20und%201E-2.png)
+* Lernrate konstant über 0,74 im Intervall [0,0032; 0,0072] und bester Einzelwert bei 0,0054 welcher bei dieser Schwankung aber auch deutlich auf Zufall im Modell hindeutet
+* Schwankung bei erneuter fünfmaliger Ausführung mit identischen Hyperparametern von über 3 % erkannt -> Training der Hyperparamter liegt in diesem Schwankungsbereich -> Statistische Untersuchung der Schwankung bei erneuter Ausführung erforderlich, da sonst eine Verbesserung der Hyperparameter durch die große Varianz des Trainings keine Bedeutung zukommt
 
 ---
 
@@ -141,9 +129,12 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
   * Mittelwert: 0,7481
   * Varianz: 0,0002
   * Standardabweichung: 0,0124
-* Epochen betrachtet bis 10.000 -> ab 500 Epochen wird Overfitting stärker aber bis 500 Epochen verbessert sich auch Test-Score -> Entscheidung einen Verlauf des MAE-Wertes auf den Testdaten pro Epoche ausgeben zu lassen
-* MAE-Wert zeigt ein Minimum bei 500, daher bis 1000 Epochen laufen lassen
-* Bis 1000 Epochen zeigt sich aber keine weitere Verbesserung mehr -> Minimum hier bei circa 300 Epochen. Vor 300 Epochen sieht man in beiden Plots eine Verringerung des MAE, daher sollten auf jeden Fall mehr als 100 Epochen trainiert werden, eher über 300
+* Standardabweichung zeigt, dass die bisher betrachtete Entwicklung von Hyperparameter genauso schwankt wie der Testscore bei erneuter Ausführung, daher werden neue Hyperparameter betrachten und deren Einfluss untersucht
+* folgende batch-size werden Betrachten für eine grobe Einordnung: batch_size = [4, 8, 16, 32, 64, 128, 256, 512] -> zwischen einer batch-size von 16 bis 128 werden die Modelle alle stabil innerhalb der Standardabweichung trainiert
+* Epochen betrachtet: epochs = [10, 50, 100, 200, 500, 1000, 10000] -> ab 500 Epochen wird Overfitting stärker; bis 500 Epochen verbessert sich der Test-Score -> Entscheidung einen Verlauf des MAE-Wertes auf den Testdaten pro Epoche ausgeben zu lassen
+* MAE-Wert zeigt ein Minimum bei 500; Da nur bis 500 Epochen trainiert wurde wird ein neues Training bis 1000 Epochen laufen gelassen
+* Bis 1000 Epochen zeigt sich keine weitere Verbesserung -> Minimum hier bei circa 300 Epochen.
+* In beiden Verläufen sieht man bis 300 Epochen eine Verringerung des MAE, daher sollten auf jeden Fall mehr als 100 Epochen trainiert werden (mindestens 300)
 
 ---
 
@@ -155,7 +146,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Arbeitsschritte:**
 
-* Bis jetzt wurden sich nur einzelne Hyperparameter angeschaut, daher mal über verschiedene Hyperparameter testen mittels Random Search (https://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf) -> Wegen Rechenzeit und Ergebnissen wird dies GridSearch bevorzugt
+* Da sich die Hyperparameter gegenseitig beeinflusses muss ein finales Training auf einer Kombination von Hyperparametern basieren -> daher über verschiedene Hyperparameter testen mittels Random Search -> Wegen der benötigten Rechenzeit und zu erwarteten Ergebnissen wird RandomSearch GridSearch bevorzugt (randomsearch2012)
 * Über 100 Modelle konnte ein Test-Score von 0,7759 erreich werden.
 * Da die Verbesserung an Hyperparametern zu stagnieren scheint werden alternativen ausprobiert. Nach Recherche wird LR-Schedule ausprobiert -> zeigt keine signifikanten Verbesserungen
 
@@ -170,6 +161,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 **Arbeitsschritte:**
 
 * Da die Variation von Hyperparametern keine wesentliche Verbesserung des Testscores zeigt wird hier nicht mehr Zeit reingesteckt und andere Wege gegangen (nicht in Gruppentreffen abgestimmt)
+* Vergleich mit bereits trainierten Modellen, um Score einzuschätzen: https://medium.com/@advika5109/neural-networks-for-real-estate-predictions-a-comprehensive-analysis-of-the-california-housing-0e79cd642c36
 * Idee nur auf die wichtigesten Features zu trainieren um Informationsgehalt zu bestimmen
 * Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weil weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls rauschen mit ein und eventuell nur niedrigen Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
 * Random Search nur auf vier Features angewendet, da es ein Konsistenteres Modell verspricht (abends starten)
@@ -219,12 +211,27 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 ---
 
-## Eintrag 4
+## Eintrag 12
 
-**Datum:** 03.03.2026
-**Titel:** [Titel]
-**Aus Gruppentreffen:** Gruppentreffen 1 (11.02.2026) und Gruppentreffen 2 (17.02.2026)
+**Datum:** 19.03.2026
+**Titel:** E-Portfolio erstellen
+**Aus Gruppentreffen:** Gruppentreffen 5 (17.03.2026)
 
-**Arbeitsschritte:**`<!-- Weitere Einträge nach dem gleichen Schema -->`
+**Arbeitsschritte:**
+
+* Wie im Gruppentreffen 5 besprochen, wird eine Zusammenfassung am Ende des Notebook verfasst.
+* Einzelnde Codeabschnitte werden überarbeitet und die Resultate mit Markdown klar dergelegt
+* E-Protfolio wird angelegt
+* Zusammenfassung des Logbuchs wird verfasst
 
 ---
+
+## Eintrag 13
+
+**Datum:**
+**Titel:** E-Portfolio beenden
+**Aus Gruppentreffen:** Gruppentreffen 6 !!!
+
+**Arbeitsschritte:**
+
+* Nachdem Felix N. und Björn die Ergebnisse vorgestellt haben konnte die Einschätzung der Gruppenmitglieder und damit die Beending des e-Portfolios erfolgen

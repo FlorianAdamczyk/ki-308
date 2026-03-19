@@ -5,19 +5,18 @@
 **Uhrzeit:** 17:00 Uhr - 19:00 Uhr
 **Ort:** Discord
 
-  
 ## Besprochene TOPs
 
-Die Projekte von Kolja und Felix H. wurden vorgestellt und erklärt 
+Die Projekte von Kolja und Felix H. wurden vorgestellt und erklärt
 
+## Zukünftige Aufgabenverteilung
 
-## Zukünftige Aufgabenverteilung 
-
-- Die Erkenntnisse von Felix H. haben einen großen nutzen für das Endergebnis 
-  - manche Features haben genauso großes Rauschen wie Informationsgewinn 
+- Die Erkenntnisse von Felix H. haben einen großen nutzen für das Endergebnis
+  - manche Features haben genauso großes Rauschen wie Informationsgewinn
   - somit hat Felix sich auf ein paar Features beschränkt und kam auf bessere Ergebnis
-  - die variation bei erneutem Ausführen ist zu groß worduch eine Verbesseerung der Hyperparameter nicht so ratsam wäre 
-  
+  - die Variation bei erneutem Ausführen ist zu groß worduch eine Verbesseerung der Hyperparameter nicht so ratsam wäre
+  - Ensable ist eine gute Möglichkeit um den Score zu verbessern
+
 Person 1: Hyperparameter-Optimierung
     -   Lernrate, Batch Size, Architektur, Regularisierung systematisch testen
     -   Ergebnisse vergleichen und bestes Modell bestimmen
@@ -29,14 +28,16 @@ Person 2: Modellvergleich
     -   Ergebnisse tabellarisch und grafisch darstellen
 
 #### Ziel
-    -   Zusammenfassung der Ergebnisse 
+
+    -   Zusammenfassung der Ergebnisse
     -   Erweiterung des Projekts durch zusätzliche Experimente mit Hyperparametern
     -   Bessere Einordnung der Modellleistung
     -   Erhöhung der wissenschaftlichen Tiefe
-    -   Björn und Felix wurden beauftragt die Ergebnisse nun besser zusammenzufassen und verständlich zu erklären.
-    -   Latex Vorlage für Gruppenergebnisse 
+    -   Björn und Felix wurden beauftragt die Ergebnisse nun zusammenzufassen und verständlich im Code zu erläutern.
+    -   Latex Vorlage für Gruppenergebnisse
 
 #### Weitere TOP:
+
 - Einigung auf Zitierstil Havard
 - Zeitliche Aufteilung des weiteren Vorgehens für Felix N. und Björn in der nächsten Woche
 - Aufbereiten Code Felix H.
