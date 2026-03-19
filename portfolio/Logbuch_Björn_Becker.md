@@ -210,18 +210,40 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 
 ## Eintrag 4
 
-**Datum:** [Datum]  
-**Titel:** [Titel]  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Datum:** [19.03.2026]  
+**Titel:** [erste Iterationen]  
+**Aus Gruppentreffen:** [5 vom 17.03.]
 
 **Arbeitsschritte:**
-- 
+- Ich erweitere meinen Datensatz, um bei den PDP und Hyperparameter-Importances klare Schlüsse ziehen zu können. Bisher besteht mein Datensatz nur aus den 30 besten Eintägen der vorherigen Runs.
+  - zu sehr werde ich es nicht erweitern, da ich schon das Gefühl bekomme, gute Tendenzen jetzt schon abschätzen zu können. Es braucht sehr viel Rechenzeit
+- Es hat sich gelohnt zu warten. Der neue Datensatz mit nun 50 Einträgen zeigt eine andere Tendenz für die Batchsize. (Vorher 32, jetzt 16). Die Tiefe scheint ziemlich egal zu sein. Bei der Hyperparameter-Importance gewinnt die Batchsize stark an Einfluss. Es lässt sich nur mit schwacher Sicherheit sagen, dass die Anzahl der Units pro Layer und die Tiefe eine vergleichbar kleine Rolle spielen. Dagegen sind wahrscheinlich "dropout", "Lernrate" und "L2-Regularisierungsfaktor" von großer Bedeutung. 
+  - ich finde es etwas Überraschend, dass hier "L2" wichtig ist
+- Ich werde nun die Hyperparameter anhand der PDP eingrenzen.
+  - Units: bleibt - aber Zufallsverteilung eher Richtung 128
+  - depth: das Ergbnis ist ziemlich waagerecht. Ich nehme mal noch die 4 hinzu und schaue was passiert
+  - batch size nur noch 16 und 32
+  - dropout: Nur noch 0.1 - 0.16
+  - lr: bleibt
+  - l2: bleibt
+  - ich hatte vorher noch die Möglichkeit, dass auch Netze über 50 Epochen gerechnet werden konnten. In den Ergebnissen ist kein Abbruch vor 50 Epochen zu sehen, daher wird es entfernt und auf 100 festgelegt (mit Earlystop).
+    - mit den Ergebnissen der anderen Gruppenmitgliedern im Kopf, sind mehr Epochen sehr wahrscheinlich besser, aber die Rechenzeit ist einfach zu enorm, als das ich es ausprobieren könnte. Vielleicht mal über Nacht.
+- Nun habe ich die Ergebnisse:
+  - Die neuen Netze neigen maginal weniger zum Overfitting, was auch vorher kein großes problem war. In der Spitze sind die neuen Netze laut dem R2 Wert tatsächlich nicht besser. Der Vergleich ist aber unfair, da jetzt ca. 400 Netze mit 200 Netzen verglichen werden 
+  - auf Platz 20 für den besten Testscore ist aber eine leichte Verbesserung zu sehen, trotz ungerechtem Vergleich.
+    - In der Breite ist es nun besser geworden
+- Aus PDP und Hyperparameter-Importance kann man nun sehen, dass 4 Layer nicht gut sind und eine Einschränkung des Dropouts auf 0.115 - 0.15 Sinn machen könnte. Ich werde nun die Parameter nochmal verändern und das Ergebnis dann zu meinem neuen Datensatz hinzufügen. Außerdem werde ich mal 200 Epochen als Maximalwert ausprobieren
+- 200 Epochen zu nutzen war sehr gut. Die Hyperparameter-Importance zeigt nun, dass der wichtigste Parameter nun die Lernrate ist. ![Hyperparameter-Importance](C:\KI_2026\KI_308\ki-308\results\Hyperparameters_Feature_Importance_3.png)
+- ![PDP Nr.3](C:\KI_2026\KI_308\ki-308\results\PDP_3.png) Mit Blick auf die Lernrate stellt sich die Frage, ob das erlaubte Intervall optimal angesezt ist. Speziell werde ich mir kleinere Lernraten ansehen ab 10^-6.
+  - Die Ergebnisse werden nicht besser
+
 
 **Entscheidungen:**
-- 
+- Ensemble aus Netzen mit den gesamten California Housing testen. Ich habe noch Baysche Netze im Kopf(ohne genau zu wissen was das ist, aber das passt glaube ich zu dem Thema.
+Das ist eher eine Rechercheaufgabe)
 
 **Schwierigkeiten / offene Fragen:**
-- 
+- Der heutige tag war vor allem von warten geprägt. Die Ausführung des Codes dauert jeweils mehr als eine Stunde.
 
 ---
 
