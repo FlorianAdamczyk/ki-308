@@ -249,18 +249,27 @@ Das ist eher eine Rechercheaufgabe)
 
 ## Eintrag 3
 
-**Datum:** [Datum]  
+**Datum:** [20.03.]  
 **Titel:** [Titel]  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Aus Gruppentreffen:** [5 vom 17.03.]
 
 **Arbeitsschritte:**
+- Jetzt ein letztes mal Parameteranpassung. Lernrate (logarytmisch) wird auf Intervall [-3.3; -2] begrenzt. 
+- Über Nacht habe ich darüber nachgedacht, ob es eine gute Entscheidung war, immer wieder die schlechten Netze zu löschen. Vielleicht könnten diese Ergebnisse das Gesamtergebnis verbessern.
+- Die Verbesserung hat gute Ergebnisse erziehlt. Ich werde die Epochen auf 500 hochschrauben, da viele Netze die 200 max Epochen zum lernen nutzen. Diese Netze sind wirklich gut, aber kaum entschieden besser als vorher. 
+- Ich hatte vorher schon die Units gewichtet. Vorher war es stark favorisiert in Richtung 128, jetzt immer noch, aber weniger stark. Ich möchte mehr diversifizieren, da ich nur NN benutze, was sehr wichtig ist (vgl. Vorlesung 7, S.11). Ich nehme eine Hand voll der Netze und benötige noch ein paar schwächere mit stark anderen Hyperparametern
+- ich dachte eigentlich, dass wir einen gemeinsamen Speicher von unseren besten Netzen habe, aber das einzige, dass ich fand, war eine leere Liste, die nur Einträge im Arbeitsspeicher vermerkt.
+- Ich habe jetzt ein ensemble gebildet. Leider ist das Ergebnis mit R2 = 0.7499 nur wenig besser als der Durchschnitt der einzelnen Netze. 
 - 
+
 
 **Entscheidungen:**
-- 
+- Aufgrund der nicht so bereichernden Ergebnisse heute, möchte ich morgen das gleiche mit allen Features machen. 
+  - entweder der Score wird besser, oder der Score wird schlechter. Im zweiten Fall müsste ich dann die Hyperparameter nochmal neu anpassen. - Also wieder Random-Search
+- Außerdem finde ich spannend die Features zu verknüpfen 
 
 **Schwierigkeiten / offene Fragen:**
-- 
+- Es ist schwer die Ergebnisse einzuornen, da nicht hinreichend unterschieden werden kann zwischen statistischen Schwankungen und Wahrheit.
 
 ---
 
