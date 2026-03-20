@@ -167,10 +167,9 @@
 * Vergleich mit bereits trainierten Modellen, um Score einzuschätzen (califoniahousing2025) -> Score liegt bei ungefähr 0,80 aber es gibt keine genauen Angaben zu Lernrate etc. -> Mehr Variation in der Netz Breite und Tiefe (wird allerdings parallel von Kolja untersucht laut Gruppentreffen 4, aber die Ergebnisse von Kolja sind noch nicht gepusht, daher kann ich Sie nicht übernehmen zum Training)
 * Idee die Ergebnisse genauer zu Interpretieren um Rückschlüsse auf optimale Hyperparametern ziehen zu können, daher wird nur auf die wichtigesten Features trainiert um den Informationsgehalt zu bestimmen
 * Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls Rauschen mit ein und nur den selben Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
- ![Bild](../results/nn_residuals_histogramme_vergleich_featureanzahl.png)
+  ![Bild](../results/nn_residuals_histogramme_vergleich_featureanzahl.png)
 * Random Search nur auf vier Features angewendet, da es ein konsistenteres Modell verspricht
 * Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias, Cluster o.ä. -> eine Verbesserung wird hier erstmal nicht vorgeschlagen (Datenbereinigung ist in Ordnung)
- 
 
 ---
 
@@ -182,23 +181,24 @@
 
 **Arbeitsschritte:**
 
-* Noch keine Information über Hyperparameter zur Netzstruktur, da entgegen Gruppentreffen 4 es zu einer Verzögerung kam. Kein Commit erkennbar.
+* Noch keine Information über Hyperparameter zur Netzstruktur, da entgegen Gruppentreffen 4 es zu einer Verzögerung kam. Kein Commitit erkennbar.
 * Parameterreduzierung, Dropout etc. soll von weiteren Gruppenmitgliedern übernommen werden.
 * Suche nach weiteren Möglichkeiten, welche bereits noch nicht vergeben sind
-* Mittels Ensable sollen Ausreißer geglättet und das Modell stabilisiert werden
-* funktion evaluate_predictions nicht für ensable ausgelegt, da keine Trainingsdaten übergeben werden sollen, daher Funktion evaluate_test_predictions() geschrieben
+* Mittels Ensemble sollen Ausreißer geglättet und das Modell stabilisiert werden (ensamblewiki2026)
+* funktion evaluate_predictions nicht für Ensemble ausgelegt, da keine Trainingsdaten übergeben werden sollen, daher Funktion evaluate_test_predictions() geschrieben
 * Fehler: Outputs are collapsed... (sollte eigentlich nur ein score ausgeben)
 * Interpreter gesetzt aber numpy etc. wird in evaluation.py nicht erkannt
 * setting.json angepasst, damit alle files den selben Kernel nutzen -> Fehler in evaluation.py weg, aber nicht die Lösung für das output collaps Problem
-* Kernel ist abgestützt und müsste neu gestartet werden -> beim ausführen der oberen Zellen ist aufgefallen, dass nicht die skalierten Daten verwendet wurden, sondern durch den einen Schleifendurchlauf die durch den Min0_Max1_scalierten Daten, da der score hier aber ähnlich war erwarte ich keine deutlichen Änderungen an den Hyperparametern
+* Kernel ist abgestützt und müsste neu gestartet werden -> beim ausführen der oberen Zellen ist aufgefallen, dass nicht die skalierten Daten verwendet wurden, sondern durch den einen Schleifendurchlauf die durch den Min0_Max1_skalierten Daten, da der Score mittels MinMax-Scaler im Vergleich zum Standardscaler innerhalb der Varianz bei erneuter Ausführung liegt erwarte ich keine deutlichen Änderungen an den Hyperparametern
 * Hyperparameter Lernrate, Batch-Size und Epochenanzahl sind betroffen -> Modelle neu trainieren zum Test
-* Zeigt sich, dass die Standardisierung insgesamt den Score leicht verbessert, aber das Verhalten bezüglich lernrate identisch ist wie mit den alten Daten
+* Zeigt sich, dass die Standardisierung insgesamt den Score leicht verbessert, aber das Verhalten bezüglich Hyperparameter ist identisch wie mit den alten Daten
 * output collaps konnte behoben werden, in der neuen Funktion in der Print ausgabe, war ein Fehler, weshalb 100 Zeichen hintereinander ausgegeben werden sollten und dadruch der output collabiert ist
-* Ensable zeigt Verbesserung im Score
-* Alle Kombinationen der Modelle ausprobieren -> Je mehr Modelle, desto besser der Score und wenn die Modelle eine andere Featureanzahl haben wird der score auch besser
-* Neue Modelle auf 2 und 3 Features trainiert um ensable zu erweitern -> Zu wenig Features, Modelle zu schlecht und auch keine Hilfe für Ensable
-* Mit random search 5 gute Modelle trainiert mit verschiedenen Hyperparametern und diese mit ensable zu einer Prediction zusammengeführt
-* Ergebnisse daraus:
+* Ensemble zeigt Verbesserung im Score (R^2 Test Score: 0,7983)
+* Alle Kombinationen der Modelle vier bis dahin besten Modelle ausprobieren -> Je mehr Modelle in das Ensemble einfließen, desto besser ist der Score und wenn die Modelle unterschiedliche Featureanzahl haben wird der Score auch besser
+* Neue Modelle auf 2 und 3 Features trainiert um Ensemble zu erweitern -> Zu wenig Features, Modelle zu schlecht und auch keine Hilfe für Ensable
+* Mit Random Search werden fünf gute Modelle trainiert mit verschiedenen Hyperparametern und diese mit Ensemble zu einer Prediction zusammengeführt -> R^2 Test Score: 0,7861
+* Ergebnisse daraus: Ensamble kann die Vorhersage erhöhen -> Modelle sind nicht redundant, Fehler sind nicht exakt korreliert
+* Residuenplots zeigen große Ausreißer in Richtung eines zu niedrig vorhergesagten Hauspreises -> Ausblick: Diese Ausreißer im Datensatz suchen und auf eventuelle Fehler im Datensatz zurückführen. Eventuell Schwellwert bei Datenbereinigung herabsetzen
 
 ---
 
@@ -211,14 +211,15 @@
 **Arbeitsschritte:**
 
 * Commit nicht mehr möglich
-* Beim Zusammenlegen auf den Main Pfad wären alle Änderungen weg
-* Änderungen wiederherstellen war nicht möglich, da eine Änderung bei 05_Neural_Network_Kolja vorgelegen hat (merge Konflikt)
+* Beim Zusammenlegen auf den Main Pfad waren alle Änderungen weg
+* Änderungen wiederherstellen war nicht möglich, da eine Änderung bei 05_Neural_Network_Kolja vorgelegen hat (Merge Konflikt)
+* Nach dem Merge konnten die alten Dateien wiederhergestellt werden
 
 ---
 
 ## Eintrag 12
 
-**Datum:** 19.03.2026
+**Datum:** 19.03.2026 und 20.03.2026
 **Titel:** E-Portfolio erstellen
 **Aus Gruppentreffen:** Gruppentreffen 5 (17.03.2026)
 
