@@ -247,10 +247,10 @@ Das ist eher eine Rechercheaufgabe)
 
 ---
 
-## Eintrag 3
+## Eintrag 5
 
 **Datum:** [20.03.]  
-**Titel:** [Titel]  
+**Titel:** [erstes Ensemble]  
 **Aus Gruppentreffen:** [5 vom 17.03.]
 
 **Arbeitsschritte:**
@@ -273,15 +273,15 @@ Das ist eher eine Rechercheaufgabe)
 
 ---
 
-## Eintrag 3
+## Eintrag 6
 
-**Datum:** [Datum]  
+**Datum:** [21.03.]  
 **Titel:** [Titel]  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Aus Gruppentreffen:** [Eigenständig aber aufbauend aud Gruppentreffen 5]
 
 **Arbeitsschritte:**
-- 
-
+- Ich trainiere das Ensemble nun auf den gesamten California Housing Datensatz. Der SCore ist 0.78 und damit deutlich besser als zuvor. Ich werde das ensemble noch ein paar mal ausführen, um abzuschätzen, wie groß das Rauschen ist. (Ergebnisse: 0.778, 07795, 0.788, 0.7807, 0.7809)
+- Fragte ChatGPT: welche Features des California Housing Datensatz kann man verbinden, sodass ein bessers NN entsteht? - ... Diese sind besonders effektiv: AveRooms / AveOccup, AveBedrms / AveRooms,Population / AveOccup, MedInc / AveOccup ... Es sollten die normierten Daten verwendet werden. 
 **Entscheidungen:**
 - 
 
