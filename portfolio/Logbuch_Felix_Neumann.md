@@ -221,15 +221,30 @@ Untersuchung der Featureimportance (zu sehen auf folgendem Plot: ![alt text](<..
 - KI Prompt: "Ab welcher Gini Importance lohnt es ein Feature für das Training eines Neuronalen Netzes zu vernachlässigen?"
   - Das Sprachmodell Gemini erklärt, dass bei einer Feature importance von deutlich unter einem Prozent das Rauschen dem Informationsgewinn überwiegt. 
   - Aus dem Ergebnissen der Feature Importance analyse (![alt text](<../results/Feature importance (with distance features).png>)) folgt, dass einige Features zwar einen relativ geringen, in Summe aber nicht zzu vernachlässigenden Beitrag liefern. Neuronale Netze sind in der Lage auch aus kleinen Signalen Muster zu filtern und profitieren hierbei auch von solceh Signalen, insbesondere wenn es um die letzen Performanceprozent geht.
-- Die geringe Hilfe der neuen Features wird auch durch eine Betrachtung der Korrelationsanalyse ersichtlich: ![alt text](<../results/Korraltionsanalyse mit neuen Features.png>).
+- Die geringe Hilfe der neuen Features wird auch durch eine Betrachtung der Korrelationsanalyse ersichtlich: ![alt text](<../results/Korraltionsanalyse mit neuen Features.png>).  
 
+- Besprechung mit Björn 
+  - Besprechung der bisherigen Ergebnisse
+    - Erkenntnisgewinn aus Training der neuronalen Netze ausgetauscht 
+    - mit Stand der anderen Gruppenmitglieder verglichen
+  - Aufteilung des weiteren Vorgehens
+    - Wer fasst welches Notebook zusammen?
+  - Besprechung der Ergebnisse bei Gruppentreffen am 26.03
+- 
+- Implimentierung einer Latex Arbeitsumgebung in VS-Code
+  - installation der notwendigen Pakete
+  - einarbeiten in die Tau-class
+  - Modifikation des Gitignore 
+      
 
 **Erkentnis:**
 - Eine Beschneidung der Features ist zunächst nicht ratsam und führt zu Performanceminderung.
 - Letzlich haben sind die neuen Featureideen als nicht nützlich herausgestellt.
-- 
+- Latex in VSCode zu implimentieren ist nicht ganz einfach
 **Entscheidungen:**
 
 **Schwierigkeiten / offene Fragen:**
 - Kann durch Featureoptimierung das Neuronale Netz mit meinen Parametermöglichkeiten über R^2 = 0.8 steigen?
+- Schwierigkeiten Latex auf VS-Code zum laufen zu bringen
+- ständig neues Auftauchen der Latexhilfsdateien in gitchanges trotz gitignore
 - 
