@@ -44,5 +44,5 @@ results/**/**.pdf
 *.log
 *.run.xml
 *.synctex.gz
-*.pdf
+#*.pdf
 _minted*
