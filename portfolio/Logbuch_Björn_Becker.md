@@ -318,12 +318,28 @@ Das ist eher eine Rechercheaufgabe)
 <!-- Weitere Einträge nach dem gleichen Schema -->
 ## Eintrag 7
 
-**Datum:** [23.03.]  
-**Titel:** [Titel]  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Datum:** 24.03  
+**Titel:** Enttäuschende Ergebnisse  
+**Aus Gruppentreffen:** 5
 
 **Arbeitsschritte:**
-- 
+- Ich habe nun endlich den Fehler in meinem Code gefunden und noch einen weiteren aufgedeckt. Er betrifft das gestrige Ensemble. Ich hoffe nun bessere Ergebnisse zu bekommen. - 0.768
+- Ich habe nun also noch einmal Random-serach verwendet, um für den erweiterten Datensatz gute netze zu finden. Allerdings ist das Ergebnis mit 0.67 wirklich schwach. ich mus wahrscheinlich nochmal die parameterspannen erweitern.
+möglich wäre auch dass die maximale anzahl von 200 Epochen zu wenig ist, um die netze hinreichend zu trainieren. Deswegen nun in allen Hyperparametern größere Spannen und mehr Epochen. - Das hat wieder gar nichts gebracht.
+- Die nächste Idee war, die Architektur ein bisschen zu diversifizieren. Das bringt ein bisschen Verbesserung, aber nicht relevant.
+- Ich speichere das trotzdem mal ab. Ganz zum Schluss möchte ich ein weighted Ensemble bauen. Dafür brauche ich die Bestandteile so verschieden wie möglich.
+  - ich muss dann noch den Shirnk-Faktor zwei bei den anderen gespeicherten Netzen hinzufügen.
+- was ich beim feature-Engineering noch ausgelassen habe, ist y zu verändern. Ich erhoffe mir wenig davon, aber ein Versuch ist es Wert. Man könnte sich da viel überlegen, aber ich nehme der Einfachheit halber die Ursprungsdaten, also nicht wie sonst die Normalisierten. Das spuckt Fehler aus, die ich nicht identifizieren kann. Ich werde mich bis ich wieder motivation zur Fehlersuche gesammelt habe etwas anderes. 
+- Ich bin mitlerweile zu dem Shluss gekommen, dass die neu gewählten Features einfach schlecht waren. 
+  - Ich habe dazu ChatGPT gefragt, was bessere Features sind: "kannst du mir bessere features zum engineeren vorschlagen"
+    - "MedInc" * "AveRooms"
+    - "MedInc" * "Population"
+    - Distanz zum Zentrum: (("Latitude" - 36)^2 + ("Longitude" + 119)^2)^(-1/2)
+    - "AveOcc"^2
+    - log("Population")
+  - ich ersetze also...
+- nach 4 Stunden Ladezeit ist auch hier der score unter 0.7, was wieder nicht so optimal ist. 
+
 
 **Entscheidungen:**
 - 
