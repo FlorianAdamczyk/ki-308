@@ -23,7 +23,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Datum:** 19.02.2026 & 20.02.2026  
 **Titel:** Projektstart — Aufgabe lesen, Repository einrichten  
-**Aus Gruppentreffen:** Gruppentreffen 1 (20.02.2026)
+**Aus Gruppentreffen:** Eigenständig und Gruppentreffen 1 (20.02.2026)
 
 **Arbeitsschritte:**
 - Aufgabenstellung gelesen und verstanden
@@ -42,16 +42,16 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 ## Eintrag 2
 
 **Datum:** 17.03.2026
-**Titel:** Wiederholung von Vorlesung und Einlesen in Ergebnisse der Gruppenmitglieder  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Titel:** Wiederholung der Vorlesung und Einlesen in Ergebnisse der Gruppenmitglieder  
+**Aus Gruppentreffen:** Eigenständig
 
 **Arbeitsschritte:**
-* Aufgrund von Tensorflow musste die Python Version von 3.14 auf 3.12 hueruntergestuft werden. 
+* Aufgrund von Tensorflow musste die Python Version von 3.14 auf 3.12 heruntergestuft werden. 
 * Nachvollziehen des Aufbaus des Git-Workspace. Requirements installiert.
 * Lesen und Verstehen der Notebooks vor den Neuronalen Netzwerken, die später zum Ensemble-learning beitragen könnten.
-* Nochmals Vorlesung wiederholen und dabei vorläufig Ideen entwickeln, an welche Aufgaben ich mich setzen möchte. (Pooling der geographischen Lage, Transformation der Daten, Learning-Rate-Scheduler. Ich weiß aus vorherigen Gruppentreffen, dass Hyperparameter wie Form, Lernrate oder Aktivierungsfunktionen schon ausführlich behandelt wurden).
+* Nochmals Vorlesung wiederholen und dabei vorläufig Ideen entwickeln, an welche Aufgaben ich mich setzen möchte. (Pooling der geographischen Lage, Transformation der Daten(Feature Engineering), Learning-Rate-Scheduler. Ich weiß aus vorherigen Gruppentreffen, dass Hyperparameter wie Form, Lernrate oder Aktivierungsfunktionen schon ausführlich behandelt wurden).
 zusätzliche Recherche mit Google
-* Einlesen in Fortschritt der Gruppenmitglieder (NN-Notbooks) 
+* Einlesen in Fortschritt der Gruppenmitglieder (NN-Notebooks) 
   * dabei wird klar, dass einige Ideen schon umgesetzt wurden
 * Überfliegen von Felix H. Logbuch
 
@@ -68,13 +68,13 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 
 ## Eintrag 3
 
-**Datum:** [18.03.2026]  
-**Titel:** [Anfänge und erste Erkenntnisse]  
-**Aus Gruppentreffen:** [Angelehnt an Gruppentreffen 5 am 17.03.]
+**Datum:** 18.03.2026
+**Titel:** Anfänge und erste Erkenntnisse
+**Aus Gruppentreffen:** Angelehnt an Gruppentreffen 5 am 17.03.
 
 **Arbeitsschritte:**
-- Aus den Ergebnissen von Kolja und Felix H. haben wir Schlüsse über die Größenordnung von Parametern gezogen. Außerdem war ergebnis, dass die Aktivierungsfunktion kaum Einfluss auf die Ergebnisse hat, weswegen ich heute nur ReLu nutzte, da diese effizient ist(vgl. [StudySmarter](https://www.studysmarter.de/studium/ingenieurwissenschaften/maschinelles-lernen-studium/aktivierungsfunktion/#:~:text=Eine%20der%20gr%C3%B6%C3%9Ften%20St%C3%A4rken%20der%20ReLU%20ist,einer%20Standardwahl%20in%20Deep%20Learning%20Anwendungen%20macht.)).
-- Ich wollte mich zuerst mit dem Grundsätzlichen Coden eines einfachen Neuronalen Netzes auseinandersetzen. Dazu habe ich Modulimporte und Skalierung der bereinigten Daten aus den Gruppenergebnissen übernommen. Da Felix H. herausfand, dass nur ["MedInc", "AveOccup", "Latitude", "Longitude"] Informationsgewinn bieten und die anderen Daten eher zum Rauschen beitragen, entschied ich mich, nur diese 4 zu benutzen. 
+- Aus den Ergebnissen von Kolja und Felix H. haben wir Schlüsse über die Größenordnung von Parametern gezogen. Außerdem war Ergebnis, dass die Aktivierungsfunktion kaum Einfluss auf die Ergebnisse hat, weswegen ich heute nur ReLu nutzte, da diese effizient ist (vgl. [StudySmarter](https://www.studysmarter.de/studium/ingenieurwissenschaften/maschinelles-lernen-studium/aktivierungsfunktion/#:~:text=Eine%20der%20gr%C3%B6%C3%9Ften%20St%C3%A4rken%20der%20ReLU%20ist,einer%20Standardwahl%20in%20Deep%20Learning%20Anwendungen%20macht.)).
+- Ich wollte mich zuerst mit dem grundsätzlichen Coden eines einfachen Neuronalen Netzes auseinandersetzen. Dazu habe ich Modulimporte und Skalierung der bereinigten Daten aus den Gruppenergebnissen übernommen. Da Felix H. herausfand, dass nur ["MedInc", "AveOccup", "Latitude", "Longitude"] Informationsgewinn bieten und die anderen Daten eher zum Rauschen beitragen, entschied ich mich, nur diese 4 zu benutzen. 
 - Meine ersten beiden kleinen Netze, die ich mit einer L2 Regularisierung zur Vermeidung von Overfitting (Die Nützlichkeit hatte Kolja beim Gruppentreffen eingebracht), kleinem Dropout und mit EarlyStopping ausgestattet hatte, ergaben ordentliche Ergebnisse mit einem R2 von knapp über 0.7 und wenig Overfitting. 
 - Wie im Gruppentreffen besprochen, ist die erste Aufgabe, ein sehr gutes Netz aus den bisherigen Erkenntnissen zu bauen. Ich erwartete, da bisher die Hyperparameter eher einzeln getestet wurden, Probleme mit lokalen Minima zu bekommen. Deswegen nutze ich Random-Search. Hyperparametereingrenzung ergaben sich aus den Ergbnissen der Anderen mit Abgleich mit ChatGPT: Ergebnis: 
   - Neuronen:        32, 64, 128
@@ -188,7 +188,7 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 
 - Ich hoffte Zusammenänge sehen zu können, aber das ist nicht der Fall. Deswegen werde ich den Code erneut Ausführen und die besten Ergebnisse sammeln. Ich erhoffe mir mit einer größeren Menge an Daten eine gescheite lineare Regression durchzuführen, um Zusammenhänge zu verstehen. 
 
-- Beim Nochmal drüber Nachdenken bin ich nun nicht mehr so überzeugt, dass die lin. reg so viel bringt. Frage ChatGPT: Welche anderen Möglichkeiten gibt es, die Daten in eine verständliche Form zu bringen? - PDP mit RandomForestGenerator
+- Beim nochmaligen darüber Nachdenken bin ich nun nicht mehr so überzeugt, dass die lin. reg so viel bringt. Frage ChatGPT: Welche anderen Möglichkeiten gibt es, die Daten in eine verständliche Form zu bringen? - PDP (Partial Dependence Plots) mit RandomForestGenerator
   - die PDP grenzen die Hyperparameter weiter ein
   - so wie Florian die Feature Importance herausgefunden hat, kann man jetzt die Hyperparameter Importance aus dem Random Forest ausgeben lassen
     - Jetzt kann man iterativ Random-/ oder Grid-Search machen und die Hyperparameter weiter eingrenzen
@@ -198,8 +198,8 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 
 
 **Entscheidungen:**
-- Morgen mache ich das ganze nochmal mit einem Größeren Datensatz
-- Ich möchte schauen wie gut die Netze werden, wenn man den Vorgang mehrfach Wiederholt
+- Morgen mache ich das ganze nochmal mit einem größeren Datensatz
+- Ich möchte schauen, wie gut die Netze werden, wenn man den Vorgang mehrfach Wiederholt
 
 **Schwierigkeiten / offene Fragen:**
 - Macht es Sinn, die Zeit aufzuwenden mehr Daten anzusammeln? Wie gut kann das werden? Laufe ich in eine Sackgasse?
@@ -210,16 +210,17 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 
 ## Eintrag 4
 
-**Datum:** [19.03.2026]  
-**Titel:** [erste Iterationen]  
-**Aus Gruppentreffen:** [5 vom 17.03.]
+**Datum:** 19.03.2026  
+**Titel:** erste Iterationen 
+**Aus Gruppentreffen:** 5 vom 17.03.
 
 **Arbeitsschritte:**
 - Ich erweitere meinen Datensatz, um bei den PDP und Hyperparameter-Importances klare Schlüsse ziehen zu können. Bisher besteht mein Datensatz nur aus den 30 besten Eintägen der vorherigen Runs.
-  - zu sehr werde ich es nicht erweitern, da ich schon das Gefühl bekomme, gute Tendenzen jetzt schon abschätzen zu können. Es braucht sehr viel Rechenzeit
+  - zu sehr werde ich es nicht erweitern, da ich das Gefühl bekomme, Tendenzen jetzt schon abschätzen zu können. Es braucht sehr viel Rechenzeit
 - Es hat sich gelohnt zu warten. Der neue Datensatz mit nun 50 Einträgen zeigt eine andere Tendenz für die Batchsize. (Vorher 32, jetzt 16). Die Tiefe scheint ziemlich egal zu sein. Bei der Hyperparameter-Importance gewinnt die Batchsize stark an Einfluss. Es lässt sich nur mit schwacher Sicherheit sagen, dass die Anzahl der Units pro Layer und die Tiefe eine vergleichbar kleine Rolle spielen. Dagegen sind wahrscheinlich "dropout", "Lernrate" und "L2-Regularisierungsfaktor" von großer Bedeutung. 
   - ich finde es etwas Überraschend, dass hier "L2" wichtig ist
-- Ich werde nun die Hyperparameter anhand der PDP eingrenzen.
+  - Das ganze Vorgehen entspricht nicht meiner Intuition. Ich bin mir unsicher, wie die Ergebnisse zu interpretieren sind
+- Ich werde nun trotzdem die Hyperparameter anhand der PDP eingrenzen.
   - Units: bleibt - aber Zufallsverteilung eher Richtung 128
   - depth: das Ergbnis ist ziemlich waagerecht. Ich nehme mal noch die 4 hinzu und schaue was passiert
   - batch size nur noch 16 und 32
@@ -243,23 +244,23 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 Das ist eher eine Rechercheaufgabe)
 
 **Schwierigkeiten / offene Fragen:**
-- Der heutige tag war vor allem von warten geprägt. Die Ausführung des Codes dauert jeweils mehr als eine Stunde.
+- Der heutige Tag war vor allem von warten geprägt. Die Ausführung des Codes dauert jeweils mehr als eine Stunde.
 
 ---
 
 ## Eintrag 5
 
-**Datum:** [20.03.]  
-**Titel:** [erstes Ensemble]  
-**Aus Gruppentreffen:** [5 vom 17.03.]
+**Datum:** 20.03.  
+**Titel:** erstes Ensemble
+**Aus Gruppentreffen:** 5 vom 17.03.
 
 **Arbeitsschritte:**
 - Jetzt ein letztes mal Parameteranpassung. Lernrate (logarytmisch) wird auf Intervall [-3.3; -2] begrenzt. 
 - Über Nacht habe ich darüber nachgedacht, ob es eine gute Entscheidung war, immer wieder die schlechten Netze zu löschen. Vielleicht könnten diese Ergebnisse das Gesamtergebnis verbessern.
 - Die Verbesserung hat gute Ergebnisse erziehlt. Ich werde die Epochen auf 500 hochschrauben, da viele Netze die 200 max Epochen zum lernen nutzen. Diese Netze sind wirklich gut, aber kaum entschieden besser als vorher. 
-- Ich hatte vorher schon die Units gewichtet. Vorher war es stark favorisiert in Richtung 128, jetzt immer noch, aber weniger stark. Ich möchte mehr diversifizieren, da ich nur NN benutze, was sehr wichtig ist (vgl. Vorlesung 7, S.11). Ich nehme eine Hand voll der Netze und benötige noch ein paar schwächere mit stark anderen Hyperparametern
-- ich dachte eigentlich, dass wir einen gemeinsamen Speicher von unseren besten Netzen habe, aber das einzige, dass ich fand, war eine leere Liste, die nur Einträge im Arbeitsspeicher vermerkt.
-- Ich habe jetzt ein ensemble gebildet. Leider ist das Ergebnis mit R2 = 0.7499 nur wenig besser als der Durchschnitt der einzelnen Netze. 
+- Ich hatte vorher schon die Units gewichtet. Vorher war es stark favorisiert in Richtung 128, jetzt immer noch, aber weniger stark. Ich möchte mehr diversifizieren, da ich nur NN für die späteren Ensembles benutze, was sehr wichtig ist (vgl. Vorlesung 7, S.11). Ich nehme eine Hand voll der Netze und benötige noch ein paar schwächere mit stark anderen Hyperparametern
+- ich dachte eigentlich, dass wir einen gemeinsamen Speicher von unseren besten Netzen haben, aber das einzige, dass ich fand, war eine leere Liste, die nur Einträge im Arbeitsspeicher vermerkt.
+- Ich habe jetzt ein Ensemble gebaut. Leider ist das Ergebnis mit R2 = 0.7499 nur wenig besser als der Durchschnitt der einzelnen Netze. 
 - 
 
 
@@ -275,13 +276,14 @@ Das ist eher eine Rechercheaufgabe)
 
 ## Eintrag 6
 
-**Datum:** [21.03.]  
-**Titel:** [Titel]  
-**Aus Gruppentreffen:** [Eigenständig aber aufbauend aud Gruppentreffen 5]
+**Datum:** 21.03.
+**Titel:** Titel  
+**Aus Gruppentreffen:** Eigenständig, aber aufbauend aud Gruppentreffen 5
 
 **Arbeitsschritte:**
-- Ich trainiere das Ensemble nun auf den gesamten California Housing Datensatz. Der SCore ist 0.78 und damit deutlich besser als zuvor. Ich werde das ensemble noch ein paar mal ausführen, um abzuschätzen, wie groß das Rauschen ist. (Ergebnisse: 0.778, 07795, 0.788, 0.7807, 0.7809)
+- Ich trainiere das Ensemble nun auf den gesamten California Housing Datensatz. Der Score ist 0.78 und damit deutlich besser als zuvor. Ich werde das Ensemble noch ein paar mal ausführen, um abzuschätzen, wie groß das Rauschen ist. (Ergebnisse: 0.778, 07795, 0.788, 0.7807, 0.7809)
 - Fragte ChatGPT: welche Features des California Housing Datensatz kann man verbinden, sodass ein bessers NN entsteht? - ... Diese sind besonders effektiv: AveRooms / AveOccup, AveBedrms / AveRooms,Population / AveOccup, MedInc / AveOccup ... Es sollten die normierten Daten verwendet werden. 
+- Ich habe heute keine Lust mehr mich mit Python Fehlern auseinander zu setzen
 **Entscheidungen:**
 - 
 
@@ -290,9 +292,57 @@ Das ist eher eine Rechercheaufgabe)
 
 ---
 
-## Eintrag 3
+## Eintrag 7
 
-**Datum:** [Datum]  
+**Datum:** 23.03. 
+**Titel:** Anfang Dokumentation 
+**Aus Gruppentreffen:** Treffen X oder "Eigenständig"
+
+**Arbeitsschritte:**
+- Habe einen schwer zu identifizierenden Fehler. Der Score des aktuellen Ensembles ist ?negativ?. 
+  - in meinen Daten ist ein eiziger Wert nicht Non-Null. Grund könnte ein geteilt durch 0 Problem beim Feature Engineering sein, dass ich durch das Hinzufügen eines kleinen Wertes in den Nenner zu beheben versuche.
+    - Der score ist nun 0.65
+  - Außerdem ist die Skalierung im Eimer. Wahrscheinlich macht es Sinn, erst Feature Engineering mit den Ursprungsdaten zu machen und dann alle gemeinsam zu skalieren.
+    - Der Score von nun 0.765 ist etwas enttäuschend
+- Nach einer längeren Lagebesprechung mit Felix N. haben wir uns für heute dazu entschieden, wie auch im Gruppentreffen 5 vereinbart, schonmal die Ergebnisse des Projektes zusammen zu fassen. Gesprächsthemen waren außerdem der aktuelle Stand und formale Themen. Außerdem werde ich mich im Verlauf des heutigen Tages mit meinem Notebook beschäftigen in Sachen Lesbarkeit und Dokumentation.
+
+**Entscheidungen:**
+- 
+
+**Schwierigkeiten / offene Fragen:**
+- 
+
+
+---
+
+<!-- Weitere Einträge nach dem gleichen Schema -->
+## Eintrag 7
+
+**Datum:** [23.03.]  
+**Titel:** [Titel]  
+**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+
+**Arbeitsschritte:**
+- 
+
+**Entscheidungen:**
+- 
+
+**Schwierigkeiten / offene Fragen:**## Eintrag 7
+
+**Datum:** [23.03.]  
+**Titel:** [Titel]  
+**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+
+**Arbeitsschritte:**
+- 
+
+**Entscheidungen:**
+- 
+
+**Schwierigkeiten / offene Fragen:**## Eintrag 7
+
+**Datum:** [23.03.]  
 **Titel:** [Titel]  
 **Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
 
@@ -303,6 +353,3 @@ Das ist eher eine Rechercheaufgabe)
 - 
 
 **Schwierigkeiten / offene Fragen:**
-- 
-
-<!-- Weitere Einträge nach dem gleichen Schema -->

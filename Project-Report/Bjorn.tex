@@ -1,0 +1,44 @@
+\documentclass{article}
+
+% -----------------------------
+% Pakete
+% -----------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+
+
+\begin{document}
+
+
+
+\section{Gruppenergebnisse}
+
+\subsection{Datenvorbereitung}
+Zu Beginn des Projekts haben wir eine eyplorative Datenanalyse durchgeführt. 
+Dabei ist aufgefallen, dass die Features 'MedHouseVal' und 'HouseAge' jeweils einen Cutoff haben. Wir gingen also davon aus, dass 
+die Daten an diesen Stellen fehlerhaft sein müssen und haben diese Werte entfernt.
+Zudem sind starke Ausreißer in den Features 'AveRooms', 'AveBedrms', 'Population' und 'AveOccup' aufgefallen. 
+Diese tragen nicht zum Informationsgewinn der Daten bei und wurden daher ebenfalls entfernt.
+Es blieben von den etwa 20000 Datenpunkten nur noch etwa 17000 übrig.
+Schlussendlich haben wir die Daten auf Korrelationen untersucht, wobei auffiel dass 'MedHouseVal' vor allem mit 'MedInc' korreliert.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{\dots}
+    \caption{Korrelationsmatrix der Features}
+\end{figure}
+\\
+Der Gesamte Datensatz wurde in Test-, Validierungs- und Trainingsdaten aufgeteilt, welche bei allen Gruppenmitgliedern gleich waren.
+Für die verschiedenen Modelle war es sinnvoll die Daten auf verschiedene Arten, d.h. normalisiert oder standardisiert, vorzubereiten. 
+
+\subsection{Lineare Regression als Vergleichsmodell}
+
+Die lineare Regression wurde als Verglichsmodell implementiert, um die Leistung der komplexeren Modelle zu bewerten.
+Es wurde offenbar, dass für die lineare Regression die Daten skaliert werden sollten, um zu verhindern, dass bestimmte Features dominieren. Lasso und Ridge Regression erweiterten die lineare Regression und hatten ähnliche Ergebnisse. 
+Wahrlich entscheidend für die Leistung der linearen Regression war die Polynomiale Erweiterung der Features, welche den $R^2$-Wert um etwa 10 Prozent relativ verbesserte.
+Am Ende steht ein $R^2$-Wert von etwa 0.7184 für polynomiale Erweiterung der dritten Ordnung, wobei vor allem die Erwiterung auf den zweiten Grad 
+den wesentlichen Beitrag leistete. Alle gennanten Modelle tendierten kaum zum Overfitting.
+Dieses Modell diente als Baseline für alle weiteren Modelle. 
+
+
+
+\end{document}
