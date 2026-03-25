@@ -1,0 +1,4 @@
+PWD c:\KI_2026\KI_308\ki-308\portfolio\Summary_Bjoern
+INPUT C:\Users\Björn\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
+INPUT c:\KI_2026\KI_308\ki-308\portfolio\Summary_Bjoern\sum_bjoern.tex
+OUTPUT sum_bjoern.log

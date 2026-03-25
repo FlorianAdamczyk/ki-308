@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Zusammenfassung des Logbuchs - Björn Becker
+% KI 1 Projekt, WS 2025/26 - Gruppe 308
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[9pt,a4paper,twocolumn,twoside]{tau-class/tau}
+\usepackage[ngerman]{babel}
+\usepackage{booktabs}
+\usepackage{siunitx}
+
+%----------------------------------------------------------
+% Title & Author
+%----------------------------------------------------------
+
+\doctype{Zusammenfassung des Logbuchs}
+\title{Neuronales Netz f\"ur den kalifornischen Hauspreis-Datensatz}
+
+\author[a]{Björn Becker}
+\affil[a]{Justus-Liebig-Universität Gießen, Martrikelnummer: \dots}
+
+%----------------------------------------------------------
+% Document Info
+%----------------------------------------------------------
+
+\dates{Gruppe 308 -- KI~I Projekt WS~2025/26}
+\footinfo{KI~I Portfolio}
+\theday{25.03.2026}
+\organization{JLU Gießen}
+\leadauthor{Björn Becker}
+
+%----------------------------------------------------------
+\begin{abstract}
+    Dieses Dokument fasst meinen Arbeitsfortschritt bei der Entwicklung Neuronaler Netze für die Vorhersage von Hauspreisen anhand des 
+    "California housing dataset" zusammen. Es werden vor allem die Hyperparameteroptimierung und Ensemble Erstellung behandelt. 
+    Das beste Modell erreicht einen $R^2$-Wert von \dots auf dem Testset und übertrifft damit die lineare Regression ($R^2 = 0{,}63$) deutlich.
+\end{abstract}
+
+%----------------------------------------------------------
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+%----------------------------------------------------------
+
+\section{Fragestellung und Ziel}
+Ziel des Projekts war es, ein Neuronales Netz aufzubauen, welches die Hauspreise im "California housing dataset" vorhersagen kann. 
+Das Ergebnis sollte mit einer linearen Regression verglichen werden, um den Mehrwert komplexerer Modelle zu bewerten.
+Aufgrund der zeitlichen Verfügbarkeit der Gruppenmitglieder hatte ich die Chance die Gruppenergebnisse zusammenzuführen und weiter
+zu verwenden. Daher lag der Fokus meiner Arbeit auf der Hyperparameteroptimierung duech die Random-Search-Methode und der Erstellung von Ensembles.
+
+%----------------------------------------------------------
+
+\section{Darstellung der Arbeitsprozesse und Ergebnisse}
+\subsection{Vorbereitung}
+Vor unserem ersten Gruppentreffen habe ich mich mit der Aufgabe vertraut gemacht und bin die Vorlesungsfolien durchgegangen.
+Zusätzlich informierte ich mich über die Einrichtung einer gemeinsamen Programmierumgebung über GitLab. Allerdings kam im Verlauf des 
+ersten Gruppentreffens auf, dass insgesamt in der Gruppe mehr Erfahrungen mit GitHub vorhanden waren, weshalb wir uns dafür 
+entschieden. Florian übernahm die Einrichtung des Repositories und die Architektur der Ordnerstruktur (für weitere Details, vgl. Logbuch von Florian).
+\\
+Zwischen dem ersten und 5. Gruppentreffen lag mehr als ein Monat, in dem ich lediglich an den Treffen teilnahm, Florian, Felix H. und Kolja bereits den wesentlichen Teil 
+ihres Arbeitspensums erledigten. 
+Nachdem ich mich einen Tag vor dem fünften Treffen mit dem Fortschritt der Gruppe und den im Repository zugänglichen Dateien, u.a. den Hilfsfunktionen für die Modellevaluation vertraut machte,
+machte ich mir Anhand der Vorlesungsfolien Gedanken über mögliche Aufgaben, an denen ich arbeiten könnte. Außerdem habe ich via venv eine 
+passende Python-Umgebung eingerichtet und die benötigten Pakete installiert, um die Jupyter-Notebooks der Gruppe ausführen zu können.
+
+\subsection{erste Modelle}
+Nach dem Gruppentreffen, habe ich zuerst zwei eigene Neuronale Netze gebaut, um die Anwendung der Keras-Bibliothek zu erlernen und den Gebrauch einiger Hilfsfunktionen zu verstehen.
+Auf Grundlage der Gruppenergebnisse entschied ich mich bei allen weiteren Netzen für die Verwendung der Aktivierungsfunktion "relu" und des Optimierers "Adam" (vgl. Logbuch von Felix H.).
+Ich orientierte mich auch bei Hyperparameterwahl und Struktur des Netzes, d.h. kleiner werdenden Schichten, an den bereits erstellten Modellen der Gruppe.
+Mit den Netzen erreichte ich  $R^2$-Werte von 0.7188 und 0.7193, was 
