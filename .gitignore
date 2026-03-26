@@ -42,8 +42,8 @@ logs/
 *.log
 *.run.xml
 *.synctex.gz
-*data.minted*
+# *data.minted*
 # die pdf vom report:
-Project-Report/*.pdf 
+Project-Report/*.pdf
 # die pdfs in den summaries:
 */Summary*/*.pdf
