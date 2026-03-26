@@ -44,6 +44,6 @@ logs/
 *.synctex.gz
 # *data.minted*
 # die pdf vom report:
-Project-Report/*.pdf
+# Project-Report/*.pdf
 # die pdfs in den summaries:
-*/Summary*/*.pdf
+# */Summary*/*.pdf
