@@ -24,15 +24,13 @@ env/
 Thumbs.db
 
 # Results (regenerierbar)
-# results/*.png
+results/*.png
+results/**/**.pdf
 
 # TensorFlow
 logs/
 *.h5
 *.keras
-
-# Misc
-results/**/**.pdf
 
 #Latex
 *.aux
@@ -44,5 +42,8 @@ results/**/**.pdf
 *.log
 *.run.xml
 *.synctex.gz
-#*.pdf
-_minted*
+# *data.minted*
+# die pdf vom report:
+Project-Report/*.pdf
+# die pdfs in den summaries:
+*/Summary*/*.pdf
