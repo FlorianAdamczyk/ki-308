@@ -57,7 +57,7 @@
 
 \dates{This manuscript was compiled on \today}
 
-\docinfo{This document class was prepared on Overleaf and compiled with pdf\LaTeX{}. No errors were found during the compilation process. Tau-class supports external editors, though additional setup may be required.} 
+%\docinfo{This document class was prepared on Overleaf and compiled with pdf\LaTeX{}. No errors were found during the compilation process. Tau-class supports external editors, though additional setup may be required.} 
 
 %----------------------------------------------------------
 
@@ -92,27 +92,223 @@
     
 %----------------------------------------------------------
 
-\section{Explorative Datenanalyse und Datenbereinigung}
+\section{Explorative Datenanalyse, -Bereinigung und -Darstellung}
 \taustart{D}ie explorative Datenanalyse dient der Aufnahme von Eckdaten des Datensatzes und dem erlangen eines Gefühls für potenzielle Besonderheiten, welche in der Datenbereinigung für ein besseres Ergebnis sinnvoll behoben werden.
     \subsection{Analyse}
         Die Explorative Datenanalyse ergab, dass zwei der acht Features des Datensatzes cut-off-Werte besitzen.
         Eine unrealistisch hohe Anzahl an Werten befindet sich hierbei genau an der Grenze der aufgetragenen Werte. 
         Zudem ist eine hohe Streuung der Werte mit einigen vermeindlichen Ausreißern direkt zu erkennen.
-
-    \subsection{Bereinigung}
     
-        Die Cut-off Werte der Features 'MedHouseVal' und 'HouseAge'  wurden mit den Outliern über dem 98\%-Quantil bei den Features 'AveRooms', 'AveBedrms', 'Population' und 'AveOccup'entfernt, da diese Artefakte darstellen und das Rauschen der Daten erhöhen.
+    \subsection{Bereinigung}
+        Die Cut-off Werte der Features 'MedHouseVal' und 'HouseAge'  wurden mit den Outliern über dem 98\%-Quantil
+        bei den Features 'AveRooms', 'AveBedrms', 'Population' und 'AveOccup'entfernt, da diese Artefakte darstellen und das Rauschen des Datensatzes erhöhen.
+        Aus den ursprünglich 20.000 Datenpunkten verbleiben nach der Bereinigung noch 17.386. 
 
-    \subsection{Bereinigte Daten}
-		
-    	\figref{fig:figure} shows a 3D surface plot of the hyperbolic paraboloid $z=x^2-y^2$.
+    \subsection{Skalierung}
+        Zuletzt wurde der Datensatz noch in einen Test-(80\% Anteil) und Trainingsdatensatz(20\% Anteil) aufgeteilt. 
+        Aus dem Testdatensatz wurde dann zum lernen der Modelle noch ein Validierungsdatensatz entnommen.
+        Für das Training der Modelle mit verschiedensten Aktivierungsfunktionen ist eine Skalierung zwingend notwendig um ein sinnvolles Ergebnis zu erhalten. 
+        In Notebook 0c wurde zu diesem Zweck ein Standartskalierer und drei Mimimum-Maximum-Skalierer
+        implimentiert, auf die in den jeweiligen Notebooks zurück gegriffen werden wird.
+    \subsection{Darstellungen bereinigter Daten}
+        \figref{fig:figure_1} Datensatz mit entfernten cut-off Werten und Ausreißern sortiert nach Features.
+        Im Vergleich mit den Originaldaten gibt es bei den modifizierten Features keine gehäuften Datenansammlungen am Ende der Skala und keine groben Ausreißer mehr.
+        \begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.75\columnwidth]{figures/eda_features_vs_target_clean.pdf}
+    		\caption{Bereinigte Daten sortiert nach Features.}
+    		\label{fig:figure_1}
+    	\end{figure}
+
+    	\figref{fig:figure_2} Die nach  der Datenbereinigung durchgeführte Korrelationsanalyse zeigt den starken Zusammenhang  zwischen 'MedHouseVal' und 'MedInc'.
     		
     	\begin{figure}[H]
     		\centering
-    		\includegraphics[width=0.75\columnwidth]{figures/Example.pdf}
-    		\caption{Hyperbolic paraboloid obtained from PGFPlots \cite{PFGPlots}.}
-    		\label{fig:figure}
+    		\includegraphics[width=0.75\columnwidth]{figures/eda_correlation_heatmap.pdf}
+    		\caption{Korrelatiosnanalyse der bereinigten Daten}
+    		\label{fig:figure_2}
     	\end{figure}
+
+        
+
+
+\section{Lineare Regression}
+        Die als Vergleichsmodell für die Bewertung komplexerer Modelle implimentierte lineare Regression,
+        erzielt unskaliert folgende Ergebnisse:
+
+%\tabref{tab:table} shows an example table of some astronomical objects. 
+
+        \begin{table}[H]
+        	\caption{Ergebnisse der linearen Regression}
+        	\label{tab:table}
+        	\begin{tabular}{
+        		>{\raggedright\arraybackslash}p{0.25\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.30\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.31\columnwidth}
+        	}
+        	\toprule
+        	\textbf{Metrik} & \textbf{Train} & \textbf{Test} \\
+        	\midrule
+        	$R^2-Score$        & 0.6465        & 0.6326            \\
+            MAE                & 0.4252        & 0.4331           \\
+            RMSE               & 0.5710        & 0.5779            \\
+        	\bottomrule
+        	\end{tabular}
+        	%\tabletext{Note: The table contains data of some famous celestial objects.}
+        \end{table}
+
+        Diese Werte stellen die "Baseline" zur Einordnung komlexerer Modelle dar
+        und geben einen ersten Anhaltspunkt über die potenzielle Leistung der Regressionen.
+
+        \subsection{LASSO und Ridge}
+        Eine Erweiterung der linearen Regression durch eine LASSO-Ridge Kombination, sowie die Verwendung des Standartscale führten zunächst zu keiner Verbesserung gegenüber der Baseline.
+        Entscheidende Unterschiede zeigten sich durch die Einführung der Polynomiale Erweiterung. 
+        Zunächst eine Verbesserung in der zweiten und  nochmal geringfügig in der dritten Ordnung. Am Ende konnte ein $R^2 =  0.7184 $
+        auf die Testdaten erreicht werden ($\Delta_{Baseline} R^2 = 8.58\%$). 
+        Durch die gewählten Methoden konnte auch ein sehr geringer overfitting Gap erzielt werden.
+
+        
+\section{Decision Tree Regression}
+        Ausgehend von Vorlesungsinhalten wurden Decisiontrees zunächst als Referenz ohne Einschränkungen
+        und dann mit Beschränkung der maximalen Tiefe gegen Overfitting Probleme trainiert. 
+        Der overfittinggap bei ersterm lag bei knapp 45\%. Bei zweiterem wurde der bias-varianz-tradeoff sichtbar.
+        Durch Pruning konnte das overfitting des Baums auf die Testdaten sehr erfolgreich unterbunden werden. 
+        Wie auch bei der Explorativen Datenanalyse zeigt sich, dass das Median Einkommen (=MedInc) die Featureimportance dominiert 
+        (siehe Featureanalyse Neuronaler Netze). 
+%%% Referenz schreiben
+
+\section{Ensemble}
+        Die Ensemble Methoden wurden als Test für dei mögliche genauigkeit der Regression verwendet.
+        Die Ergebnisse der Decision Trees konnten als Random Forest enorm verbessert werden. 
+        Auch die Verwendung des Gradient Boosting und die Optimierung der learning rate konnten bessere Regressionen liefern. 
+        Diese Erkenntnis und ein maximales $R^2 = 0.81$ ($\Delta_{Baseline} R^2 = 17.74\%$), als Marker für die mögliche Leistung
+        der Regression, wurden mit in das Training neuronaler Netze eingefasst.
+
+
+\section{K-Nearest Neighbors Regression}
+        Die K-Nearest Neighbors Regression hingegen zeigte keine allzu starken Ergebnisse. Sie zeigte jedoch auf, wie unerlässlich die Skalierung
+        der Daten sein kann. Eine gleichzeitige Reduktion zweier Fehlerquellen führt zum bias-variance-tradeoff bei der Wahl
+        des besten k. Durch Distance weighting wurde eine Verbesserung erzielt, allerdings rechtfertigen die Ergebnisse ($\Delta_{Baseline} R^2 \approx 3.01\%$)
+        die viel längere Rechenzeit nicht.
+
+
+\section{Neuronale Netze}
+        Verschiedene Neuronale Netze (=NN) wurden, ausgehend von einem sequenziellen Netz mit einem Hidden Layer (=HL) als Minimalnetz,
+        zunächst ohne optimierte Parametrisierung, ausprobiert. Bereits bei diesem Minimalnetz ergab sich ($\Delta_{Baseline} R^2 \approx 10\%$).
+         
+        \subsection{Architektur}
+        Durch eine geschickte Wahl oder bewusstes Freistellen der Wahl der Parameter des Aufbaus des neuronalen Netzes wurden kleine Verbesserungen
+        der Regression erreicht.
+            \subsubsection{Layer}
+            Die Variation der Breite und Layer ergab keine großen Veränderungen für das Neuronale Netz. Ein zu schmaler Layer vermag die
+            komplexen Zusammenhänge zwischen einzelnen Merkmalen nicht ausreichend zu beschreiben. Zu viele Neuronen in einem Layer
+            führten hingegen zu Overfitting. 
+            Dieses konnte durch die Verwendung eines Dropoutlayers drastisch reduziert werden.
+            Es stellte sich zudem heraus, dass keine große Tiefe für eine relativ genaue Regression notwendig ist.
+            Diese erhöht nur zunehmend das Overffitting. Es wurden gute Ergebnisse mit zwei-drei Hidden Layers, einer $[128-64-32]$-Neuronenverteilung
+            und einem Dropoutlayer, erzielt.
+
+
+            \subsubsection{Regularisierung}
+            Untersuchungen des Einfluss einer L2-Regularisierung verglichen mit dem Basismodell 
+            ohne Regularisierung erzielte einen signifikant geringeres Overfitting-Gap(-40\%).
+            Damit verbessert sich Generalisierungsfähigkeit der Modelle erheblich. 
+            Nach Analyse der L2 - Regularisierung, des Dropout verfahrend und einer Kobination konnte ein von Modell zu Modell
+            sukzessive verringertes Overfitting zulasten des $R^2$ festgestellt werden.
+            Durch die drastische Verringung des Overfittinggaps reduzierte sich dieser um einige Zehntel Prozent.
+
+            \subsubsection{Aktivierungsfunktionen}
+             Ein Test der sechs gängigsten Aktivierungsfunktionen (relu, tanh, sigmoid, elu, selu, leaky-relu) im Zusammenspiel mit
+             den verschiedenen Skalierung zeigt die beste performance auf den Testdaten mit dem Tangens hyperbolicus angewandt
+             auf den Standartscaler. Dieser erzeugt viele Daten um null, die tangens hyperbolicus gut verarbeiten kann.
+             Zudem neigt diese Funktion wegen ihre glätte zu wenig overfitting. Spätere komplexere Modelle zeigen,
+             dass die Performance nur geringfügig von der Aktivierungsfunktion abhängt und die Wahl dem Modell überlassen werden kann.
+
+            \subsubsection{Hyperparameter}
+            Zunächst fand eine Analyse der Hyperparameter unter festhalten der restlichen Parameter statt, um eine Idee für die Größenordnung zu gewinnen.
+            Die isolierte Hyperparameterbetrachtung endete dabei häufig in lokalen Minima ohne eindeutiges Optimum.
+            Dennoch stellten sich folgende Größenordnungen als Anhaltspunkte für weitere Untersuchungen heraus.
+            \begin{table}[H]
+        	\caption{Ergebnisse der Hyperparameteruntersuchung}
+        	\label{tab:table}
+        	\begin{tabular}{
+        		>{\raggedright\arraybackslash}p{0.25\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.25\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.40\columnwidth}
+        	}
+        	\toprule
+        	\textbf{Hyperparameter} & \textbf{Größenordnung} & \textbf{Kommentar} \\
+        	\midrule
+        	Epochen            & 300-500        &                                            \\
+            learning-rate      & 0.01- 0.001    & im folgeneden zumeist mit Lr-Scheduler. Dennoch fast immer in diesem Bereich  \\
+            Batchsize          & 16-128         & größer würde zu einer zu langen Konvergenzzeit führen               \\
+        	\bottomrule
+        	\end{tabular}
+        	%\tabletext{Note: The table contains data of some famous celestial objects.}
+        \end{table}
+            Das Hyperparameterzusammenspiel wurde zunächst mit Random Search und zur höheren Recheneffizienz mit einer Bayesschen Optimierungfunktion durchgeführt.
+            Die Learningrateoptimierung erfolgt dynamisch während des Trainings mit einem Learningrate-Scheduler.\\
+        \vspace{0.25cm}
+
+        Alles in allem führt die Veränderung der Architektur, der LR und der Epochen zunächst händisch durchzuführen zwar zu kleinen Ergebnisschwankungen,
+        ist aber ohne systematisches Vorgehen und Simultanoptimierung nicht zielführend. 
+        Die besten Modelle variiern daher in der Zusammensetzung der Architektur, liegen aber alle in den genannten Größenordnungen.
+%%% Grafik: Differenz der Leistung auf Trainings- und Testdaten als Maß des Grades an Overfitting
+
+        \subsection{Featureengeneering}
+        Eine Untersuchung der Features zeigt eine deutliche Spanne an potenziellen Informationsgewinn durch die einzelnen Features.
+        Daher wurde versucht die Modelle mit den wichtigsten vier/fünf und auch nur dem wichtigsten Feature zu trainieren.
+        Eine geringere Featureanzahl verringert die Komlexität des Modells und somit die Rechenzeit.
+        Obgleich eine geringere Featureanzahl zu keine höheren Performance führt,
+        können Ensembles aus  Modellen die verschieden viele Features berücksichtigen dies leisten. 
+        Um die Korrelation einzelner Features untereinander zu nutzen wurden weitere Features aus dem Datensatz zusammengefasst. 
+        Die so neu entstandenen Features sind „Bedrooms-per-room“,  „Dist-to-SF“ und „Dist-to-LA“, 
+        als Idee einer Preissteigerung hinsichtlich der relativen nähe zu den größten Ballungsräume,
+        sowie „Lat-x-Lon“,als allgemeine geografische Einordnung. Aufgrund der Schwierigkeiten mit schiefen Verteilungen wurde
+        zudem die Population logarithmisch eingebracht. 
+        Auch die Einführung dieser Features brachte keine nennenswerte Performancesteigerung $(ca.0.5\%)$ oder Fehlerminderung mit sich.
+        Dennoch haben vorallem die beiden Disatnce-Features einen Mehrwert für das Projekt, da ihre Featureimportance realtiv hoch ist.
+        \figref{fig:figure_3} 
+
+        \begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.85\columnwidth]{figures/"Feature importance (with distance features).png"}
+    		\caption{Featureimportance}
+    		\label{fig:figure_3}
+    	\end{figure}
+
+        Obgleich vorallem die Distancefeatures keine unwesentliche Featureimportance aufweisen,
+        bleibt das Median Einkommen das stärkste Feature für den Datensatz.
+
+        \subsection{Gesamtvergleich mit der Linearen Regression}
+
+        Der direkte Vergleich zwischen der linearen Regression und den neuronalen Netzen offenbart
+        ein klassisches Spannungsfeld in der Datenwissenschaft: die Abwägung zwischen Vorhersagegenauigkeit und Interpretierbarkeit.
+        Da bereits ein einfaches neuronales Netz als Minimalnetz einen deutlich besseren Score auf den Testdaten erzielt als die lineare Regression,
+        lässt sich schließen, dass die Features und ihr Zusammenwirken komplexe, nichtlineare Zusammenhänge aufweisen.
+        Während neuronale Netze diese abbilden können, bedarf es bei der linearen Regression aufwendigen
+        Feature-Engineerings, wie etwa durch polynomiale Erweiterungen.
+    
+        Das Training eines NN benötigt ein Vielfaches an Rechenzeit und erfordert ein umfangreiches Hyperparameter-Tuning,
+        unter anderem bezüglich der Architektur, Lernrate, Dropout-Rate und Batch-Größe für ein optimales Ergebnis.
+        Wie die Untersuchungen zeigten, neigt beispielsweise ein unreguliertes Modell mit einer
+        [128-64-32]-Neuronenverteilung zu starkem Overfitting.
+        Die Generalisierungsfähigkeit kann jedoch durch den Einsatz von Regularisierung und Dropout erheblich robuster
+        gestaltet werden.
+
+        Zudem fehlt den neuronalen Netzen die Interpretierbarkeit fast vollständig.
+        Die lineare Regression hingegen, überzeugt durch ihre leicht nachvollziehbaren Koeffizienten.
+        
+        Die nichtlinearen Zusammenhänge des kalifornischen Hauspreis Datensatzes lassen sich sehr gut
+        durch ein neuronales Netz beschreiben. Das Optimalergebnis des Random Forest mit gradient boosting wurde jedoch noch nicht erreicht.
+        Mögliche Ansätze für noch weitere Optimierungen sind:
+
+
+
+
+
+
+
 
 \section{Document Styling}
 
