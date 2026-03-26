@@ -335,7 +335,7 @@ Wie in Gruppentreffen vereinbart:
 Zunächst scheinbare Widersprüche in den Ergebnissen der Featureanalyse bezüglich der Sinnhaftigkeit des [lr_scheduele]. 
   - einzelne Betrachtung unter festhalten der restlichen Parameter ergab keine nennenswerte Verbesserung
   - Es ist jedoch davon auszugehen, dass Simultanoptimierung der Hyperparameter durchaus profitiert
-
+  - 
 
 ---
 
@@ -346,14 +346,18 @@ Zunächst scheinbare Widersprüche in den Ergebnissen der Featureanalyse bezügl
 **Aus Gruppentreffen:** 5
 
 **Arbeitsschritte:**
-
+- Schreiben des Absatzes zur Datenbereinigung 
+  - zunächst Schwierigkeiten beim Einfügen einer Grafik (gelöst)
+  - 
 **Erkenntnis:**
 
 
 **Entscheidungen:**
 
 **Schwierigkeiten / offene Fragen:**
-
+- git merge crash
+  - Ständige Probleme durch ID Änderung durch ausführen des Codes anderer und pushen der ID-Änderung.
+  - vorläufiger Fix kostet mich eine Stunde, viele Nerven, aber hoffentlich keine Änderung an dem betroffenen Notebook
 
 
 ---
