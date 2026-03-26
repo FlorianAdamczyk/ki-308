@@ -23,7 +23,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[9pt,a4paper,twocolumn,twoside]{tau-class/tau}
-\usepackage[english]{babel}
+\usepackage[english]{babel} %if wanted ngerman
 
 % Spanish babel recomendation
 % \usepackage[spanish,es-nodecimaldot,es-noindentfirst]{babel} 
@@ -32,21 +32,25 @@
 % Title & Authors/Affiliations
 %----------------------------------------------------------
 
-\doctype{Documentation Template}
-\title{Writing a research article or lab report with tau-class}
+\doctype{Zusammenfassung des Logbuchs}
+\title{Neuronales Netz f\"ur den kalifornischen Hauspreis-Datensatz}
+
 
 %----------------------------------------------------------
 
-\author[a,1]{Author One\thanks{\href{mailto:author.one@institute.org}{author.one@institute.org} (A. One)}}
-\author[b,2]{Author Two}
-\author[c,3]{Author Three}
-
+\author[a]{Florian Adamczyka}%\thanks{\href{mailto:author.one@institute.org}{author.one@institute.org} (A. One)}}
+\author[b]{Felix Hollfoth}
+\author[c]{Kolja Scriba}
+\author[d]{Björn Becker}
+\author[e]{Felix Neumann}
+%if wantet [a,1]
 %----------------------------------------------------------
 
-\affil[a]{Affiliation One}
+\affil[a]{Technische Hochschule Mittelhessen, Matrikelnr. 8105234}
 \affil[b]{Affiliation Two}
 \affil[c]{Affiliation Three}
-
+\affil[d]{Affiliation Three}
+\affil[e]{Justus Liebig Universität, Matrikelnr. 8116639}
 %----------------------------------------------------------
 % Document-, Footer- information
 %----------------------------------------------------------
@@ -67,14 +71,17 @@
 %----------------------------------------------------------
 
 \begin{abstract}    
-    Tau-class was designed for creating professional \LaTeX{} documents, including research articles, technical reports, and academic documentation. It enhances the writing experience through intuitive custom environments, multilingual support, and refined typography. The class integrates Fira Sans for headings and highlighted elements, Fira Mono for code listings, and STIX2 for body text, ensuring consistent styling across tables, figures, equations, listings, and captions. \textit{New or updated features are marked with an asterisk (*)}.
+    Dieser Ergebnisbericht dokumentiert die Ergebnisse der Gruppe 308 der Projektarbeit zu Maschinellem Lernen im Modul Künstliche Intelligenz 1. Die Aufgabenstellung lautet: Betrachten Sie den Datensatz zu den kalifornischen Hauspreisen, wie in der Vorlesung betrachtet. Entwickeln Sie ein neuronales Netz, um die Hauspreise zu beschreiben. Ordnen Sie Ihr Modell im Vergleich zu den in der Vorlesung behandelten Linearen Regression ein.
+    Die Erarbeitung betrug pro Gruppenmitglied mindestens 75 Stunden und wurde in mehreren Meetings zwischen den Personen aufgeteilt. Neben der linearen Regression wurden auch andere Regressionsmodelle als Vergleichsgrundlage für das Neuronale Netz herangezogen. 
+    Der Schwerpunkt liegt allerdings auf der sukzessiven Verbesserung des Neuronalen Netzes, unter Anwendung der Vorlesungsinhalte.
+    Die Optimierung der Regression erfolgt unter ständiger Kontrolle der Fehlergrößen wie dem Mean Squared Error (=MSE) und dem Root Mean Square Error (=RMSE), sowie dem coefficient of determination ($=R^2$) als quantitativer Vergleich der Modelle.
 \end{abstract}
 
     % Tau ($\tau$) is a specially designed document class for creating professional and well-structured research articles, technical reports, and academic documentation. Tau enhances the writing experience through intuitive custom environments, multilingual support, and refined typography powered by Fira Sans for headings and distinctive elements, Fira Modo for listings, and STIX2 for body text, providing consistent and professional styling for elements such as tables, figures, equations, code listings, and captions. \textit{New/Updated features will show a (*) in their title.}
 
 %----------------------------------------------------------
 
-\keywords{tau-class, research article, lab report, academic writing}
+\keywords{euronales Netz, California Housing, TensorFlow, Regression, Machine Learning}
 
 %----------------------------------------------------------
 
@@ -85,24 +92,27 @@
     
 %----------------------------------------------------------
 
-\section{Tau Class}
+\section{Explorative Datenanalyse und Datenbereinigung}
+\taustart{D}ie explorative Datenanalyse dient der Aufnahme von Eckdaten des Datensatzes und dem erlangen eines Gefühls für potenzielle Besonderheiten, welche in der Datenbereinigung für ein besseres Ergebnis sinnvoll behoben werden.
+    \subsection{Analyse}
+        Die Explorative Datenanalyse ergab, dass zwei der acht Features des Datensatzes cut-off-Werte besitzen.
+        Eine unrealistisch hohe Anzahl an Werten befindet sich hierbei genau an der Grenze der aufgetragenen Werte. 
+        Zudem ist eine hohe Streuung der Werte mit einigen vermeindlichen Ausreißern direkt zu erkennen.
 
-    \taustart{T}au-class is specially designed for research articles, technical/lab reports, and academic documentation. This guide will help you understand the features and proper use of the template, enabling you to efficiently structure and format your documents with clarity and precision.
-
-    This class includes the following files in the tau-class folder:
-	
-	\begin{itemize}
-		\item \inlinecode{tau.cls} — The main class file.
-		\item \inlinecode{tauenvs.sty} — A package containing custom environments.
-		\item \inlinecode{taubabel.sty} — A support package for multilingual.
-		\item \inlinecode{README.md} — With essential information.
-	\end{itemize}
-
-    Additionally, this template includes a sample document \inlinecode{main.tex}, a bibliography file \inlinecode{tau.bib}, as well as figures, tables and code examples to help you get started quickly.
-
-    \subsection{License}
+    \subsection{Bereinigung}
     
-        This work is the creation of Guillermo Jimenez licensed under Creative Commons CC BY 4.0. You may adapted, shared and distributed your work, ensuring that proper credit is given to the original author.
+        Die Cut-off Werte der Features 'MedHouseVal' und 'HouseAge'  wurden mit den Outliern über dem 98\%-Quantil bei den Features 'AveRooms', 'AveBedrms', 'Population' und 'AveOccup'entfernt, da diese Artefakte darstellen und das Rauschen der Daten erhöhen.
+
+    \subsection{Bereinigte Daten}
+		
+    	\figref{fig:figure} shows a 3D surface plot of the hyperbolic paraboloid $z=x^2-y^2$.
+    		
+    	\begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.75\columnwidth]{figures/Example.pdf}
+    		\caption{Hyperbolic paraboloid obtained from PGFPlots \cite{PFGPlots}.}
+    		\label{fig:figure}
+    	\end{figure}
 
 \section{Document Styling}
 
