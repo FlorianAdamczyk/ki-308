@@ -94,7 +94,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
     - Idee dabei: durch geschickte Beobachtung des Lernvorganges abschätzen, ob dieser zielführend ist, oder nicht
     - gegebenenfalls wird nach weniger als der maximalen Epochenzahl abgebrochen, um Rechenzeit zu sparen
 - Begin Implimentierung mit Keras tuner model 
-- #Quelle: Luca Invernizzi, James Long, Francois Chollet, Tom O'Malley, Haifeng Jin (2019): Getting started with KerasTuner https://keras.io/keras_tuner/getting_started/
+- Quelle: Luca Invernizzi, James Long, Francois Chollet, Tom O'Malley, Haifeng Jin (2019): Getting started with KerasTuner https://keras.io/keras_tuner/getting_started/
 
   - [build_tuner_model()] erstellt ein sequenzielles Model über Keras-Paket: "https://keras.io/guides/sequential_model/"  
     - zunächst einfaches Modell zur sauberen Implimentierung der Bayes Idee
@@ -151,7 +151,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 - R^2 über 0.8 mit diesen Mitteln erreichbar?
 - Verschiebung des Speicherortes hochwertiger Modelle
 
-**Erkentnis:**
+**Erkenntnis:**
 - alles in allem gleiche performance wie bei random- und grid search mit drastisch reduzierter rechenzeit
 - kein besserer R^2 durch hinzufügen eines weiteren features
 - ebenfalls keine Verbesserung durch Berücksichtigung Leaky elu
@@ -177,9 +177,8 @@ Experiment:
 - Bestes Ergebnis bisher: ![alt text](<../results/Wahre Werte vs. Vorhersagen.png>)
 **Entscheidungen:**
 Keine Blinde Untersuchung mit neuen Features mehr. AEs wird auch mit den neuen features ein random forest zur Untersuchung der feature importance durchgeführt. 
-**Schwierigkeiten / offene Fragen:**
 
-**Erkentnis:**
+**Erkenntnis:**
 Auch die Einführung der geografischen Features, bringt keine direkte Verbesserung des Modells hinsichtlich der Konvergenz und des R^2-Values. Das impliziert jedoch keine Nutzlosigkeit für das Modell insgesamt, da auch kein Nachteil festgestellt werden kann. 
 ---
 
@@ -198,7 +197,7 @@ Auch die Einführung der geografischen Features, bringt keine direkte Verbesseru
   - n_jobs=-1 beschleunigt Rechnung durch Nutzung aller zur Verfügung stehender Kerne
   - Skalierung der Daten für Random Forest irrelevant 
   - Darstellung der importances durch Balkendiagramm 
-**Erkentnis:**
+**Erkenntnis:**
 Untersuchung der Featureimportance (zu sehen auf folgendem Plot: ![alt text](<../results/Feature importance (with distance features).png>)) zeigt auf, dass popolation und auch die zuvor etwas vielversprechender wirkende log_population, wenig Einfluss auf das NN haben. Es kann davon ausgegangen werden, dass ihr Rauschen die postiven Effekte aufhebt.
 
 **Entscheidungen:**
@@ -209,10 +208,10 @@ Untersuchung der Featureimportance (zu sehen auf folgendem Plot: ![alt text](<..
 
 
 
-## Eintrag 7 *(ca. h)*
+## Eintrag 7 *(ca. 8h)*
 
-**Datum:** [23.03.2026]  
-**Titel:** [Interpretation bisheriger Ewrkenntnisse]  
+**Datum:** 23.03.2026
+**Titel:** Interpretation bisheriger Erkenntnisse
 **Aus Gruppentreffen:** [5]
 
 **Arbeitsschritte:**
@@ -221,7 +220,8 @@ Untersuchung der Featureimportance (zu sehen auf folgendem Plot: ![alt text](<..
 - KI Prompt: "Ab welcher Gini Importance lohnt es ein Feature für das Training eines Neuronalen Netzes zu vernachlässigen?"
   - Das Sprachmodell Gemini erklärt, dass bei einer Feature importance von deutlich unter einem Prozent das Rauschen dem Informationsgewinn überwiegt. 
   - Aus dem Ergebnissen der Feature Importance analyse (![alt text](<../results/Feature importance (with distance features).png>)) folgt, dass einige Features zwar einen relativ geringen, in Summe aber nicht zzu vernachlässigenden Beitrag liefern. Neuronale Netze sind in der Lage auch aus kleinen Signalen Muster zu filtern und profitieren hierbei auch von solceh Signalen, insbesondere wenn es um die letzen Performanceprozent geht.
-- Die geringe Hilfe der neuen Features wird auch durch eine Betrachtung der Korrelationsanalyse ersichtlich: ![alt text](<../results/Korraltionsanalyse mit neuen Features.png>).  
+- Die geringe Hilfe der neuen Features wird auch durch eine Betrachtung der Korrelationsanalyse ersichtlich:
+   ![alt text](<../results/Korraltionsanalyse mit neuen Features.png>).  
 
 - Besprechung mit Björn 
   - Besprechung der bisherigen Ergebnisse
@@ -236,15 +236,124 @@ Untersuchung der Featureimportance (zu sehen auf folgendem Plot: ![alt text](<..
   - einarbeiten in die Tau-class
   - Modifikation des Gitignore 
       
+- Weitere Durchläufe unter Variation der Umfänge für die Hyperparamter durchgeführt... 
+  - keine Nennenswerten Veränderungen gefunden
+  - > Ensembleperformance relativ konstant
 
-**Erkentnis:**
+- Random Forest liefert minimal bessere Ergebnisse als NN (Diff. R^2 = 0.0044). 
+  - Erklärungsansatz: Tabellarische Daten mit Unregelmässigkeiten, harten Kanten und schiefen VVerteilungen  lassen sich oft mit Entscheidungsbaum beschreiben. Neuronale Netze performen besser auf "glatten" Daten / Normalverteilungen. 
+  - Lösungsansätze: 
+    - Noch weiter Verbesserte Datenaufbereitung. Beispielweise Versuch weitere Ausreißer an der Definitionsgrenze heraus zu filtern. 
+    - Statt Standart-scaler oder MinMax-Scaler Powertransformer nutzen
+      - Powertransformer ist stärker auf schiefen Datenverteilungen wie zum beispiel bei MedInc und Population als StandardScaler.
+      - Die Anwendung eines Powertransformer wird insbesondere für den Kaliforniahousing Datensatz empfohlen.
+        - Yeo, I. K., & Johnson, R. A. (2000). A new family of power transformations to improve normality or symmetry. Biometrika, 87(4), 954-959
+        - Kuhn, M., & Johnson, K. (2013). Applied Predictive Modeling. Springer. (Kapitel 3: Data Pre-processing)
+      - Deshalb random Forest auch im Vorteil, da dieser unbeeinflusst von schiefen Datenverteilungen bleibt.
+      - ein PowerTransformer wie er beispielsweise in Scikit learn enthalten ist, behebt das Problem mit der Schiefe und könnte zum Schulterschluss mit dem Random Forest führen
+    - Batch size variieren:
+      - eine größere Batchsize führt zu ruhigerem Training, aber auch zu Overfitting. Aufpassen!
+
+**Erkenntnis:**
 - Eine Beschneidung der Features ist zunächst nicht ratsam und führt zu Performanceminderung.
 - Letzlich haben sind die neuen Featureideen als nicht nützlich herausgestellt.
 - Latex in VSCode zu implimentieren ist nicht ganz einfach
+  
 **Entscheidungen:**
+ - Implimentation des Powertransformer zunächst überspringen
 
 **Schwierigkeiten / offene Fragen:**
 - Kann durch Featureoptimierung das Neuronale Netz mit meinen Parametermöglichkeiten über R^2 = 0.8 steigen?
 - Schwierigkeiten Latex auf VS-Code zum laufen zu bringen
 - ständig neues Auftauchen der Latexhilfsdateien in gitchanges trotz gitignore
+- noch unklar, ob Zeitaufwand für Powertransformer lohnenswert
+--- 
+
+## Eintrag 8 *circa: 8h*
+
+**Datum:** 24.02.2026 
+**Titel:** Dokumentation
+**Aus Gruppentreffen:**  [5]
+
+**Arbeitsschritte:**
+- bemerkt, dass ich durch gitignore einige Daten aus dem Git geworfen habe die noch benötigt werden
+  - noch viel Verständnis nötig...
+  - Überlegung ob betreffende Dateien neu pushen, oder Verusuchen auf alte Gitversion zurück zu gehen
+
+- Nach Überlegungen von gestern Versuche ich nun durch Variation der Batchsize das Ergebnis noch weiter zu pushen
+  - Testen mit Batchsize = 128
+  - Nach langer Rechenzeit: R^2 = 0.7922
+  - Fazit: Wie bereits in 05_Neural_Network_Felix.ipynb festgestellt, hilft eine größere Batchsize nicht weiter.
+    - Weiterhin mit Batchsize 32 arbeiten.
+
+- Zusammenfassungen geschrieben: 
+  - 01_LASSO_Ridge
+  - 02_Decision_Tree
+  - 03_Ensemble
+  - 04_kNN_Regression geschrieben
+
+- Saubere Dokumentation des Notebooks 
+- Ausarbeitung des Modellaufrufs mit Ausgabe der erreichten Werte
+- Analyse der Werte im Kontext lineare Regression(weit übertroffen), aber auch Random Forest Modellen (nicht ganz erreicht).
+- Bugfix der [build_tuner_modell]-Funktion (dennoch muss vor Ausführung der nachfolgenden Zellen auf Initialisierung des Tuner gewartet werden)
 - 
+**Schwierigkeiten / offene Fragen:**
+- Fehlermeldung: "notebook controller is DISPOSED" 
+  - Versuch Kernel Restart, VS-code neustart -> Hilft vorerst
+- versehentlich Dateien gelöscht, durch Hilfe von Flo aus Repo wieder gerettet
+
+
+---
+
+
+## Eintrag 9 *(ca. 7h)*
+
+**Datum:** 25.03.2026  
+**Titel:** Ergebnisse der Gruppe zusammentragen
+**Aus Gruppentreffen:** 5
+
+**Arbeitsschritte:**
+Vergleich mit linearer Regression zu NN hinzugefügt.
+Wie in Gruppentreffen vereinbart:
+- Lesen aller Notebooks
+- Zusammenfassen der Neuroanalen Netzwerk Notebooks
+  - zunächst "Schmierzettel in Word"
+  - jedes Neuronale Netz durchgegangen 
+  - Ergebnisse und Gedanken zusammengetragen
+- Begin schreiben der Ergebnis PDf
+- weitere Latex Einstellungen
+- Auesinandersetzung mit den Fähigkeiten der Tau-Class als mächtige Latexvorlage 
+- Zusammenfassung der nuller Notebooks von Björn leicht überarbeitet
+**Erkenntnis:**
+- Für Latex ist Texstudios deutlich intuitiver als VS-Code.
+- 
+
+**Entscheidungen:**
+- einzelne Abschnitte zu den bearbeiteten Parametern unter Zusammenfassung der Erkenntnisse der Gruppenmitglieder anstatt einfaches herunterarbeiten der Notebooks
+
+**Schwierigkeiten / offene Fragen:**
+Zunächst scheinbare Widersprüche in den Ergebnissen der Featureanalyse bezüglich der Sinnhaftigkeit des [lr_scheduele]. 
+  - einzelne Betrachtung unter festhalten der restlichen Parameter ergab keine nennenswerte Verbesserung
+  - Es ist jedoch davon auszugehen, dass Simultanoptimierung der Hyperparameter durchaus profitiert
+
+
+---
+
+## Eintrag 10 *(ca. h)*
+
+**Datum:** 26.03.2026  
+**Titel:** Gruppenergebnisse niederschreiben
+**Aus Gruppentreffen:** 5
+
+**Arbeitsschritte:**
+
+**Erkenntnis:**
+
+
+**Entscheidungen:**
+
+**Schwierigkeiten / offene Fragen:**
+
+
+
+---
