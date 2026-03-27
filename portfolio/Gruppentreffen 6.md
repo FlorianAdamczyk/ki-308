@@ -1,4 +1,4 @@
-# Gruppentreffen 5
+# Gruppentreffen 6
 
 **Anwesend:** [Florian, Kolja, Felix N., Felix H., Björn]
 **Datum:** 26.03.2026
@@ -11,4 +11,10 @@
     - Es wurd geklärt, dass jeder seine Notebooks erneut ausführt und ohne nbstripout pusht
     - Die Notebokks werden dann vom Gruppensprecher gezipped
     - wer möchte kann wichtige Grafiken ins Logbuch einfügen 
-    - 
+  - Formatierungen
+    - (Ergebnis PDF) Namen der Mitarbeiterinnen in Klammern hinter jeweiligen Punkt
+    - Entscheidung keine Fachwörter in den Ergebnissen zu erklären  
+    - Felix H. teilt eine einheitliche Titelseite
+    - Anhänge klären
+    - einig über uneinheitliche Logbuchzusammenfassung 
+  
