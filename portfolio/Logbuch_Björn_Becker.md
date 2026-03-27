@@ -3,19 +3,7 @@
 **Name:** Björn Philipp Becker  
 **Gruppe:** 308  
 **Zeitraum:** 20.02.2026 – 15.04.2026
-**Matrikelnummer** ...
----
-
-## Anleitung
-
-Ein Eintrag enthält mindestens:
-- **Datum**
-- **Titel** (kurz und prägnant)
-- **Arbeitsschritte** (stichpunktartig ist ausreichend)
-- Verweis auf das Gruppentreffen, aus dem die Aufgabe hervorgegangen ist
-- Ggf. Abweichungen vom vereinbarten Vorgehen (mit Begründung)
-
-Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausgearbeitet sein.
+**Matrikelnummer** 8206290
 
 ---
 
@@ -59,10 +47,10 @@ zusätzliche Recherche mit Google
 **Entscheidungen:**
 - ich möchte mich nicht so sehr mit der Form des NN auseinandersetzen, sondern an genannten Dingen arbeiten
   - Pooling (auch wenn Aussicht auf Erfolg nicht so groß ist)
-ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebung an.
+- ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebung an.
 
 **Schwierigkeiten / offene Fragen:**
-- Das Ausführen der Notebooks der anderen Gruppenmitglieder dauert sehr lange - sollte ich es im JupiterHub der Uni probieren, welchem ich mehr Rechenleistung adhästiere.
+- Das Ausführen der Notebooks der anderen Gruppenmitglieder dauert sehr lange - sollte ich es im JupiterHub der Uni probieren, welchem ich mehr Rechenleistung adhästiere. (spätere Ergänzung: mir wurde in einem späteren Gruppentreffen verdeutlicht, dass ich mich wohl täuschte)
 
 ---
 
@@ -73,7 +61,7 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 **Aus Gruppentreffen:** Angelehnt an Gruppentreffen 5 am 17.03.
 
 **Arbeitsschritte:**
-- Aus den Ergebnissen von Kolja und Felix H. haben wir Schlüsse über die Größenordnung von Parametern gezogen. Außerdem war Ergebnis, dass die Aktivierungsfunktion kaum Einfluss auf die Ergebnisse hat, weswegen ich heute nur ReLu nutzte, da diese effizient ist (vgl. [StudySmarter](https://www.studysmarter.de/studium/ingenieurwissenschaften/maschinelles-lernen-studium/aktivierungsfunktion/#:~:text=Eine%20der%20gr%C3%B6%C3%9Ften%20St%C3%A4rken%20der%20ReLU%20ist,einer%20Standardwahl%20in%20Deep%20Learning%20Anwendungen%20macht.)).
+- Aus den Ergebnissen von Kolja und Felix H. haben wir Schlüsse über die Größenordnung von Parametern gezogen. Außerdem war Ergebnis, dass die Aktivierungsfunktion kaum Einfluss auf die Ergebnisse hat, weswegen ich heute nur ReLu nutzte, da diese effizient ist (vgl. [StudySmarter](https://www.studysmarter.de/studium/ingenieurwissenschaften/maschinelles-lernen-studium/aktivierungsfunktion/#:~:text=Eine%20der%20gr%C3%B6%C3%9Ften%20St%C3%A4rken%20der%20ReLU%20ist,einer%20Standardwahl%20in%20Deep%20Learning%20Anwendungen%20macht.) Zugriff: 18.03.).
 - Ich wollte mich zuerst mit dem grundsätzlichen Coden eines einfachen Neuronalen Netzes auseinandersetzen. Dazu habe ich Modulimporte und Skalierung der bereinigten Daten aus den Gruppenergebnissen übernommen. Da Felix H. herausfand, dass nur ["MedInc", "AveOccup", "Latitude", "Longitude"] Informationsgewinn bieten und die anderen Daten eher zum Rauschen beitragen, entschied ich mich, nur diese 4 zu benutzen. 
 - Meine ersten beiden kleinen Netze, die ich mit einer L2 Regularisierung zur Vermeidung von Overfitting (Die Nützlichkeit hatte Kolja beim Gruppentreffen eingebracht), kleinem Dropout und mit EarlyStopping ausgestattet hatte, ergaben ordentliche Ergebnisse mit einem R2 von knapp über 0.7 und wenig Overfitting. 
 - Wie im Gruppentreffen besprochen, ist die erste Aufgabe, ein sehr gutes Netz aus den bisherigen Erkenntnissen zu bauen. Ich erwartete, da bisher die Hyperparameter eher einzeln getestet wurden, Probleme mit lokalen Minima zu bekommen. Deswegen nutze ich Random-Search. Hyperparametereingrenzung ergaben sich aus den Ergbnissen der Anderen mit Abgleich mit ChatGPT: Ergebnis: 
@@ -191,11 +179,10 @@ ich lege mir eine kleine Analoge Formelsammlung für das Projekt und die Umgebun
 - Beim nochmaligen darüber Nachdenken bin ich nun nicht mehr so überzeugt, dass die lin. reg so viel bringt. Frage ChatGPT: Welche anderen Möglichkeiten gibt es, die Daten in eine verständliche Form zu bringen? - PDP (Partial Dependence Plots) mit RandomForestGenerator
   - die PDP grenzen die Hyperparameter weiter ein
   - so wie Florian die Feature Importance herausgefunden hat, kann man jetzt die Hyperparameter Importance aus dem Random Forest ausgeben lassen
-    - Jetzt kann man iterativ Random-/ oder Grid-Search machen und die Hyperparameter weiter eingrenzen
+    - dieses Metamodell zeigt den Zusammenhang zwischen den Hyperparametern und dem R^2 Score.
+    - Jetzt kann man iterativ **Random-**/ oder Grid-Search machen und die Hyperparameter weiter eingrenzen
 
-![Hyperparameter Importance](C:\KI_2026\KI_308\ki-308\results\Hyperparameters_Feature_Importance.png)
-![PDP](C:\KI_2026\KI_308\ki-308\results\pdp.png)
-
+(siehe dazu in results: pdp.png und Hyperparameter_Importance.png)
 
 **Entscheidungen:**
 - Morgen mache ich das ganze nochmal mit einem größeren Datensatz
@@ -277,18 +264,14 @@ Das ist eher eine Rechercheaufgabe)
 ## Eintrag 6
 
 **Datum:** 21.03.
-**Titel:** Titel  
+**Titel:** Feature Anpassung  
 **Aus Gruppentreffen:** Eigenständig, aber aufbauend aud Gruppentreffen 5
 
 **Arbeitsschritte:**
 - Ich trainiere das Ensemble nun auf den gesamten California Housing Datensatz. Der Score ist 0.78 und damit deutlich besser als zuvor. Ich werde das Ensemble noch ein paar mal ausführen, um abzuschätzen, wie groß das Rauschen ist. (Ergebnisse: 0.778, 07795, 0.788, 0.7807, 0.7809)
 - Fragte ChatGPT: welche Features des California Housing Datensatz kann man verbinden, sodass ein bessers NN entsteht? - ... Diese sind besonders effektiv: AveRooms / AveOccup, AveBedrms / AveRooms,Population / AveOccup, MedInc / AveOccup ... Es sollten die normierten Daten verwendet werden. 
 - Ich habe heute keine Lust mehr mich mit Python Fehlern auseinander zu setzen
-**Entscheidungen:**
-- 
 
-**Schwierigkeiten / offene Fragen:**
-- 
 
 ---
 
@@ -296,7 +279,7 @@ Das ist eher eine Rechercheaufgabe)
 
 **Datum:** 23.03. 
 **Titel:** Anfang Dokumentation 
-**Aus Gruppentreffen:** Treffen X oder "Eigenständig"
+**Aus Gruppentreffen:** Eigenständig
 
 **Arbeitsschritte:**
 - Habe einen schwer zu identifizierenden Fehler. Der Score des aktuellen Ensembles ist ?negativ?. 
@@ -305,13 +288,6 @@ Das ist eher eine Rechercheaufgabe)
   - Außerdem ist die Skalierung im Eimer. Wahrscheinlich macht es Sinn, erst Feature Engineering mit den Ursprungsdaten zu machen und dann alle gemeinsam zu skalieren.
     - Der Score von nun 0.765 ist etwas enttäuschend
 - Nach einer längeren Lagebesprechung mit Felix N. haben wir uns für heute dazu entschieden, wie auch im Gruppentreffen 5 vereinbart, schonmal die Ergebnisse des Projektes zusammen zu fassen. Gesprächsthemen waren außerdem der aktuelle Stand und formale Themen. Außerdem werde ich mich im Verlauf des heutigen Tages mit meinem Notebook beschäftigen in Sachen Lesbarkeit und Dokumentation.
-
-**Entscheidungen:**
-- 
-
-**Schwierigkeiten / offene Fragen:**
-- 
-
 
 ---
 
@@ -323,8 +299,8 @@ Das ist eher eine Rechercheaufgabe)
 
 **Arbeitsschritte:**
 - Ich habe nun endlich den Fehler in meinem Code gefunden und noch einen weiteren aufgedeckt. Er betrifft das gestrige Ensemble(vor feature Engineering). Ich hoffe nun bessere Ergebnisse zu bekommen. - 0.768
-- Ich habe nun also noch einmal Random-serach verwendet, um für den erweiterten Datensatz gute netze zu finden. Allerdings ist das Ergebnis mit 0.67 wirklich schwach. ich mus wahrscheinlich nochmal die parameterspannen erweitern.
-möglich wäre auch dass die maximale anzahl von 200 Epochen zu wenig ist, um die netze hinreichend zu trainieren. Deswegen nun in allen Hyperparametern größere Spannen und mehr Epochen. - Das hat wieder gar nichts gebracht.
+- Ich habe nun also noch einmal Random-serach verwendet, um für den erweiterten Datensatz gute netze zu finden. Allerdings ist das Ergebnis mit 0.67 wirklich schwach. ich muss wahrscheinlich nochmal die Parameterspannen erweitern.
+  - möglich wäre auch dass die maximale Anzahl von 200 Epochen zu wenig ist, um die Netze hinreichend zu trainieren. Deswegen nun in allen Hyperparametern größere Spannen und mehr Epochen. - Das hat wieder gar nichts gebracht.
 - Die nächste Idee war, die Architektur ein bisschen zu diversifizieren. Das bringt ein bisschen Verbesserung, aber nicht relevant.
 - Ich speichere das trotzdem mal ab. Ganz zum Schluss möchte ich ein weighted Ensemble bauen. Dafür brauche ich die Bestandteile so verschieden wie möglich.
   - ich muss dann noch den Shirnk-Faktor zwei bei den anderen gespeicherten Netzen hinzufügen.
@@ -343,13 +319,13 @@ möglich wäre auch dass die maximale anzahl von 200 Epochen zu wenig ist, um di
 
 ## Eintrag 9
 
-**Datum:** [25.03.]  
+**Datum:** 25.03.  
 **Titel:** Letzes Ensemble  
-**Aus Gruppentreffen:** [Treffen X oder "Eigenständig"]
+**Aus Gruppentreffen:** Eigenständig
 
 **Arbeitsschritte:**
-- Ich nutze nochma Random-Search und füge einen neuen Hyperparameter hinzu. Ich möchte, dass die Architektur nicht jedes mal so aussieht, dass die layer sich in der größe halbieren. 
-- Habe ein neues Ensemble gebaut mit dieser erweiterung und mit den drei verschiedenen DAtensätzen getestet
+- Ich nutze nochmal Random-Search und füge einen neuen Hyperparameter hinzu. Ich möchte, dass die Architektur nicht jedes mal so aussieht, dass die Layer sich in der Größe halbieren. 
+- Habe ein neues Ensemble gebaut mit dieser Erweiterung und mit den drei verschiedenen Datensätzen getestet
 - Beginne mit dem Schreiben meiner Logbuchzusammenfassung
 
 
@@ -359,7 +335,20 @@ möglich wäre auch dass die maximale anzahl von 200 Epochen zu wenig ist, um di
 **Titel:** Dokumentation
 
 **Arbeitsschritte:**
-- Aufgrund von Problemen mit Git sind meine Zellenoutputs nicht mehr einsehbar. 
+- Aufgrund von Problemen mit Git sind meine Zellenoutputs nicht mehr einsehbar.
   - Leider habe ich die Ergebnisse von den Ensembles nicht dokumentiert.
 - Schreibe heute an meiner Zusammenfassung weiter
 - Heute Abend ist unser letztes Gruppentreffen
+
+---
+
+## Eintrag 11
+
+**Datum:** 26.03.  
+**Titel:** Dokumentation
+
+**Arbeitsschritte:**
+- Ich finde leider nicht mal mehr den Code (siehe Eintrag 9 und 10) in unserem Git und auch nicht im Git-Verlauf. Ich bin mir sicher, gespeichert zu haben...
+  - da ich eigentlich schon über den 75 Stunden bin und noch Dokumentation und Bewertung der Gruppenmitglieder schreiben muss, werde ich das jetzt auf sich beruhen lassen. Ich weiß noch, dass der Score mein bestes bisheriges Ensemble nicht übertraf, was mich zumindest etwas beruhigt. Das Ensemble ist auch nicht mehr zu finden.
+- Ich schreibe an meiner Dokumentation und überarbeite mein Notebook ein kleines bisschen.
+- Ich schreibe die Bewertung der Gruppenmitglieder.

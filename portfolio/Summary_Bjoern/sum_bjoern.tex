@@ -53,7 +53,7 @@ zu verwenden. Daher lag der Fokus meiner Arbeit auf der Hyperparameteroptimierun
 
 %----------------------------------------------------------
 
-\section{Darstellung der Arbeitsprozesse und Ergebnisse}
+\section{Darstellung der Arbeitsprozesse}
 \subsection{Vorbereitung}
 Vor unserem ersten Gruppentreffen habe ich mich mit der Aufgabe vertraut gemacht und bin die Vorlesungsfolien durchgegangen.
 Zusätzlich informierte ich mich über die Einrichtung einer gemeinsamen Programmierumgebung über GitLab. Allerdings kam im Verlauf des 
@@ -63,7 +63,7 @@ entschieden. Florian übernahm die Einrichtung des Repositories und die Architek
 Zwischen dem ersten und 5. Gruppentreffen lag mehr als ein Monat, in dem ich lediglich an den Treffen teilnahm, Florian, Felix H. und Kolja bereits den wesentlichen Teil 
 ihres Arbeitspensums erledigten. 
 Nachdem ich mich einen Tag vor dem fünften Treffen mit dem Fortschritt der Gruppe und den im Repository zugänglichen Dateien, u.a. den Hilfsfunktionen für die Modellevaluation vertraut machte,
-machte ich mir Anhand der Vorlesungsfolien Gedanken über mögliche Aufgaben, an denen ich arbeiten könnte. Außerdem habe ich via venv eine 
+machte ich mir anhand der Vorlesungsfolien Gedanken über mögliche Aufgaben, an denen ich arbeiten könnte. Außerdem habe ich via venv eine 
 passende Python-Umgebung eingerichtet und die benötigten Pakete installiert, um die Jupyter-Notebooks der Gruppe ausführen zu können.
 
 \subsection{Erste Modelle}
@@ -76,9 +76,9 @@ Mit den Netzen erreichte ich  $R^2$-Werte von 0.7188 und 0.7193, was den Verglei
 
 \subsection{Random-Search}
 Nun beginnt der Hauptteil meiner Arbeit. Für alle Hyperparameter war von den Gruppenmitgliedern eine ungefähre optimale Größenordnung vorgegeben worden. Diese habe ich verwendet, um
-gute Modellkonfigurationen zu generieren. Sorgen machte ich mir, da bisher die Hyperparameter jeweils einzeln variiert wurden, was dazu führen kann, dass bei einer geordneten Suche nicht die optimale Kombination gefunden wird, da der Algorythmus eher Plateaus findet als optimale Kombinationen.
+gute Modellkonfigurationen zu generieren. Problematisch erschien mir, dass bisher die Hyperparameter jeweils einzeln variiert wurden, was dazu führen kann, dass bei einer geordneten Suche nicht die optimale Kombination gefunden wird, da der Algorithmus eher Plateaus findet als optimale Kombinationen.
 Dies ist darauf zurückzuführen, dass Hyperparameter häufig Wechselwirkungen aufweisen und daher nicht unabhängig voneinander betrachtet werden sollten (Ertel, 2021).
-Daher entschied ich mich für die Random-Search-Methode, bei der die Hyperparameter zufällig aus den vorgegebenen Bereichen ausgewählt werden. Zu Beginn wurden diese gewählt, wie in Abbildung \ref{tab:hyperparameters} dargestellt.
+Daher entschied ich mich für die Random-Search-Methode, bei der die Hyperparameter zufällig aus den vorgegebenen Bereichen ausgewählt werden. Zu Beginn wurden diese gewählt, wie in Tabelle \ref{tab:hyperparameters} dargestellt.
 Random Search gilt als effektive Methode zur Hyperparameteroptimierung, da sie im Vergleich zu systematischen Suchverfahren häufig schneller gute Kombinationen findet (vgl. Bergstra \& Bengio, 2012).
 \begin{table}[ht]
     \centering
@@ -103,7 +103,7 @@ Random Search gilt als effektive Methode zur Hyperparameteroptimierung, da sie i
     \label{tab:hyperparameters}
 \end{table}
 \\
-Damit die Rechenzeit im Ramen blieb nutze ich Parallelisierung, womit mehrere Modelle gleichzeitig trainiert werden konnten. 
+Damit die Rechenzeit im Rahmen blieb nutze ich Parallelisierung, womit mehrere Modelle gleichzeitig trainiert werden konnten. 
 Aus mehreren hundert Modellen, wählte ich die besten 50 aus, um diese zu analysieren. \begin{table}[ht]
     \centering
     \label{tab:random_search_results}
@@ -125,8 +125,8 @@ Aus mehreren hundert Modellen, wählte ich die besten 50 aus, um diese zu analys
 \end{table}
 \\
 Aus den Ergebnissen waren keine klaren Aussagen mit bloßem Auge möglich, weshalb 
-ich mich dazu entschied einen Random-Forest-Classifier mit den Hyperparametern zu trainieren und damit die Hyperparameter-Importance (Abb. \ref{fig:hyperparameter_importance}) zu erzeugen.
-Außerdem liess ich mir die im sklearn-Modul verfügbaren Partial-Dependence-Plots anzeigen, um die Auswirkungen der Hyperparameter auf die Modellleistung zu verstehen.
+ich mich dazu entschied einen Random-Forest-Classifier mit den Hyperparametern zu trainieren und damit die Hyperparameter-Importance (Abb. \ref{fig:hyperparameter_importance}) bzw. den Einfluss der Hyperparameter auf die Modellleistung zu erzeugen.
+Außerdem ließ ich mir die im sklearn-Modul verfügbaren Partial-Dependence-Plots anzeigen, um die Auswirkungen der Hyperparameter auf die Modellleistung zu verstehen.
 
 
 \begin{figure}[h]
@@ -143,7 +143,7 @@ Außerdem liess ich mir die im sklearn-Modul verfügbaren Partial-Dependence-Plo
         \caption{Feature-Importance der Hyperparameter nach der dritten Iteration}
     \end{subfigure}
     \caption{Vergleich der Hyperparameter-Importance nach der ersten und dritten Iteration der Random-Search.}
-    \label{hyperparameter_importance}
+    \label{fig:hyperparameter_importance}
 \end{figure}
 
 Mit den Partial-Dependence-Plots (Abb. \ref{pdp}) war es dann möglich, die Auswirkungen der Hyperparameter auf die Modellleistung zu verstehen. Durch ein Iteratives Vorgehen,
@@ -169,7 +169,7 @@ konnte das Modell sukzessive verbessert werden. Allerdings zeigte sich nach der 
 Währenddessen probierte ich auch größere Spannen bei den Hyperparametern aus, um zu sehen, ob es vielleicht doch noch bessere Modelle gibt. Zu nennen ist hier zum Beispiel die Tiefe des Netzes oder eine kleinere Lernrate.
 Ziel war es, etwas über den Tellerrand hinauszuschauen, um zu prüfen, ob es vielleicht doch noch bessere Modelle gibt. Es zeigte sich, dass die Tiefe des Netzes von 4 Layern gute Ergebnisse lieferte, weshalb ich diesen Wert in die Random-Search mit aufnahm.
 Vorerst nutze ich eine maximale Epochenzahl von 100. Da trotz Early-Stopping aber nach der der zweiten Iteration die Netze noch nicht ausreichend trainiert worden waren, erhöhte ich die maximale Epochenzahl.
-Schlussendlich passte ich die Hyperparameterbereiche folgendermaßen an (Abb. \ref{tab:hyperparameters_2}):
+Schlussendlich passte ich die Hyperparameterbereiche folgendermaßen an (Tab. \ref{tab:hyperparameters_2}):
 
 \begin{table}[ht]
     \centering
@@ -205,11 +205,9 @@ Um eine Aussage über den gesamten California-Housing-Datensatz zu treffen, trai
 
 \subsection{Feature-Engineering}
 Aus dem deutlichen Sprung des $R^2$ durch die Hinzunahme der restlichen Features lag nahe, Feature-Engineering
-zu betreiben. Tatsächlich konnte ich durch die Erstellung neuer Features (siehe Tab. \ref{tab:features}) das Ensemble in zwei Versuchen nicht verbessern, sondern verschlechterte es sogar. 
+zu betreiben. Tatsächlich konnte ich durch die Erstellung neuer Features (siehe Tab. \ref{tab:features_1} u. Tab. \ref{tab:features_20}) das Ensemble in zwei Versuchen nicht verbessern, sondern verschlechterte es sogar. 
 \begin{table}[h]
-\centering
-
-\begin{tabular}{|c|c|}
+\begin{tabular}{@{}lcc@{}}
 \hline
 neues Feature & Definition \\
 \hline
@@ -223,9 +221,11 @@ $R^2$-Wert & 0.65 \\
 \hline
 \end{tabular}
 \caption{zusätzliche Features und deren Definitionen im ersten Versuch des Feature-Engineerings}
-\vspace{0.5cm}
+\label{tab:features_1}
+\end{table}
+\begin{table}[h]
 
-\begin{tabular}{|c|c|}
+\begin{tabular}{@{}lcc@{}}
     \hline
     neues Feature & Definition \\
 \hline
@@ -239,24 +239,45 @@ logarithm of population & $\log(Population)$ \\
 $R^2$-Wert & 0.68 \\
 \hline
 \end{tabular}
-
+\label{tab:features_20}
 \caption{zusätzliche Features und deren Definitionen im zweiten Versuch des Feature-Engineerings}
 \end{table}
 
-I
+\subsection{Meine Erkenntnisse und Ausblick}
 
+Kern meiner Arbeit war die Hyperparameteroptimierung durch die Random-Search-Methode und Ensembles auf verschiedenen Datensätzen zu trainieren.
+In meiner Arbeit habe ich erkannt, dass es sehr schwierig ist, Neuronale Netze anhand von Hyperparameteroptimierung zu verbessern.
+Oft kommen Verbesserungen überraschend, wie bei der Hinzunahme der als unwichtig deklarierten Features und manchmal haben Entscheidungen die 
+logisch erscheinen, wie das daraus gefolgerte Feature-Engineering, negative Auswirkungen auf die Güte des Netzes.
+Wärend meiner Arbeit habe ich eher gelernt, wie man sicher viele gute Netze generiert und weniger wie man ein sehr gutes erhält.
+Es konnte in meiner Arbeit gezeigt werden, dass Neuronale Netze vor allem mit Hyperparameteroptimierung durch Random-Search-Methoden die
+Zusammenhänge innerhalb des California-Housing-Datensatzes wesentlich besser erfassen können als lineare Regressionen. 
+Weitere Verbesserungen könnten z.B. durch das Untersuchen der Architektur der Netze, mit Hilfe eines Verkleinerungsfaktors für  die Schichten, erreicht werden. 
 
+\subsection{Reflexion und Einordnung}
+
+Insgesamt konnte mein bestes Modell einen $R^2$-Wert von 0.788 auf dem gesamten Datensatz erreichen, was für wirtschaftliche Anwendungen bereits als gutes Ergebnis interpretiert werden kann (Investopedia, o.\,J.), wobei diese Interpretation
+stark kontextabhängig ist. Online findet sich eine Ausarbeitung des Datensatzes, bei der ein Neuronales Netz mit einem $R^2$-Wert von etwa 0.80 auf dem Testset erreicht wurde(medium, o.\,J.), was zeigt, dass das erreichte
+Ergebnis konkurenzfähig ist, aber auch noch Raum für Verbesserungen bietet. 
+Die Methodik der Hyperparameteroptimierung durch Random-Search-Methoden hat das Problem, dass es keine Garantie dafür gibt, dass die optimale Kombination gefunden wird. Es muss bei jedem Hyperparameter in einem kleinen Intervall 
+gesucht werden, wobei nicht ausgeschlossen werden kann, dass die optimale Kombination außerhalb dieses Intervalls liegt. 
+Die gebildeten Ensembles haben die Vorhersageleistung kaum verbessert. Als nächster Schritt sollte in das Ensemble andere Modelle neben Neuronalen Netzen aufgenommen werden, um die Diversität der Modelle zu erhöhen.
+Außerdem ist hat auch das Rauschen der Modelle einen Einfluss auf die Güte des Ensembles. 
+Das Feature-Engineering hat sich als schwierig erwiesen und sich negativ auf die Güte des Netzes ausgewirkt. Möglicherweise könnten aber andere 
+Features auch einen positiven Einfluss haben, weshalb es sich lohnen könnte, weitere Features zu erstellen und zu testen.
+Es sei noch erwähnt, dass der Datensplit in Trainings-, Validierungs- und Testset immer der gleiche war, um bessere Vergleichbarkeit zu gewähren.
+Allerdings sind die erzielten Ergebnisse nicht unbedingt auf alle anderen möglichen Splits übertragbar.
 
 
 \begin{thebibliography}{9}
 
-\bibitem{felix_logbuch}
-Felix H.
+\bibitem{Logbuch_Felix_Hollfoth}
+Felix Hollfoth.
 \textit{Logbuch – KI I Projekt, Gruppe 308}.
 Unveröffentlichtes Arbeitsdokument, 2026.
 
-\bibitem{florian_logbuch}
-Florian.
+\bibitem{Logbuch_Florian_Adamczyk}
+Florian Adamczyk.
 \textit{Logbuch – KI I Projekt, Gruppe 308}.
 Unveröffentlichtes Arbeitsdokument, 2026.
 
@@ -285,7 +306,15 @@ James Bergstra and Yoshua Bengio.
 Random Search for Hyper-Parameter Optimization.
 \textit{Journal of Machine Learning Research}, 13:281–305, 2012.
 
+\bibitem{investopedia_r2}
+Investopedia.
+\textit{R-Squared}.
+Verfügbar unter: \url{https://www.investopedia.com/terms/r/r-squared.asp} (Zugriff am 26.03.2026).
 
+\bibitem{medium}
+Advika
+\textit{California Housing Price Prediction: A Multi-Model Analysis}
+Verfügbar unter: \url{https://medium.com/@saudhaminiupdated/california-housing-price-prediction-a-multi-model-analysis-e63bd9cbddb1} (Zugriff am 27.03.2026)
 \end{thebibliography}
 
 
