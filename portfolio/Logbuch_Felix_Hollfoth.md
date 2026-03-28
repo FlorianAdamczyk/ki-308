@@ -110,6 +110,7 @@
 **Arbeitsschritte:**
 
 * Lernrate grob bestimmt (Test von alpha = 1E-6 bis 10); Resultat: zwischen 0,001 und 0,01 die einzigen Bereiche, in denen der Score auf den Testdaten über 70 % ist
+  ![Lernrate_grob](../results/Lernrate_Grobbestimmung.png)
 * Zwischen 0,001 und 0,01 in 50 identischen Schritten durchitteriert -> Ergebnisse schwanken sehr
   ![Lernrate](../results/Lernrate%20zwischen%201E-3%20und%201E-2.png)
 * Lernrate konstant über 0,74 im Intervall [0,0032; 0,0072] und bester Einzelwert bei 0,0054 welcher bei dieser Schwankung aber auch deutlich auf Zufall im Modell hindeutet
@@ -129,12 +130,14 @@
   * Mittelwert: 0,7481
   * Varianz: 0,0002
   * Standardabweichung: 0,0124
-* Standardabweichung zeigt, dass die bisher betrachtete Entwicklung von Hyperparameter genauso schwankt wie der Testscore bei erneuter Ausführung, daher werden neue Hyperparameter betrachten und deren Einfluss untersucht
-* folgende batch-size werden Betrachten für eine grobe Einordnung: batch_size = [4, 8, 16, 32, 64, 128, 256, 512] -> zwischen einer batch-size von 16 bis 128 werden die Modelle alle stabil innerhalb der Standardabweichung trainiert
+    ![Histogramm_100Modelle](../results/R2%20Test%20Score%20ueber%20100%20Durchlaeufe%20identischer%20Parameter.png)
+* Standardabweichung zeigt, dass die bisher betrachtete Entwicklung von Hyperparameter genauso schwankt, wie der Testscore bei erneuter Ausführung -> neue Hyperparameter betrachten und deren Einfluss untersucht
+* folgende batch-sizes werden Betrachten für eine grobe Einordnung: batch_size = [4, 8, 16, 32, 64, 128, 256, 512] -> zwischen einer batch-size von 16 bis 128 werden die Modelle alle stabil innerhalb der Standardabweichung trainiert
 * Epochen betrachtet: epochs = [10, 50, 100, 200, 500, 1000, 10000] -> ab 500 Epochen wird Overfitting stärker; bis 500 Epochen verbessert sich der Test-Score -> Entscheidung einen Verlauf des MAE-Wertes auf den Testdaten pro Epoche ausgeben zu lassen
   Overfitting durch zu viele Epochen:
   ![Bild](../results/epochenanzahl%20results.png)
 * MAE-Wert zeigt ein Minimum bei 500; Da nur bis 500 Epochen trainiert wurde wird ein neues Training bis 1000 Epochen laufen gelassen
+![Epochenverlauf](../results/Test-MAE%20im%20Epochenverlauf.png)
 * Bis 1000 Epochen zeigt sich keine weitere Verbesserung -> Minimum hier bei circa 300 Epochen.
 * In beiden Verläufen sieht man bis 300 Epochen eine Verringerung des MAE, daher sollten auf jeden Fall mehr als 100 Epochen trainiert werden (mindestens 300 weniger als 500 wegen overfitting)
 
@@ -168,6 +171,7 @@
 * Idee die Ergebnisse genauer zu Interpretieren um Rückschlüsse auf optimale Hyperparametern ziehen zu können, daher wird nur auf die wichtigesten Features trainiert um den Informationsgehalt zu bestimmen
 * Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls Rauschen mit ein und nur den selben Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
   ![Bild](../results/nn_residuals_histogramme_vergleich_featureanzahl.png)
+  ![Bild](../results/nn_4_vs_8_Features_2.png)
 * Random Search nur auf vier Features angewendet, da es ein konsistenteres Modell verspricht
 * Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias, Cluster o.ä. -> eine Verbesserung wird hier erstmal nicht vorgeschlagen (Datenbereinigung ist in Ordnung)
 
@@ -176,7 +180,7 @@
 ## Eintrag 10
 
 **Datum:** 12.03.2026
-**Titel:** Ensable zur Stabilisierung von Ausreißern
+**Titel:** Ensemble zur Stabilisierung von Ausreißern
 **Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
 **Arbeitsschritte:**
