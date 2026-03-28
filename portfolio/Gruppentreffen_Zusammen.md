@@ -92,8 +92,6 @@
 **Uhrzeit:** 15:00 Uhr - 17.15 Uhr
 **Ort:** Discord
 
----
-
 ### Besprochene Punkte
 
 - Bisherige Arbeit ging teilweise an Aufgabenstellung vorbei.
@@ -181,8 +179,9 @@
 - Die Projekte von Felix N. und Björn wurden vorgestellt
 - Einigung auf verschiedene Formatierung
 - Die Notebooks sollen ausgeführt werden und ohne nbstripout gepushed werden. *nbstripout --uninstall*
+  - Die Notebokks werden dann vom Gruppensprecher gezipped
+- wer möchte kann wichtige Grafiken ins Logbuch einfügen 
 - kurze Mediation
-
 ### Aufgabenverteilung bis zur Abgabe:
 
 - Felix N. schreibt mit Unterstützung der Gruppe die Gruppenergebnisse zu Ende.
