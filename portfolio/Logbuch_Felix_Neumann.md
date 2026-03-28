@@ -1,20 +1,7 @@
 
-**Name:** Felix  
+**Name:** Felix Neumann
 **Gruppe:** 308  
 **Zeitraum:** 20.02.2026 – 15.04.2026
-
----
-
-## Anleitung
-
-Ein Eintrag enthält mindestens:
-- **Datum**
-- **Titel** (kurz und prägnant)
-- **Arbeitsschritte** (stichpunktartig ist ausreichend)
-- Verweis auf das Gruppentreffen, aus dem die Aufgabe hervorgegangen ist
-- Ggf. Abweichungen vom vereinbarten Vorgehen (mit Begründung)
-
-Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausgearbeitet sein.
 
 ---
 
@@ -22,7 +9,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 
 **Datum:** 20.02.2026 
 **Titel:** Projektstart — Aufgabe lesen, Repository einrichten  
-**Aus Gruppentreffen:**  [1] (20.02.2026)
+**Aus Gruppentreffen:**  [1] (20.02.2026) *(ca. 2 h)*
 
 **Arbeitsschritte:**
 - Aufgabenstellung gelesen und verstanden 
@@ -34,11 +21,6 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 - Einlesen in verschiedene Formen des NN
   - verknüpfen Vorlesungsinhalte mit Implimentationen im Notebook
 - einrichten Github zum Austausch der Inhalte
-**Entscheidungen:**
-- 
-
-**Schwierigkeiten / offene Fragen:**
-- _z.B. Frage zu Hyperparameter-Wahl bei NN_
 
 ---
 
@@ -105,6 +87,11 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
   - geringe Tiefe, variable Breite 
   - start learning rate 0.001
   - Verwendung der vorbereiteten Datenbereinigungen und Skalierungen [load_and_clean_data()]
+- Interpretation Residuenhistogramme: (alle ähnliche Verteilung)
+- Das Residuendiagramm zeigt eine Zentrierung der Werte um die Nulllinie. Das Modell hat demnach keinen systematischen Bias und unterschätzt Werte ähnlich oft, wie es sie überschätzt.   
+Obgleich der Großteil des Fehlers in einem engen Bereich liegt, zeigt er keine perfekte Normalverteilung, sondern hat "heavy tails".
+Eine solche leicht Rechtsschiefe Verteilung bedeutet, dass die Preise der Häuser im Zweifel leicht unterschätzt werden.  
+Es sind auch einige Outlier (Residuen>2) zu erkennen deren Preis massiv unterschätzt wurde. Dies könnte an dem Fehlen von Features liegen, welche diese Preissteigungen erklären könnten.
 
 **Entscheidungen:**
 - Pythonumgebung auf 3.10.20 für gute tensorflowpermoance downgraden
@@ -159,7 +146,7 @@ Screenshots im Logbuch sind erlaubt. Abbildungen müssen nicht vollständig ausg
 ---
 
 
-## Eintrag 5 *(ca. 4h)*
+## Eintrag 5 *(ca. 45h)*
 
 **Datum:** [21.03.2026]  
 **Titel:** [neue geologische Features]  
@@ -339,25 +326,86 @@ Zunächst scheinbare Widersprüche in den Ergebnissen der Featureanalyse bezügl
 
 ---
 
-## Eintrag 10 *(ca. h)*
+## Eintrag 10 *(ca. 9h)*
 
 **Datum:** 26.03.2026  
 **Titel:** Gruppenergebnisse niederschreiben
 **Aus Gruppentreffen:** 5
 
 **Arbeitsschritte:**
-- Schreiben des Absatzes zur Datenbereinigung 
+- Schreiben des Absatzes zur Explorativen Datenanalyse 
   - zunächst Schwierigkeiten beim Einfügen einer Grafik (gelöst)
-  - 
+  - Auftteilung in Analyse, Bereinigung und Darstellung der Daten
+- Lineare Regression 
+  - Baseline erklärt und Fehlerwerte und R^2 als Vergleich für spätere Modelle
+  - LASSO und Ridge
+- Decision Tree, Enemble und K-Nearest neigbor als weiterer Vergleich und Messlatte für mögliche Performance erhlaten jeweils eigenen Absatz
+
+- Neuronale Netze 
+  - Vorgehen und Auteilung erklärt 
+  - Ansätze zur Verbesserung des Neuronalen Netzes unter den Überthemen "Architektur" und "Featureengeneering".
+  - Architektur umfasst:
+    - Layer
+    - Regularisierung
+    - Aktivierungsfunktionen
+    - Hyperparameter
+  - Featureengeneering beinhaltet die geschickte Wahl der richtigen für das training und Versuche der Neuschaffung von Parametern
+  - Absatz lineare Regression vs. Neuronale Netze - besonders viel Aufwand hinein stecken
+  - stellt sich heraus ich habe das stärkste Modell geschaffen 
+    - (![alt text](<../results/stärkstes Modell.png>))
+
+  - Vorbereitung auf Gruppentreffen
+    - Fragen bezüglich der Zusammenfassung der Ergebnisse an die Gruppenmitglieder  
+- Gruppentreffen 6 (siehe Bericht GT &6)
+  - persönliche Aufgaben: 
+    - fertig schreiben der Ergebnisse
+      - hinzufügen der Personen die den jeweiligen Abschnitt bearbeitet haben
+    - zusammen mit Björn Zusammenfassung der Gruppentreffen
+    - Formatierungen geklärt 
 **Erkenntnis:**
-
-
-**Entscheidungen:**
+  - Eine suabere Ergebnis PDF schreiben ist deutlich aufwendiger als erwartet
 
 **Schwierigkeiten / offene Fragen:**
 - git merge crash
   - Ständige Probleme durch ID Änderung durch ausführen des Codes anderer und pushen der ID-Änderung.
-  - vorläufiger Fix kostet mich eine Stunde, viele Nerven, aber hoffentlich keine Änderung an dem betroffenen Notebook
+  - vorläufiger Fix kostet mich eine 1.5h, viele Nerven, aber hoffentlich keine Änderung an dem betroffenen Notebook
+- Tau class template bietet viele Möglichkeiten, hat aber auch sehr viele Schwierigkeiten mit denen es umzugehen gilt.->laufend neue Entdeckungen
+- 
 
+---
+
+## Eintrag 11 *(ca. 9h)*
+
+**Datum:** 27.03.2026  
+**Titel:** Gruppenergebnisse niederschreiben
+**Aus Gruppentreffen:** 6
+
+**Arbeitsschritte:**
+- Hinzufügen der Namen der Gruppenmitglieder
+- Einfügen von passenden Grafiken in Ergebnis Report (=ER)
+- Kommentieren dieser Grafiken
+- Rechtschreibkorrektur
+- erneutes Korrekturlesen
+- Referenzieren 
+- Zusammenfassung der Gruppentreffen mit Björn zsm abgabefertig gemacht 
+- Zusammenfassung dieses Logbuchs
+  - generieren von Grafiken passend zu den Inhalten
+  - ebenfalls mit Rechtschreibkorrektur
+  - Bibliothek mit Referenzen aufbauen
+  - Markdowndatei "Logbuch_Felix_Neumann" als Pdf exportiert und angehängt.
+- erneutes Ausführen des Codes 
+- Titelseite vorbereitet und angehängt
+- restliche Zeit mit Anhängen, zippen und hochladen 
+**Erkenntnis:**
+  - neues gelernt über Referenzierung in Latex
+  - ich mache zu viele Rechtschreibfehler
+
+**Entscheidungen:**
+- 10 Finger schreiben lernen
+- Markdownnin Latex anhängen
+
+**Schwierigkeiten / offene Fragen:**
+- ordentliches Verpacken aller Bestandteile
+- Rechtschreibkorrektur 
 
 ---
