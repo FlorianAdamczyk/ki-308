@@ -1,0 +1,17 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{Logbuch}{II}{section*.1}%
+\contentsline {section}{\numberline {1}Fragestellung und Ziel}{X}{section.1}%
+\contentsline {section}{\numberline {2}Darstellung der Arbeitsprozesse}{X}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Vorbereitung}{X}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Erste Modelle}{X}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Random-Search}{X}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Ensemble}{XI}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Feature-Engineering}{XI}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Meine Erkenntnisse und Ausblick}{XI}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Reflexion und Einordnung}{XII}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Bewertung der Gruppenmitglieder}{XII}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Kolja}{XII}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Felix H.}{XII}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Florian}{XII}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Felix N.}{XII}{subsection.3.4}%
+\contentsfinish 

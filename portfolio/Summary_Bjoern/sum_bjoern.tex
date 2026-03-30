@@ -8,7 +8,11 @@
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{pdfpages}
+
 
 %----------------------------------------------------------
 % Title & Author
@@ -18,7 +22,7 @@
 \title{Neuronales Netz f\"ur den kalifornischen Hauspreis-Datensatz}
 
 \author[a]{Björn Becker}
-\affil[a]{Justus-Liebig-Universität Gießen, Martrikelnummer: \dots}
+\affil[a]{Justus-Liebig-Universität Gießen, Martrikelnummer: 8206290}
 
 %----------------------------------------------------------
 % Document Info
@@ -39,6 +43,78 @@
 
 %----------------------------------------------------------
 \begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{0.5 cm}
+    % \begin{large} Justus-Liebig-Universität\\ Gießen \end{large}
+    \includegraphics[width = 0.6 \textwidth]{../Summary_Felix_H/Bilder/JLU_Giessen-Logo.png}	%University Logo
+    \\[2.0 cm]
+    % \begin{center}    \textsc{\Large Justus - Liebig - Universität}\\{Giessen}\\[0.8cm]	\end{center}% University Name
+    
+    \textsc{\Large Gruppennummer: 308}  \\[0.3 cm]				% Course Code
+    \rule{\linewidth}{0.2 mm} \\[0.2 cm]
+    { \huge \bfseries \thetitle}\\
+    \rule{\linewidth}{0.2 mm}\\[2.0 cm]
+    
+    
+    \begin{minipage}{0.5\textwidth}
+        \begin{flushleft}
+            \emph{Übrige Gruppenmitglieder:}\\
+            \large{Florian Adamczyk}\\
+            \large{Felix Hollfoth}\\
+            \large{Felix Neumann (Sprecherin)}\\
+            \large{Kolja Scriba}\\
+            %  Affiliation\\
+        \end{flushleft}
+    \end{minipage}~
+    \begin{minipage}{0.5\textwidth}
+        \begin{flushright}
+            
+            \emph{Protokoll von:} \\
+            
+            \large{Björn Becker}\\ 
+            \small{\href{mailto:bjoern.becker@stud.uni-giessen.de}{bjoern.becker@stud.uni-giessen.de}\\
+                Matrikel Nr.: 8206290\: }\\[0.5cm]
+            
+        \end{flushright}
+    \end{minipage}\\[2.0 cm]
+
+        
+    \begin{minipage}{0.8\textwidth}
+       \begin{center}
+        \large
+        Modul: Künstliche Intelligenz I\\
+        Dozent: Prof. Dr. Christian Heiliger\\
+        Semester: Wintersemester 2025/26
+        \end{center} 
+    \end{minipage}
+
+\vfill
+
+
+
+\end{titlepage}
+% =========================
+% 2. INHALTSVERZEICHNIS
+% =========================
+
+\clearpage
+\pagenumbering{Roman} % römische Seitenzahlen
+
+\tableofcontents
+% =========================
+% Logbuch VOR dem Dokument
+% =========================
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Logbuch}
+
+\includepdf[
+  pages=-,
+  pagecommand={}
+]{../Logbuch_Bjoern_Becker.pdf}
 
 \maketitle
 \thispagestyle{firststyle}
@@ -269,6 +345,46 @@ Es sei noch erwähnt, dass der Datensplit in Trainings-, Validierungs- und Tests
 Allerdings sind die erzielten Ergebnisse nicht unbedingt auf alle anderen möglichen Splits übertragbar.
 
 
+\section{Bewertung der Gruppenmitglieder}
+
+Bevor ich die Bewertung der Gruppenmitglieder vornehme, möchte ich kurz darauf hinweisen, dass aufgrund der zeitlichen Planung, ich nur in den Gruppentreffen und ein kleines bisschen darüber hinaus
+mit Kolja, Felix H. und Florian in Kontakt stand. Daher ist die Bewertung hier etwas oberflächlich.
+
+\subsection{Kolja}
+
+Kolja hatte eine Phase im ersten Gruppentreffen, in der er mit seinen Problemen bezüglich Einrichtung seiner Programmierumgebung
+beschäftigt war, was dazu führte, dass er zwischenzeitlich etwas abwesend wirkte. Allerdings wurde in dieser Phase etwas weniger Entscheidendes
+besprochen, weshalb es nicht zu einem großen Problem wurde. Andererseits erlebte ich Kolja als einen sehr warmen und freundlichen Menschen. 
+Ich errinere mich daran, dass er sich nach einem Gruppentreffen Zeit nahm, um mit mir über Schwierigkeiten im Studium und bei der Wohnungssuche 
+zu sprechen. Kolja ist definitiv der Typ Mensch, auf den man immer zugehen kann. Er leitete am Ende des letzten Gruppentreffens eine 
+mediatorische Diskussion ein, um eventuelle Meinungsverschiedenheiten zu klären, was bei allen gut ankam, ohne dass etwas zu besprechen war.
+
+\subsection{Felix H.}
+
+Felix H. war sehr engagiert dabei und schaffte mit seinen Erkenntnissen die Grundlage für meine Arbeit. Unsere Gruppentreffen verliefen trotz 
+vorhandener Agenda etwas chaotisch ab, wobei Felix sich immer um Struktur in diesen und im Rest des Projektes bemühte. Leider konnte er sich nicht immer durchsetzen.
+Man konnte Felix ansehen, wie er im Laufe des Projektes mehr und mehr vertraut mit der gesamten Materie wurde. Ich behaupte, 
+dass er sich am Ende des Projektes am besten mit Neuralen Netzen auskennt. 
+
+\subsection{Florian}
+
+Florian war unsere Bank und erster Ansprechpartner bei allen technischen Problemen. Hochmotiviert stürme er sich auf die Einrichtung unseres Workspaces.
+Manchmal wirkte es allerdings, als sei er in seiner eigenen Welt. Damit meine ich, dass er in Gruppentreffen manchmal vom Thema abschweifte,
+um seine Gedanken zu teilen, die nicht unbedingt zum Thema passten. Dass er auch am Ende unsicher mit den Namen der Gruppenmitglieder 
+war, bestätigt diesen Eindruck. Andererseits war er immer sehr freundlich und hilfsbereit. Er brachte einen nicht zu bändigen Elan 
+mit, welcher auf mich ansteckend wirkte. Seine Arbeit ermöglichte es uns, uns mit der eigentlichen Materie zu beschäftigen. Der Workspace 
+ist sehr gut organisiert und seine Notebooks sehr gut dokumentiert, was mir sicherlich einige Zeit und Frustation beim Einlesen zu Beginn meiner Arbeit gespart hat.
+
+\subsection{Felix N.}
+
+Da wir im selben Studiengang und Semester sind, hatten wir schon vor dem Projekt einige Berührungspunkte.
+Felix N. ist ein klassischer Menschenfänger. Seine Art mit Menschen umzugehen und Menschen zu vernetzen ist wahrlich bewundernswert. 
+Felix und ich standen während unserer Bearbeitung immer mal wieder in Kontakt, wobei wir uns über unseren Arbeitsfortschritt und das weitere Vorgehen austauschten.
+Seine Motivation für das Projekt war nicht besonders hoch, was er mir gegenüber äußerte, aber für mich nicht erkennbar in seiner Arbeitsweise war.
+Die Zuverlässigkeit, die er in seinen Aufgaben als Gruppensprecher an den Tag legte, sorgte auch dafür, dass ich mehr Zeit hatte um verschiedene Dinge auszuprobieren.
+Obwohl er am kürzesten Zeit hatte, um am Neuronalen Netz zu arbeiten, konnte sein Ergebnis, dieses aller Gruppenmitglieder übertreffen. 
+
+
 \begin{thebibliography}{9}
 
 \bibitem{Logbuch_Felix_Hollfoth}
@@ -316,8 +432,5 @@ Advika
 \textit{California Housing Price Prediction: A Multi-Model Analysis}
 Verfügbar unter: \url{https://medium.com/@saudhaminiupdated/california-housing-price-prediction-a-multi-model-analysis-e63bd9cbddb1} (Zugriff am 27.03.2026)
 \end{thebibliography}
-
-
-
 
 \end{document}

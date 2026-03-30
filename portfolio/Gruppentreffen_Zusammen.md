@@ -182,6 +182,7 @@
   - Die Notebokks werden dann vom Gruppensprecher gezipped
 - wer möchte kann wichtige Grafiken ins Logbuch einfügen 
 - kurze Mediation
+
 ### Aufgabenverteilung bis zur Abgabe:
 
 - Felix N. schreibt mit Unterstützung der Gruppe die Gruppenergebnisse zu Ende.

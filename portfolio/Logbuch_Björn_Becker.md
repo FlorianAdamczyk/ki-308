@@ -328,6 +328,7 @@ Das ist eher eine Rechercheaufgabe)
 - Habe ein neues Ensemble gebaut mit dieser Erweiterung und mit den drei verschiedenen Datensätzen getestet
 - Beginne mit dem Schreiben meiner Logbuchzusammenfassung
 
+---
 
 ## Eintrag 10
 
@@ -352,3 +353,13 @@ Das ist eher eine Rechercheaufgabe)
   - da ich eigentlich schon über den 75 Stunden bin und noch Dokumentation und Bewertung der Gruppenmitglieder schreiben muss, werde ich das jetzt auf sich beruhen lassen. Ich weiß noch, dass der Score mein bestes bisheriges Ensemble nicht übertraf, was mich zumindest etwas beruhigt. Das Ensemble ist auch nicht mehr zu finden.
 - Ich schreibe an meiner Dokumentation und überarbeite mein Notebook ein kleines bisschen.
 - Ich schreibe die Bewertung der Gruppenmitglieder.
+
+---
+
+## Eintrag 12 
+
+**Datum** 27.03. und 30.03.
+**Titel** Korrekturlesen und Abgabe fertig machen
+
+**Arbeitsschritte**
+- An beiden Tagen schaue ich über das Logbuch und schreibe die Gruppentreffen in eine Datei. Markdowns werden zu PDF und das Notebook ohne nbstipout ausgeführt. 
