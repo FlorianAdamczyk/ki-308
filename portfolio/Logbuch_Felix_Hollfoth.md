@@ -81,7 +81,7 @@
 
 ## Eintrag 5
 
-**Datum:** 07.03.2026
+**Datum:** 07.03.2026 und 08.03.2026
 **Titel:** Bestimmung von Hyperparametern (Aktivierungsfunktion und Skalierung)
 **Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
@@ -180,7 +180,7 @@
 
 ## Eintrag 10
 
-**Datum:** 12.03.2026
+**Datum:** 12.03.2026 und 13.03.2026
 **Titel:** Ensemble zur Stabilisierung von Ausreißern
 **Aus Gruppentreffen:** Gruppentreffen 4 (27.02.2026)
 
@@ -226,7 +226,7 @@
 
 ## Eintrag 12
 
-**Datum:** 19.03.2026, 20.03.2026, 28.03.2026 und 31.03.2026
+**Datum:** 19.03.2026, 20.03.2026 und 28.03.2026
 **Titel:** E-Portfolio erstellen
 **Aus Gruppentreffen:** Gruppentreffen 5 (17.03.2026)
 
@@ -241,10 +241,13 @@
 
 ## Eintrag 13
 
-**Datum:**
+**Datum:** 31.03.2026
 **Titel:** E-Portfolio beenden
 **Aus Gruppentreffen:** Gruppentreffen 6 (26.03.2026)
 
 **Arbeitsschritte:**
 
-* Nachdem Felix N. und Björn die Ergebnisse vorgestellt haben konnte die Einschätzung der Gruppenmitglieder und damit die Beending des e-Portfolios erfolgen
+* Nachdem Felix N. und Björn die Ergebnisse vorgestellt haben konnte die Einschätzung der Gruppenmitglieder und damit die Beendigung des e-Portfolios erfolgen
+* nbstripout deinstallieren und wichtigsten Zellen erneut ausführen, damit der Code und die Abbildungen aus dem Git Repository nachvollziehbar sind (Aus Gruppentreffen 6)
+* markdown (Logbuch) per Markdown pdf exportieren
+* Kompilierungsfehler in Overlief (timeout) lösen, indem ein Gratis 7 Tage Test gekauft wird
