@@ -137,7 +137,7 @@
   Overfitting durch zu viele Epochen:
   ![Bild](../results/epochenanzahl%20results.png)
 * MAE-Wert zeigt ein Minimum bei 500; Da nur bis 500 Epochen trainiert wurde wird ein neues Training bis 1000 Epochen laufen gelassen
-![Epochenverlauf](../results/Test-MAE%20im%20Epochenverlauf.png)
+  ![Epochenverlauf](../results/Test-MAE%20im%20Epochenverlauf.png)
 * Bis 1000 Epochen zeigt sich keine weitere Verbesserung -> Minimum hier bei circa 300 Epochen.
 * In beiden Verläufen sieht man bis 300 Epochen eine Verringerung des MAE, daher sollten auf jeden Fall mehr als 100 Epochen trainiert werden (mindestens 300 weniger als 500 wegen overfitting)
 
@@ -173,7 +173,8 @@
   ![Bild](../results/nn_residuals_histogramme_vergleich_featureanzahl.png)
   ![Bild](../results/nn_4_vs_8_Features_2.png)
 * Random Search nur auf vier Features angewendet, da es ein konsistenteres Modell verspricht
-* Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias, Cluster o.ä. -> eine Verbesserung wird hier erstmal nicht vorgeschlagen (Datenbereinigung ist in Ordnung)
+* Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias -> eine Verbesserung wird hier erstmal nicht vorgeschlagen (Datenbereinigung ist in Ordnung)
+* Cluster bei den Parametern Latitude und Longitude weißen eventuell auf ortsspezifische Korrelationen hin -> sollte später auch genauer untersucht werden
 
 ---
 
@@ -199,8 +200,10 @@
 * output collaps konnte behoben werden, in der neuen Funktion in der Print ausgabe, war ein Fehler, weshalb 100 Zeichen hintereinander ausgegeben werden sollten und dadruch der output collabiert ist
 * Ensemble zeigt Verbesserung im Score (R^2 Test Score: 0,7983)
 * Alle Kombinationen der Modelle vier bis dahin besten Modelle ausprobieren -> Je mehr Modelle in das Ensemble einfließen, desto besser ist der Score und wenn die Modelle unterschiedliche Featureanzahl haben wird der Score auch besser
+  ![enseble averaging](../results/ensemble%20averaging.jpeg)
 * Neue Modelle auf 2 und 3 Features trainiert um Ensemble zu erweitern -> Zu wenig Features, Modelle zu schlecht und auch keine Hilfe für Ensable
-* Mit Random Search werden fünf gute Modelle trainiert mit verschiedenen Hyperparametern und diese mit Ensemble zu einer Prediction zusammengeführt -> R^2 Test Score: 0,7861
+* Mit Random Search werden fünf gute Modelle trainiert mit verschiedenen Hyperparametern und diese mit Ensemble zu einer Prediction zusammengeführt -> R^2 Test Score: 0,7861 (best_model_random_search_iterations_100.h5, best_model_4_important_features_iterations_5, best_model_5_important_features_iterations_5, best_model_6_important_features_iterations_5, best_model_random_search_iteration_20.h5)
+  ![best result](../results/best%20result_felix_h.png)
 * Ergebnisse daraus: Ensamble kann die Vorhersage erhöhen -> Modelle sind nicht redundant, Fehler sind nicht exakt korreliert
 * Residuenplots zeigen große Ausreißer in Richtung eines zu niedrig vorhergesagten Hauspreises -> Ausblick: Diese Ausreißer im Datensatz suchen und auf eventuelle Fehler im Datensatz zurückführen. Eventuell Schwellwert bei Datenbereinigung herabsetzen
 
@@ -214,7 +217,7 @@
 
 **Arbeitsschritte:**
 
-* Commit nicht mehr möglich
+* Commit nicht mehr möglich, durch nicht synchronisierte Änderungen
 * Beim Zusammenlegen auf den Main Pfad waren alle Änderungen weg
 * Änderungen wiederherstellen war nicht möglich, da eine Änderung bei 05_Neural_Network_Kolja vorgelegen hat (Merge Konflikt)
 * Nach dem Merge konnten die alten Dateien wiederhergestellt werden
@@ -223,7 +226,7 @@
 
 ## Eintrag 12
 
-**Datum:** 19.03.2026 und 20.03.2026
+**Datum:** 19.03.2026, 20.03.2026, 28.03.2026 und 31.03.2026
 **Titel:** E-Portfolio erstellen
 **Aus Gruppentreffen:** Gruppentreffen 5 (17.03.2026)
 
@@ -240,7 +243,7 @@
 
 **Datum:**
 **Titel:** E-Portfolio beenden
-**Aus Gruppentreffen:** Gruppentreffen 6 !!!
+**Aus Gruppentreffen:** Gruppentreffen 6 (26.03.2026)
 
 **Arbeitsschritte:**
 
