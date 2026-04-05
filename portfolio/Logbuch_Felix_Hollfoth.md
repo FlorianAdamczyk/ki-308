@@ -15,6 +15,7 @@
 **Arbeitsschritte:**
 
 - VS Code gedownloaded und Repository geklont
+- GitHub eingerichtet und Features installiert (pdf viewer, KI etc.) [11]
 - Python 3.14.3 installiert
 - nbstripout heruntergeladen und aktiviert, damit Ausführungen von Notebooks nicht commited werden
 - In den California Housing Datensatz eingearbeitet und sich das Notebook aus der Vorlesung angeschaut
@@ -69,13 +70,13 @@
 
 * Beginn Programmierung (mit den Aufgaben aus Gruppentreffen 4)
 
-  * Hilfsfunktionen werden von Florian genutzt (florians_code)
+  * Hilfsfunktionen werden von Florian genutzt [3]
   * Daten werden damit geladen, bereinigt und skaliert, sodass für die folgende Analsyse Standardisierte-, Normalisierte Daten von null bis eins und die originalen Daten zur Verfügung stehen
 * Beim erstellen eines ersten Neuronalen Netzes kam der Fehler NaN (Not a Number). Fehlerursache (Vermutungen):
 
   * Das Dataframe ist nach dem skalieren intern beschädigt, trotz bzw. wegen eingebauter Rückumwandlung
   * Beim konventieren in Numpy entstehen echte NaNs, die im Dataframe enthalten bleiben
-* Gruppenmitglied Florian hat in der Funktion: get_train_test_split() (florians_code) ebenfalls einen scaler miteinprogrammiert, welcher diesen Fehler nicht enthält, weshalb dieser absofort genutzt wird
+* Gruppenmitglied Florian hat in der Funktion: get_train_test_split() [3] ebenfalls einen scaler miteinprogrammiert, welcher diesen Fehler nicht enthält, weshalb dieser absofort genutzt wird
 
 ---
 
@@ -87,16 +88,16 @@
 
 **Arbeitsschritte:**
 
-* Um die Arbeitsergebnisse vergleichen zu können wird ein Netz als Basis trainiert mit Paramtern aus der Literatur (aktivierungsfunktion2024) und von Florian (florians_code)
+* Um die Arbeitsergebnisse vergleichen zu können wird ein Netz als Basis trainiert mit Paramtern aus der Literatur [1] und von Florian [3]
 * Da die Konvergenz eines Verfahrens häufig sehr stark von dem Wertebereich und der dazugehörigen Aktivierungsfunktion abhänkt wird über folgende Kombinationen iteriert:
 
   * Aktivierungsfunktionen: 'relu', 'tanh', 'sigmoid', 'elu', 'selu', 'leaky_relu'
   * Datenskalierung: keine, standard, min0_max1
 
   Ergebnisse: ![Bild](../results/Ergebnisse%20Untersuchung%20Aktivierungsfunktion.png)
-* Außer den in den Vorlesung bekannten Aktivierungsfunktionen wird selu mitberücksichtigt, da sie beim Durchlauf die Aktivierungen normalisieren kann. Vorallem für tiefere Netze interessant, falls mehr als zwei hidden layer sich als nützlich erweisen sollten (selu2025)
+* Außer den in den Vorlesung bekannten Aktivierungsfunktionen wird selu mitberücksichtigt, da sie beim Durchlauf die Aktivierungen normalisieren kann. Vorallem für tiefere Netze interessant, falls mehr als zwei hidden layer sich als nützlich erweisen sollten [2]
 * Standardisierung laut Tabelle die beste Option. Dahingehen sorgt keine Skalierung dafür, dass einige Modelle je nach Aktivierungsfunktion sogar schlechter sind als der Mittelwert. Das kann an den großen Unterschiedenen im Wertebereich der Features liegen
-* Beste Test-Score zeigt sich beim tanh mit der Standardisierung mit 0,7668. Für künfige Modelle verwenden.
+* Bester Test-Score zeigt sich beim tanh mit der Standardisierung mit 0,7668. Für künfige Modelle verwenden.
 * Abweichung von Test- zu Trainingsscore liegt bei 3,8 %, welches leichtes overfitting andeutet aber als noch nicht problematisch angesehen wird, daher erstmal keine weitere Berücksichtigung
 
 ---
@@ -126,7 +127,7 @@
 
 **Arbeitsschritte:**
 
-* Histogramm über 100 Modelle mit konstanten Parametern erstellt -> wenige Modelle 0,7 und 0,72; meisten Modelle liegen zwischen 0,74 und 0,765
+* Histogramm über 100 Modelle mit konstanten Parametern erstellt -> wenige Modelle 0,7 und 0,72; meisten Modelle liegen zwischen 0,74 und 0,765 [4]
   * Mittelwert: 0,7481
   * Varianz: 0,0002
   * Standardabweichung: 0,0124
@@ -151,9 +152,9 @@
 
 **Arbeitsschritte:**
 
-* Da sich die Hyperparameter gegenseitig beeinflusses muss ein finales Training auf einer Kombination von Hyperparametern basieren -> daher über verschiedene Hyperparameter testen mittels Random Search -> Wegen der benötigten Rechenzeit und zu erwarteten Ergebnissen wird RandomSearch GridSearch bevorzugt (randomsearch2012)
+* Da sich die Hyperparameter gegenseitig beeinflusses muss ein finales Training auf einer Kombination von Hyperparametern basieren -> daher über verschiedene Hyperparameter testen mittels Random Search -> Wegen der benötigten Rechenzeit und zu erwarteten Ergebnissen wird RandomSearch GridSearch bevorzugt [5]
 * Bei über 100 Modellen konnte ein Test-Score von 0,7759 erreich werden.
-* Da die Verbesserung an Hyperparametern zu stagnieren scheint werden alternativen ausprobiert. Nach Recherche wird LR-Schedule ausprobiert (copilot2026-1)
+* Da die Verbesserung an Hyperparametern zu stagnieren scheint werden alternativen ausprobiert. Nach Recherche wird LR-Schedule ausprobiert [10]
 * LR-Schedule zeigt keine signifikanten Verbesserungen
 
 ---
@@ -167,13 +168,13 @@
 **Arbeitsschritte:**
 
 * Variation von Hyperparametern zeigt keine wesentliche Verbesserung des Testscores, weshalb andere Wege gegangen werden (nicht in Gruppentreffen abgestimmt)
-* Vergleich mit bereits trainierten Modellen, um Score einzuschätzen (califoniahousing2025) -> Score liegt bei ungefähr 0,80 aber es gibt keine genauen Angaben zu Lernrate etc. -> Mehr Variation in der Netz Breite und Tiefe (wird allerdings parallel von Kolja untersucht laut Gruppentreffen 4, aber die Ergebnisse von Kolja sind noch nicht gepusht, daher kann ich Sie nicht übernehmen zum Training)
+* Vergleich mit bereits trainierten Modellen, um Score einzuschätzen [9] -> Score liegt bei ungefähr 0,80 aber es gibt keine genauen Angaben zu Lernrate etc. -> Mehr Variation in der Netz Breite und Tiefe (wird allerdings parallel von Kolja untersucht laut Gruppentreffen 4, aber die Ergebnisse von Kolja sind noch nicht gepusht, daher kann ich Sie nicht übernehmen zum Training)
 * Idee die Ergebnisse genauer zu Interpretieren um Rückschlüsse auf optimale Hyperparametern ziehen zu können, daher wird nur auf die wichtigesten Features trainiert um den Informationsgehalt zu bestimmen
-* Training auf (MedInc, AveOccup, longitude, latitude) zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls Rauschen mit ein und nur den selben Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
+* Training auf (MedInc, AveOccup, longitude, latitude) [8] zeigt bei 5 Modellen keine wesentliche Verschlechterung oder Verbesserung -> 5 Modelle sind sehr konstistent (weniger Freiheitsgrade beim Training; geringeres Overfitten) -> restlichen Features liefern keinen wesentlichen Informationsgewinn, bringen ebenfalls Rauschen mit ein und nur den selben Informationsgewinn -> vier Features tragen ein Großteil der erklärbaren Varianz -> Modellleistung scheint durch Datenqualität limitiert zu sein anstatt Modellkomplexität
   ![Bild](../results/nn_residuals_histogramme_vergleich_featureanzahl.png)
   ![Bild](../results/nn_4_vs_8_Features_2.png)
 * Random Search nur auf vier Features angewendet, da es ein konsistenteres Modell verspricht
-* Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias -> eine Verbesserung wird hier erstmal nicht vorgeschlagen (Datenbereinigung ist in Ordnung)
+* Modellqualität beurteilen in Hinblick auf Hyperparameter: Residuen und Histogramme zweigen keinen Bias [6] -> eine Verbesserung wird hier erstmal nicht vorgeschlagen (Datenbereinigung ist in Ordnung) -> eventueller Ausreißer rechts unten genauer untersuchen, bei denen der tatsächliche Hauspreis deutlich niedriger ist, als der vorhergesage Wert
 * Cluster bei den Parametern Latitude und Longitude weißen eventuell auf ortsspezifische Korrelationen hin -> sollte später auch genauer untersucht werden
 
 ---
@@ -189,7 +190,7 @@
 * Noch keine Information über Hyperparameter zur Netzstruktur, da entgegen Gruppentreffen 4 es zu einer Verzögerung kam. Kein Commitit erkennbar.
 * Parameterreduzierung, Dropout etc. soll von weiteren Gruppenmitgliedern übernommen werden.
 * Suche nach weiteren Möglichkeiten, welche bereits noch nicht vergeben sind
-* Mittels Ensemble sollen Ausreißer geglättet und das Modell stabilisiert werden (ensamblewiki2026)
+* Mittels Ensemble sollen Ausreißer geglättet und das Modell stabilisiert werden [7]
 * funktion evaluate_predictions nicht für Ensemble ausgelegt, da keine Trainingsdaten übergeben werden sollen, daher Funktion evaluate_test_predictions() geschrieben
 * Fehler: Outputs are collapsed... (sollte eigentlich nur ein score ausgeben)
 * Interpreter gesetzt aber numpy etc. wird in evaluation.py nicht erkannt
