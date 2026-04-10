@@ -22,5 +22,5 @@ Dies installiert nbstripout als Git-Hook, sodass es automatisch ausgeführt wird
 
 - unser Arbeitsrepository: [GitHub-Repository](https://github.com/FlorianAdamczyk/ki-308)
 - offizielles ki-1 Repository: [Gitlab-Repository](https://gitlab.ub.uni-giessen.de/ag-heiliger/learn/wise-2025-26/ki-1)
-- Lösungen zu Übungen: [Gitlab-Repository](https://gitlab.ub.uni-giessen.de/ag-heiliger/learn/kuenstliche_intelligenz/ki_i_vl)
+- Übungen: [Gitlab-Repository](https://gitlab.ub.uni-giessen.de/ag-heiliger/learn/kuenstliche_intelligenz/ki_i_vl)
 - Vorlesungsfolien: [GitHub-Repository](https://github.com/FlorianAdamczyk/Vorlesungsfolien_ki-1)

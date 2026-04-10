@@ -1,0 +1,10 @@
+\babel@toc {ngerman}{}\relax 
+\contentsline {section}{\numberline {1}Logbuch}{2}{section.0.1}%
+\contentsline {section}{\numberline {2}Zusammenfassung des Logbuchs}{3}{section.0.2}%
+\contentsline {subsection}{\numberline {2.1}Ausgangssituation}{3}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {2.2}Variation von Hyperparametern am neuronalen Netz}{3}{subsection.0.2.2}%
+\contentsline {subsection}{\numberline {2.3}Random Search}{5}{subsection.0.2.3}%
+\contentsline {subsection}{\numberline {2.4}Featureselektion des Modells und Ensemble Averaging}{5}{subsection.0.2.4}%
+\contentsline {subsection}{\numberline {2.5}Zwischenstand und Ausblick}{6}{subsection.0.2.5}%
+\contentsline {section}{\numberline {3}Einschätzung der Gruppenmitglieder}{7}{section.0.3}%
+\contentsline {section}{\numberline {4}Quellen und Hilfsmittel}{8}{section.0.4}%

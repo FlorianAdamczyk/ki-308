@@ -238,6 +238,72 @@ Acht Notebooks angelegt, die den Phasen des Masterplans entsprechen. Für jedes 
 
 ---
 
+## Eintrag 7 – Nachtrag Gruppentreffen 4 und Neupriorisierung auf NN
+**Datum:** 27.02.2026  
+**Zeitraum:** 15:00–17:15 Uhr (Gruppentreffen 4) + Nachbereitung  
+**Gesamtzeit: ca. 3,5 h**
+
+### Arbeitsschritte
+- Teilnahme am Gruppentreffen 4 (Discord) mit allen Teammitgliedern; gemeinsamer Abgleich, dass wir in den vorherigen Schritten teils zu breit gearbeitet hatten und den Fokus klarer auf Neuronale Netze legen. *(ca. 2,25 h)*
+- Ergebnisse zur bisherigen Datenbereinigung/Skalierung und zur Ordner- und Notebook-Struktur vorgestellt; abgestimmt, welche Teile als stabile Basis bestehen bleiben und welche Abschnitte für den NN-Fokus reduziert werden. *(ca. 25 min)*
+- Technische Entscheidung zur Umgebung dokumentiert: Trotz TensorFlow-/Python-Problemen auf verschiedenen Systemen bleiben wir bei TensorFlow und akzeptieren zunächst inhomogene lokale Python-Versionen, solange Ergebnisse reproduzierbar dokumentiert werden. *(ca. 20 min)*
+- Nach dem Treffen eigene Aufgaben neu priorisiert (weniger neue Baustellen, stärkerer Fokus auf Modellvergleich und Aufbereitung belastbarer NN-Ergebnisse für Portfolio/Logbuch). *(ca. 40 min)*
+
+### Entscheidungen
+| Entscheidung | Begründung |
+|---|---|
+| Fokusverschiebung auf Neuronale Netze | Passt besser zur Aufgabenstellung und zum bereits investierten Aufwand im Team |
+| Heterogene Python-Setups zunächst akzeptieren | Praktische Lösung für unterschiedliche Systeme bei gleichzeitigem Zeitdruck |
+
+### Schwierigkeiten
+- Versionsthemen (TensorFlow/Python) blieben ein Risiko, konnten aber durch klare Dokumentation und reproduzierbare Notebook-Schritte abgefedert werden.
+
+---
+
+## Eintrag 8 – Nachtrag Gruppentreffen 6 und Notebook-Outputs ohne `nbstripout`
+**Datum:** 26.03.2026  
+**Zeitraum:** 17:30–19:30 Uhr (Gruppentreffen 6) + technische Umsetzung danach  
+**Gesamtzeit: ca. 5 h**
+
+### Arbeitsschritte
+- Teilnahme am letzten Gruppentreffen (Discord): Vorstellung der Arbeiten von Felix N. und Björn, Abstimmung zur finalen Formatierung und Klärung der letzten Abgabeschritte. *(ca. 2 h)*
+- Beschluss aus dem Treffen umgesetzt: Notebooks sollen in der finalen Fassung mit sichtbaren Zell-Outputs vorliegen, damit Ergebnisse für Korrektur und Nachvollziehbarkeit direkt erkennbar sind. *(ca. 20 min Planung)*
+- `nbstripout` lokal deaktiviert (`nbstripout --uninstall`) und die relevanten Notebooks erneut vollständig ausgeführt, um Outputs konsistent zu speichern. Anschließend Result-Grafiken aktualisiert und mitgeprüft. *(ca. 2 h)*
+- Änderungen in einem eigenen Commit dokumentiert: **`2a0cfc2`** (*"nbstripout deinstalliert, notebooks durchlaufen lassen. Output ist nun in allen ipynb notebooks abgespeichert!"*). Enthalten waren u. a. `0a_EDA.ipynb`, `0b_Baseline_Lineare_Regression.ipynb`, `05_Neural_Network_Florian.ipynb` sowie aktualisierte Ergebnisgrafiken. *(ca. 40 min inkl. Kontrolle)*
+
+### Entscheidungen
+| Entscheidung | Begründung |
+|---|---|
+| Outputs für finale Abgabe sichtbar machen | Bewertende sehen Metriken/Plots direkt im Notebook ohne erneute Ausführung |
+| Eigener, klar benannter Commit für den Schritt | Erhöht Nachvollziehbarkeit im Git-Verlauf |
+
+### Schwierigkeiten
+- Ohne `nbstripout` steigen Dateigröße und Diff-Umfang der Notebooks deutlich; wurde bewusst zugunsten der Sichtbarkeit der Endergebnisse akzeptiert.
+
+---
+
+## Eintrag 9 – Tau-Template bereitgestellt, Titelseite erstellt, Summary vollständig geschrieben
+**Datum:** 28.03.–09.04.2026  
+**Zeitraum:** Mehrere Arbeitsblöcke im Selbststudium  
+**Gesamtzeit: ca. 7 h**
+
+### Arbeitsschritte
+- Für die Portfolio-Zusammenfassungen ein geeignetes **Tau-Template** aus Overleaf/GitHub recherchiert, auf Projektkompatibilität geprüft (Struktur, Klassen-Dateien, Bibliographie, Build-Verhalten) und im Repository so abgelegt, dass alle Teammitglieder darauf zugreifen konnten. *(ca. 1,5 h)*
+- Bei der Erstellung/Anpassung der Titelseite für die Summary unterstützt und Layout-/Metadatenfelder (Name, Matrikelnummer, Gruppe, Doctype, Datum) auf die Projektanforderungen abgestimmt. *(ca. 1,5 h)*
+- Eigene vollständige Summary meiner Projektarbeit in `portfolio/Summary_Flo/main.tex` ausformuliert: Fragestellung, Methodik, EDA/Baseline, NN-Vergleich, Grenzen, Ausblick; inkl. Abbildungen/Tabellen und Verweisen auf den Arbeitsprozess. *(ca. 3 h)*
+- Abschlusskorrekturen und Strukturverbesserungen durchgeführt (u. a. sprachliche Korrektur, Affiliation/Format, Literatur- und Build-Feinschliff), sodass die Summary konsistent kompilierbar und inhaltlich vollständig ist. *(ca. 1 h)*
+
+### Entscheidungen
+| Entscheidung | Begründung |
+|---|---|
+| Tau-Template als gemeinsame Grundlage | Einheitliche, professionelle Formatierung über alle Summarys hinweg |
+| Eigene Summary komplett in LaTeX finalisiert | Saubere Referenzierung von Abbildungen/Tabellen und gute Nachvollziehbarkeit |
+
+### Schwierigkeiten
+- Kombination aus inhaltlicher Verdichtung (max. 4 Seiten) und formaler Qualität war aufwändig; erforderte mehrere Iterationen bei Textkürzung und Fokussetzung.
+
+---
+
 ## Zeitübersicht (Gesamtprojekt)
 
 | Eintrag | Datum | Tätigkeit | Zeit |
@@ -248,4 +314,7 @@ Acht Notebooks angelegt, die den Phasen des Masterplans entsprechen. Für jedes 
 | 4 | 20.02.2026 | Python-Versionskonflikt macOS | ca. 2 h |
 | 5 | 23.–26.02.2026 | Neuronales Netz & Auswertung | ca. 11 h |
 | 6 | 14.–17.03.2026 | Code-Review, Gruppentreffen 5, Git-Support | ca. 6 h |
-| **Gesamt** | | | **ca. 61 h** |
+| 7 | 27.02.2026 | Nachtrag Gruppentreffen 4 und Neupriorisierung | ca. 3,5 h |
+| 8 | 26.03.2026 | Nachtrag Gruppentreffen 6 + Notebooks ohne nbstripout | ca. 5 h |
+| 9 | 28.03.–09.04.2026 | Tau-Template, Titelseite, vollständige Summary | ca. 7 h |
+| **Gesamt** | | | **ca. 76,5 h** |
