@@ -32,7 +32,7 @@
             \emph{Übrige Gruppenmitglieder:}\\
             \large{Florian Adamczyk}\\
             \large{Björn Becker}\\
-            \large{Felix Hollfoth (Sprecherin)}\\
+            \large{Felix Hollfoth}\\
             \large{Kolja Scriba}\\
             %  Affiliation\\
         \end{flushleft}
@@ -63,8 +63,8 @@
 
 \end{titlepage}
 
-
-
+\tableofcontents
+\newpage
 
 
 
@@ -73,7 +73,7 @@
 % Title & Author
 %----------------------------------------------------------
 
-\doctype{Zusammenfassung des Logbuchs}
+\doctype{\section{Zusammenfassung des Logbuchs}}
 \title{Neuronales Netz f\"ur den kalifornischen Hauspreis-Datensatz}
 
 \author[a]{Felix Neumann}
@@ -114,7 +114,7 @@ Das Bestergebnis meines Neuronalen Netzes auf die Testdaten, übertraf dabei mit
 %----------------------------------------------------------
 %----------------------------------------------------------
 %----------------------------------------------------------
-\section{Fragestellungen}
+\subsection{Fragestellungen}
 
 \taustart{D}Diese Zusammenfassung dokumentiert den individuellen Projektfortschritt basierend auf dem geführten Logbuch.
 Die zentrale Fragestellung der Arbeit lag in der Optimierung neuronaler Netze für den California-Housing-Datensatz und einem anschließenden Vergleich dieser zu der linearen Regression.
@@ -131,8 +131,8 @@ Dabei wurden folgende spezifische Teilfragen untersucht:
 \end{itemize}
 
 %----------------------------------------------------------
-\section{Ansätze und Methoden}
-\subsection{bayesianische Optimierung}
+\subsection{Ansätze und Methoden}
+\subsubsection{bayesianische Optimierung}
 Zur grundlegenden Orientierung beim Aufbau und der Theorie der neuronalen Netze diente einschlägige Fachliteratur \cite{russell2020ai}.
 Die anderen Gruppenmitglieder (inbesondere Felix H.) verusuchten zunächst durch isolierte Hyperparameterwahl sinnvolle Zusammensetzungen
 für die Architektur zu finden. Später erfolgte eine zielgerichtete suche mit Grid- und Randomsearch.
@@ -148,7 +148,7 @@ Zudem kam ein dynamischer Learning-Rate-Scheduler in Verbindung mit \cite{early_
 beispielhaften Modelldurchlaufs erkennen.
 
 
-\subsection{Feature Engineerings}
+\subsubsection{Feature Engineerings}
 Zunächst erfolgte eine allgemeine Featureanalyse. Ganz klar zu erkennen ist die dominanz des Medium Income Features
 bei einem Vergleich der Featureimportances. Es drängte sich die Frage auf, ob aus den restlichen Features noch mehr Information zu gewinnen sei.
 Durch eine Division der Features \texttt{AveBedrms} und \texttt{AveRooms} errechnete ich das Feature \texttt{Bedrooms\_per\_Room}.
@@ -170,7 +170,7 @@ Distanz Features \texttt{Dist\_to\_SF} und \texttt{Dist\_to\_LA}.
     \label{fig:correlation_heatmap}
 \end{figure}
 %----------------------------------------------------------
-\section{Ergebnisse}
+\subsection{Ergebnisse}
 Der Plot "\figref{fig:Beispiel Historgramm}" dient als Beispielresiduenverteilung aller erstellter Modelle.
  Diese unterscheiden sich nur unwesentlich und haben alle eine sehr ähnliche Veteilung. 
 \begin{figure}[H]
@@ -179,7 +179,7 @@ Der Plot "\figref{fig:Beispiel Historgramm}" dient als Beispielresiduenverteilun
     \caption{Beispiel eines Residuenhistogramms}
     \label{fig:Beispiel Historgramm}
 \end{figure}
-Das Residuendiagramm zeigt eine Zentrierung der Werte um die Nulllinie. Das Modell hat demnach keinen systematischen Bias und unterschätzt Werte ähnlich oft, wie es sie überschätzt.   
+Das Residuendiagramm (\figref{fig:Beispiel Historgramm}) zeigt eine Zentrierung der Werte um die Nulllinie. Das Modell hat demnach keinen systematischen Bias und unterschätzt Werte ähnlich oft, wie es sie überschätzt.   
 Obgleich der Großteil des Fehlers in einem engen Bereich liegt, zeigt er keine perfekte Normalverteilung, sondern hat "heavy tails".
 Eine solche leicht Rechtsschiefe Verteilung bedeutet, dass die Preise der Häuser im Zweifel leicht unterschätzt werden.  
 Es sind auch einige Outlier (Residuen>2) zu erkennen deren Preis massiv unterschätzt wurde. Dies könnte an dem Fehlen von Features liegen, welche diese Preissteigungen erklären könnten.
@@ -190,7 +190,8 @@ Es sind auch einige Outlier (Residuen>2) zu erkennen deren Preis massiv untersch
     \caption{Loss über die Verschiedenen Epochen}
     \label{fig:Loss}
 \end{figure}
-Anhand des Plot "\figref{fig:Loss}"  lässt sich sehr gut die Funktion des eingesetzten Earlystoppings während eines 
+
+Anhand des Loss-Plot (\figref{fig:Loss}) lässt sich sehr gut die Funktion des eingesetzten Earlystoppings während eines 
 beispielhaften Modelldurchlaufs erkennen. Das Modell benötigt oft bei weitem nicht alle Epochen für eine Konvergenz. 
 Earlystopping bricht den Vorgang bei zu wenig Veränderung verfrüht ab und ermöglicht so eine große Zeitersparnis. 
 Darüber hinaus lässt sich ein mit Anzahl der Epochen zunehmend großer Overfitting Gap erkennen.
@@ -223,7 +224,7 @@ Das Ziel eines $R^2$-Wertes von über 0{.}8, das durch den Vergleich mit einem R
 
 
 
-\subsection{Vergleich mit linearer Regression}
+\subsubsection{Vergleich mit linearer Regression}
         \begin{table}[H]
         	\caption{Vergleich linearer Regression mit Neuronalem Netz }
         	\label{tab:table}
@@ -247,9 +248,9 @@ Dabei ist zu beachten, dass ein sehr simples Netz die lineare Regression schon s
  mehr Leistung sehr viel Optimierung bedurfte. Des Weiteren benötigt das Neuronale Netz sehr viel mehr Rechenzeit und
  verliert im Vergleich zur linearen Regression fast vollständig die Interpretierbarkeit.
 %----------------------------------------------------------
-\section{Schwierigkeiten und Grenzen}
+\subsection{Schwierigkeiten und Grenzen}
 
-\subsection{Technische Herausforderungen}
+\subsubsection{Technische Herausforderungen}
 Die Implementierung der Tools wurde mehrfach durch technische Probleme gebremst.
 Die Installation des \texttt{keras.tuner} erforderte ein Bugfixing und ein Downgrade des Python-Environments auf Version 3.10.20.
 Darüber hinaus kam es wiederholt zu Git-Merge-Konflikten durch ID-Änderungen in den Jupyter Notebooks, was den Einsatz von Tools wie \texttt{nbstripout} \cite{nbstripout} unumgänglich machte.
@@ -257,14 +258,14 @@ Auch der Umgang mit der \texttt{tau-class} LaTeX-Umgebung in VS-Code stellte anf
 Alles in allem wurden einige Stunden für das Beheben technischer Probleme benötigt.
 \
 
-\subsection{Methodische Grenzen}
+\subsubsection{Methodische Grenzen}
 Eine wesentliche Grenze des aktuellen Modells liegt in der Verarbeitung schiefer Datenverteilungen (z.\,B. bei \texttt{MedInc} und \texttt{Population}), wie in \figref{fig:Beispiel Historgramm} 
 zu erkennen ist.
 Der eingesetzte \texttt{StandardScaler} ist nicht optimal, um die Tabellendaten für das neuronale Netz vorzubereiten. 
 Sowohl in \figref{fig:Beispiel Historgramm} als auch in \figref{fig:best_Network} ist die Schiefe der Verteilung und die mittlere Unterschätzung 
 der Hauspreise zu erkennen.
 %----------------------------------------------------------
-\section{Zwischenstand und Ausblick}
+\subsection{Zwischenstand und Ausblick}
 
 Am Ende der primären Bearbeitungszeit wurde ein starkes neuronales Netz entwickelt, welches die lineare Baseline weit übertrifft.
 Die Erkenntnisse aus dem Feature-Engineering und den Hyperparameter-Optimierungen sind erfolgreich evaluiert worden.
@@ -278,193 +279,503 @@ ohne Verzerrungen und nichttriviale Abhängigkeiten wie zuvor durch ein komplexe
 
 
 
+%-----------------------------------------------------
+
+%-----------------------------------------------------
+
+\newpage 
+\section{Einschätzung der Gruppenmitglieder}
 
 
+\subsection*{Name: Florian Adamczyk}
 
-\begin{comment}
+Florian fiel während der Projektarbeit vor allem durch seine organisatorischen Fähigkeiten und seine Hilfsbereitschaft auf. Sein strukturierter Aufbau der Arbeitsumgebung ermöglichte eine gute Übersicht, insbesondere bei der Zusammenfassung und Einordnung der Gruppenergebnisse. Zudem stand er der Gruppe stets zur Seite, wenn Probleme mit Git auftraten. 
 
-\section{Fragestellung und Ziel}
+Zu Beginn gestaltete er das Projekt aufgrund seiner Erfahrung stark nach seinen eigenen Vorstellungen, sodass es zeitweise schwerfallen konnte, eigene Beiträge einzubringen. Dies änderte sich im Laufe des Projekts jedoch zunehmend, sodass die finale Gestaltung homogener aus den Beiträgen aller Teammitglieder resultierte.
 
-\taustart{Z}iel des Projekts war die Entwicklung eines neuronalen Netzes zur Vorhersage von Immobilienpreisen auf Basis des California-Housing-Datensatzes. Gem\"a{\ss} Aufgabenstellung sollte das Modell mit einer linearen Regression verglichen und die Ergebnisse kritisch eingeordnet werden.
+\subsection*{Name: Felix Hollfoth}
 
-Meine zentrale Fragestellung lautete: \textit{Kann ein neuronales Netz die nichtlinearen Zusammenh\"ange im Datensatz besser erfassen als eine lineare Regression, und welche Architektur eignet sich daf\"ur?}
+Felix zeichnete sich durch ein tiefes inhaltliches Verständnis aus, insbesondere im Bereich der neuronalen Netzarchitektur. So konnte ich durch seine Hilfe Fehler in meinem eigenen Netzaufbau ausbessern. Dabei glänzte er durch kurze und klar verständliche Hilfestellungen.
 
-Dar\"uber hinaus habe ich als Sprechervorbereitung die gesamte Projektinfrastruktur (Repository, Code-Module, Notebooks) aufgebaut, um allen Teammitgliedern eine einheitliche Arbeitsgrundlage zu bieten.
+In einigen wenigen Gruppentreffen hielt er sich bei der Ideenfindung zu Themen, die nicht das ihm zugeordnete Ressort betrafen, eher zurück. 
 
-%----------------------------------------------------------
+\subsection*{Name: Kolja Scriba}
 
-\section{Methodik und Vorgehen}
+Kolja half mir und den anderen insbesondere bei grundlegenden Fragen zu derartigen Projekten sowie mit hilfreichen Kniffen. Zudem beriet er mich in Fragen zum Zeitmanagement stets zuverlässig und zeitnah. 
 
-\subsection{Projektinfrastruktur}
+Da wir in verschiedenen Zeiträumen an dem Projekt arbeiteten, war nicht immer unmittelbar klar, welcher Stand aktuell herrscht. Nach seiner ihm zugedachten Arbeitszeit benötigte es deshalb oft eine Einführung in die aktuellen Schritte. Anschließend half er jedoch immer anstandslos weiter.
 
-Zu Beginn habe ich ein GitHub-Repository eingerichtet und \texttt{nbstripout} als Git-Hook konfiguriert, um Merge-Konflikte durch Notebook-Outputs zu vermeiden \cite{nbstripout}. Die Dokumentation in \texttt{Ressources.md} erm\"oglicht allen Teammitgliedern eine einheitliche Einrichtung.
+\subsection*{Name: Björn Becker}
 
-Ein zentrales \texttt{utils/}-Modul stellt gemeinsame Funktionen bereit:
-\begin{itemize}
-    \item \textbf{data.py:} Laden und Bereinigung des Datensatzes (Cut-offs bei gecappten Werten, Ausrei{\ss}er-Filterung \"uber 98.\ Perzentil)
-    \item \textbf{evaluation.py:} Einheitliche Metriken ($R^2$, MAE, RMSE) und Ergebnissammlung
-    \item \textbf{plotting.py:} Standardisierte Visualisierungen mit Export nach \texttt{results/}
-\end{itemize}
+Björn arbeitete am engsten mit mir zusammen und half immer bei Problemen. Die inhaltliche Absprache und die Arbeitsteilung funktionierten problemlos. 
 
-\subsection{Explorative Datenanalyse}
-
-Der Rohdatensatz umfasst 20.640 Samples mit 8 Features. Nach der Bereinigung (Entfernung gecappter Werte und Ausrei{\ss}er) verbleiben ca.\ 17.386 Samples. \figref{fig:heatmap} zeigt die Korrelationsmatrix: Das mediane Einkommen (\texttt{MedInc}) korreliert am st\"arksten mit dem Hauspreis ($r \approx 0{,}69$).
-
-\begin{figure}[htbp]
-    \centering
-    %\includegraphics[width=0.95\columnwidth]{figures/eda_correlation_heatmap.pdf}
-    \caption{Korrelationsmatrix der bereinigten Features. \texttt{MedInc} zeigt die st\"arkste Korrelation zur Zielvariablen \texttt{MedHouseVal}.}
-    \label{fig:heatmap}
-\end{figure}
-
-\subsection{Baseline: Lineare Regression}
-
-Als Referenzmodell dient eine lineare Regression auf allen 8~Features. Die Ergebnisse (\tabref{tab:results}) zeigen systematische Residuenmuster (\figref{fig:baseline}), die auf nichtlineare Zusammenh\"ange hindeuten, welche die lineare Regression nicht erfassen kann.
-
-\begin{figure}[htbp]
-    \centering
-    %\includegraphics[width=0.95\columnwidth]{figures/baseline_pred_vs_actual.pdf}
-    \caption{Predicted vs.\ Actual f\"ur die lineare Regression. Die Streuung um die Diagonale und systematische Abweichungen bei hohen Preisen zeigen die Grenzen des linearen Modells.}
-    \label{fig:baseline}
-\end{figure}
-
-\subsection{Neuronales Netz mit TensorFlow/Keras}
-
-F\"ur das neuronale Netz habe ich systematisch verschiedene Architekturen getestet:
-
-\begin{enumerate}
-    \item \textbf{Modell~1:} [32] -- minimales Netz als Ausgangspunkt
-    \item \textbf{Modell~2:} [64, 32, 16] -- tiefere Architektur
-    \item \textbf{Modell~3:} [128, 64, 32] -- breiteres Netz
-    \item \textbf{Modell~4:} Vergleich verschiedener Aktivierungsfunktionen (ReLU, ELU, tanh, sigmoid)
-    \item \textbf{Modell~5:} [128, 64, 32, 16] + Dropout -- Regularisierung gegen Overfitting
-\end{enumerate}
-
-Alle Modelle wurden mit dem Adam-Optimizer (Lernrate 0{,}001) trainiert. Die Eingabedaten wurden standardskaliert, da neuronale Netze skalierte Features f\"ur effizientes Training ben\"otigen. \figref{fig:learning} zeigt die Lernkurven ausgew\"ahlter Modelle.
-
-\begin{figure}[htbp]
-    \centering
-    %\includegraphics[width=0.95\columnwidth]{figures/nn_learning_curves.pdf}
-    \caption{Lernkurven (Loss und MAE) f\"ur verschiedene NN-Architekturen. Das Modell mit Dropout zeigt die stabilste Generalisierung.}
-    \label{fig:learning}
-\end{figure}
-
-%----------------------------------------------------------
-
-\section{Ergebnisse}
-
-\tabref{tab:results} fasst die zentralen Ergebnisse zusammen. Das beste neuronale Netz (Modell~5: [128, 64, 32, 16] + Dropout) erreicht einen $R^2$-Wert von \textbf{0{,}78} auf dem Testset -- eine Verbesserung um 15~Prozentpunkte gegen\"uber der linearen Regression.
-
-\begin{table}[htbp]
-    \caption{Vergleich der Modellperformance auf dem Testset}
-    \label{tab:results}
-    \begin{tabular}{lccc}
-        \toprule
-        \textbf{Modell} & \textbf{$R^2$ Test} & \textbf{MAE} & \textbf{RMSE} \\
-        \midrule
-        Lineare Regression & 0{,}633 & 0{,}434 & 0{,}578 \\
-        NN [32] & 0{,}712 & 0{,}362 & 0{,}512 \\
-        NN [64, 32, 16] & 0{,}748 & 0{,}331 & 0{,}479 \\
-        NN [128, 64, 32] & 0{,}726 & 0{,}345 & 0{,}499 \\
-        \textbf{NN + Dropout} & \textbf{0{,}780} & \textbf{0{,}307} & \textbf{0{,}448} \\
-        \bottomrule
-    \end{tabular}
-    \tabletext{MAE und RMSE in Einheiten von \$100.000. Das NN mit Dropout zeigt die beste Generalisierung.}
-\end{table}
-
-\figref{fig:comparison} visualisiert den direkten Vergleich: Das neuronale Netz zeigt eine engere Streuung um die Diagonale, insbesondere im mittleren Preissegment.
-
-\begin{figure}[htbp]
-    \centering
-    %\includegraphics[width=0.95\columnwidth]{figures/nn_vs_linear_regression.pdf}
-    \caption{Kernvergleich: Lineare Regression (links) vs.\ bestes NN (rechts). Das NN approximiert die Diagonale deutlich besser.}
-    \label{fig:comparison}
-\end{figure}
-
-\textbf{Zentrale Erkenntnisse:}
-\begin{itemize}
-    \item Das NN erfasst nichtlineare Interaktionen zwischen Features (z.\,B.\ Einkommen $\times$ Lage), die der linearen Regression verborgen bleiben.
-    \item Ohne Regularisierung (Modell~3) tritt Overfitting auf: $R^2_{\text{Train}} = 0{,}88$ vs.\ $R^2_{\text{Test}} = 0{,}73$.
-    \item Dropout (20\,\% in den ersten Schichten) reduziert die Generalisierungsl\"ucke effektiv.
-    \item ReLU-Aktivierung liefert konsistent die besten Ergebnisse.
-\end{itemize}
-
-%----------------------------------------------------------
-
-\section{Schwierigkeiten und Grenzen}
-
-\subsection{Technische Herausforderungen}
-
-\textbf{Python-Versionskonflikt:} TensorFlow~$\geq$~2.17 unterst\"utzt Python~3.14 nicht. L\"osung: Wechsel auf Python~3.13. F\"ur Teammitglieder mit Intel-Mac (TensorFlow-Inkompatibilit\"at ab 2.17) wurde Python~3.11 mit TensorFlow~2.16 als Alternative dokumentiert.
-
-\textbf{Git-Workflow:} Mehrere Teammitglieder hatten Schwierigkeiten mit Git-Befehlen. Ich habe individuellen Support via Screensharing geleistet und \texttt{nbstripout} auf allen Systemen eingerichtet.
-
-\subsection{Methodische Grenzen}
-
-\begin{itemize}
-    \item \textbf{Interpretierbarkeit:} Das NN ist eine Black Box -- f\"ur regulierte Dom\"anen (Kreditvergabe, Medizin) bleibt lineare Regression oft bevorzugt.
-    \item \textbf{Hyperparameter-Tuning:} Architektur, Lernrate, Dropout-Rate, Epochenzahl -- der Suchraum ist gro{\ss}. Ein systematisches Grid-/Random-Search wurde noch nicht durchgef\"uhrt.
-    \item \textbf{Rechenzeit:} Training auf CPU dauert ca.\ 1--2~Minuten pro Modell (300~Epochen). GPU-Beschleunigung w\"are f\"ur umfangreicheres Tuning sinnvoll.
-\end{itemize}
-
-%----------------------------------------------------------
-
-\section{Zwischenstand und Ausblick}
-
-Nach ca.\ 61~Stunden Arbeitszeit habe ich folgende Meilensteine erreicht:
-
-\begin{enumerate}
-    \item Vollst\"andige Projektinfrastruktur (Repository, Utils-Modul, 8~Notebooks)
-    \item Explorative Datenanalyse und Baseline-Modell
-    \item Systematischer Vergleich von 5~NN-Architekturen
-    \item Git-Support f\"ur das gesamte Team
-\end{enumerate}
-
-\textbf{Offene n\"achste Schritte:}
-\begin{itemize}
-    \item Early Stopping zur automatischen Epochenwahl
-    \item Learning-Rate-Scheduling f\"ur feineres Tuning
-    \item Vergleich mit Ensemble-Methoden (Random Forest, Gradient Boosting) aus den Notebooks anderer Teammitglieder
-    \item Feature-Engineering (Polynomiale Features, Interaktionsterme)
-\end{itemize}
-
-\textbf{Fazit:} Das neuronale Netz \"ubertrifft die lineare Regression deutlich und demonstriert die F\"ahigkeit, nichtlineare Muster im California-Housing-Datensatz zu lernen. Die Regularisierung durch Dropout ist essenziell f\"ur eine gute Generalisierung. Der erreichte $R^2$-Wert von 0{,}78 stellt einen soliden Zwischenstand dar, der durch weiteres Hyperparameter-Tuning noch verbessert werden k\"onnte.
-
-%----------------------------------------------------------
-\end{comment}
-\printbibliography
-
-%----------------------------------------------------------
+Einzig zu beanstanden ist eine Fehlabsprache zwischen ihm und Felix, die zunächst zur Auslassung der Untersuchung der optimalen Tiefe führte. Dies konnte jedoch schnell behoben und entsprechend nachgearbeitet werden.
 \newpage
-\section*{Einschätzung der Gruppenmitglieder}
 
-\subsection{Name: Florian Adamczyk}
-\paragraph{Stärken des Gruppenmitglieds}
+%-----------------------------------------------------
+
+%-----------------------------------------------------
+
+\doctype{\section{Zusammenfassung der Ergebnisse der Gruppe}}
+\title{Neuronales Netz f\"ur den kalifornischen Hauspreis-Datensatz}
+
+
+%----------------------------------------------------------
+
+\author[a]{Florian Adamczyka}%\thanks{\href{mailto:author.one@institute.org}{author.one@institute.org} (A. One)}}
+\author[b]{Felix Hollfoth}
+\author[c]{Kolja Scriba}
+\author[d]{Björn Becker}
+\author[e]{Felix Neumann}
+%if wantet [a,1]
+%----------------------------------------------------------
+
+\affil[a]{Justus-Liebig-Universität, Matrikelnr. 8105234}
+\affil[b]{Justus Liebig Universität, Matrikelnr. 8221324}
+\affil[c]{Justus Liebig Universität, Matrikelnr. 8111369}
+\affil[d]{Justus Liebig Universität, Matrikelnr. 8206290}
+\affil[e]{Justus Liebig Universität, Matrikelnr. 8116639}
+%----------------------------------------------------------
+% Document-, Footer- information
+%----------------------------------------------------------
+
+\dates{This manuscript was compiled on \today}
+
+%\docinfo{This document class was prepared on Overleaf and compiled with pdf\LaTeX{}. No errors were found during the compilation process. Tau-class supports external editors, though additional setup may be required.} 
+
+%----------------------------------------------------------
+
+\dates{Gruppe 308 -- KI~I Projekt WS~2025/26}
+\footinfo{KI~I Portfolio}
+\theday{\today}
+\organization{JLU Gießen}
+%\leadauthor{F.\ Neumann}
+
+%----------------------------------------------------------
+% ABSTRACT AND KEYWORDS
+%----------------------------------------------------------
+
+\begin{abstract}    
+    Dieser Ergebnisbericht dokumentiert die Ergebnisse der Gruppe 308 der Projektarbeit zu Maschinellem Lernen im Modul Künstliche Intelligenz 1. 
+    Die Aufgabenstellung lautete auf dem Datensatz zu den kalifornischen Hauspreisen, wie in der Vorlesung betrachtet ein neuronales Netz, um die Hauspreise zu beschreiben zu entwickeln. 
+    Im Anschluss soll dieses mit der linearen Regression verglichen werden.
+    Die Bearbeitungszeit betrug pro Gruppenmitglied mindestens 75 Stunden und wurde
+    in mehreren Meetings zwischen den Personen aufgeteilt. Neben der linearen Regression
+    wurden auch andere Regressionsmodelle als Vergleichsgrundlage für das Neuronale Netz herangezogen. 
+    Der Schwerpunkt liegt allerdings auf der sukzessiven Verbesserung des Neuronalen Netzes, unter Anwendung der Vorlesungsinhalte.
+    Die Optimierung der Regression erfolgt unter ständiger Kontrolle der Fehlergrößen wie dem Mean Squared Error (=MSE) und dem Root Mean Square Error (=RMSE), sowie dem coefficient of determination ($=R^2$) als quantitativer Vergleich der Modelle.
+\end{abstract}
+
+    % Tau ($\tau$) is a specially designed document class for creating professional and well-structured research articles, technical reports, and academic documentation. Tau enhances the writing experience through intuitive custom environments, multilingual support, and refined typography powered by Fira Sans for headings and distinctive elements, Fira Modo for listings, and STIX2 for body text, providing consistent and professional styling for elements such as tables, figures, equations, code listings, and captions. \textit{New/Updated features will show a (*) in their title.}
+
+%----------------------------------------------------------
+
+\keywords{euronales Netz, California Housing, TensorFlow, Regression, Machine Learning}
+
+%----------------------------------------------------------
+
+    \maketitle 
+    \thispagestyle{firststyle}
     
-\paragraph{Schwächen des Gruppenmitglieds}
+%----------------------------------------------------------
 
-\subsection{Name: Felix Hollfoth}
-\paragraph{Stärken des Gruppenmitglieds}
-\paragraph{Schwächen des Gruppenmitglieds}
+\subsection{Explorative Datenanalyse, -Bereinigung und -Darstellung (Florian)}
+\taustart{D}ie explorative Datenanalyse dient der Aufnahme von Eckdaten des Datensatzes
+und dem erlangen eines Gefühls für potenzielle Besonderheiten,
+die in der Datenbereinigung für ein besseres Ergebnis sinnvoll behoben werden.
+    \subsubsection{Analyse}
+        Die Explorative Datenanalyse ergab, dass zwei der acht Features des Datensatzes cut-off-Werte besitzen.
+        Eine unrealistisch hohe Anzahl an Werten befindet sich hierbei genau an der Grenze der aufgetragenen Werte. 
+        Zudem ist eine hohe Streuung der Werte mit einigen vermeintlichen Ausreißern direkt zu erkennen.
+        Um damit überhaupt beginnen zu können, hat Florian ein Projektinfrastruktur mit git, allgemeinen Funktionen, 
+        Anweisungen und den utils geschaffen, sowie die Daten eingelesen. Auf dieser Grundlage konnte dann mit der inhaltlichen Arbeit 
+        begonnen werden. 
+    
+    \subsubsection{Bereinigung}
+        Die Cut-Off-Werte der Features 'MedHouseVal' und 'HouseAge'  wurden mit den Outliern über dem 98\%-Quantil
+        bei den Features 'AveRooms', 'AveBedrms', 'Population' und 'AveOccup' entfernt, da diese Artefakte darstellen und das Rauschen des Datensatzes erhöhen.
+        Aus den ursprünglich 20.000 Datenpunkten verbleiben nach der Bereinigung noch 17.386. 
 
-\subsection{Name: Kolja Scriba}
-\paragraph{Stärken des Gruppenmitglieds}
-\paragraph{Schwächen des Gruppenmitglieds}
+    \subsubsection{Skalierung}
+        Zuletzt wurde der Datensatz noch in einen Test-(80\% Anteil) und Trainingsdatensatz(20\% Anteil) aufgeteilt. 
+        Aus dem Testdatensatz wurde dann zum lernen der Modelle noch ein Validierungsdatensatz entnommen.
+        Für das Training der Modelle mit verschiedensten Aktivierungsfunktionen ist eine Skalierung zwingend notwendig um ein sinnvolles Ergebnis zu erhalten. 
+        In Notebook 0c wurde zu diesem Zweck ein Standard-Skalierer und drei Minimum-Maximum-Skalierer
+        implementiert, auf die in den jeweiligen Notebooks zurück gegriffen werden wird.
+    \subsubsection{Darstellungen bereinigter Daten}
+        \figref{fig:figure_1} Datensatz mit entfernten Cut-Off-Werten und Ausreißern sortiert nach Features.
+        Im Vergleich mit den Originaldaten gibt es bei den modifizierten Features keine gehäuften Datenansammlungen am Ende der Skala und keine groben Ausreißer mehr.
+        \begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.75\columnwidth]{figures/eda_features_vs_target_clean.pdf}
+    		\caption{Bereinigte Daten sortiert nach Features.}
+    		\label{fig:figure_1}
+    	\end{figure}
 
-\subsection{Name: Björn Becker}
-\paragraph{Stärken des Gruppenmitglieds}
-\paragraph{Schwächen des Gruppenmitglieds}
+    	\figref{fig:figure_2} Die nach  der Datenbereinigung durchgeführte Korrelationsanalyse zeigt den starken Zusammenhang  zwischen 'MedHouseVal' und 'MedInc'.
+    		
+    	\begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.75\columnwidth]{figures/eda_correlation_heatmap.pdf}
+    		\caption{Korrelationsanalyse der bereinigten Daten}
+    		\label{fig:figure_2}
+    	\end{figure}
+
+        
 
 
-\newpage 
-%\includepdf[pages=-, link=true, linkname=logbuch]{Ergebnisse.pdf}
-Platzhalter
+\subsection{Lineare Regression}
+        Die als Vergleichsmodell für die Bewertung komplexerer Modelle von Florian
+        implimentierte lineare Regression, erzielt unskaliert folgende Ergebnisse:
+
+%\tabref{tab:table} shows an example table of some astronomical objects. 
+
+        \begin{table}[H]
+        	\caption{Ergebnisse der linearen Regression}
+        	\label{tab:table}
+        	\begin{tabular}{
+        		>{\raggedright\arraybackslash}p{0.25\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.30\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.31\columnwidth}
+        	}
+        	\toprule
+        	\textbf{Metrik} & \textbf{Train} & \textbf{Test} \\
+        	\midrule
+        	$R^2-Score$        & 0.6465        & 0.6326            \\
+            MAE                & 0.4252        & 0.4331           \\
+            RMSE               & 0.5710        & 0.5779            \\
+        	\bottomrule
+        	\end{tabular}
+        	%\tabletext{Note: The table contains data of some famous celestial objects.}
+        \end{table}
+
+        Diese Werte stellen die "Baseline" zur Einordnung komplexerer Modelle dar
+        und geben einen ersten Anhaltspunkt über die potenzielle Leistung der Regressionen.
+
+        \subsection{LASSO und Ridge (Florian, Kolja)}
+        Eine Erweiterung der linearen Regression durch eine LASSO-Ridge Kombination, sowie die Verwendung des Standard-Scaler führten zunächst zu keiner Verbesserung gegenüber der Baseline.
+        Entscheidende Unterschiede zeigten sich durch die Einführung der Polynomialen Erweiterung. 
+        Zunächst eine Verbesserung in der zweiten und  nochmal geringfügig in der dritten Ordnung. Am Ende konnte ein $R^2 =  0.7184 $
+        auf die Testdaten erreicht werden ($\Delta_{Baseline} R^2 = 8.58\%$). 
+        Durch die gewählten Methoden konnte auch ein sehr geringer Overfitting-Gap erzielt werden.
+
+        
+\subsection{Decision Tree Regression (Florian)}
+        Ausgehend von den Vorlesungsinhalten wurden Decision Trees zunächst als Referenz ohne Einschränkungen
+        und dann mit Beschränkung der maximalen Tiefe gegen Overfitting Probleme trainiert. 
+        Der Overfitting-Gap bei ersterm lag bei knapp 45\%. Bei zweiterem wurde der bias-varianz-tradeoff sichtbar.
+        Durch Pruning konnte das Overfitting des Baums auf die Testdaten sehr erfolgreich unterbunden werden. 
+        Wie auch bei der Explorativen Datenanalyse zeigt sich, dass das Median Einkommen (=MedInc) die Featureimportance dominiert 
+        (siehe \figref{fig:figure_5}). 
+%%% Referenz schreiben
+
+\subsection{Ensemble (Florian)}
+        Die Ensemble-Methoden wurden als Test für die mögliche Genauigkeit der Regression verwendet.
+        Die Ergebnisse der Decision Trees konnten als Random Forest enorm verbessert werden. 
+        Auch die Verwendung des Gradient Boosting und die Optimierung der learning rate konnten bessere Regressionen liefern. 
+        Diese Erkenntnis und ein maximales $R^2 = 0.81$ ($\Delta_{Baseline} R^2 = 17.74\%$), als Marker für die mögliche Leistung der Regression,
+        wurden in das Training neuronaler Netze einbezogen.
+
+
+\subsection{K-Nearest Neighbors Regression (Florian)}
+        Die K-Nearest Neighbors Regression hingegen zeigte keine allzu zuverlässigen Ergebnisse. Sie zeigte jedoch auf,
+        wie unerlässlich eine Skalierung der Daten sein kann. Eine gleichzeitige Reduktion zweier Fehlerquellen führt zum bias-variance-tradeoff bei der Wahl
+        des besten k. Durch Distance weighting wurde eine Verbesserung erzielt, allerdings rechtfertigen die Ergebnisse ($\Delta_{Baseline} R^2 \approx 3.01\%$)
+        die viel längere Rechenzeit nicht.
+
+
+\subsection{Neuronale Netze}
+        Verschiedene Neuronale Netze (=NN) wurden, ausgehend von einem sequenziellen Netz mit einem Hidden Layer (=HL) als Minimalnetz,
+        zunächst ohne optimierte Parametrisierung, ausprobiert. Bereits bei diesem Minimalnetz ergab sich ($\Delta_{Baseline} R^2 \approx 10\%$).
+        Im Anschluss testeten wir verschiedene Optimierungsansätze: 
+        \subsubsection{Architektur}
+        Durch eine geschickte Wahl oder bewusstes Freistellen der Wahl der Parameter des Aufbaus des neuronalen Netzes wurden kleine Verbesserungen
+        der Regression erreicht.
+            \paragraph{Layer (Björn, Felix H., Felix N., Florian; Kolja)}
+            Die Variation der Breite und Layer ergab keine großen Veränderungen für das Neuronale Netz. Ein zu schmaler Layer vermag die
+            komplexen Zusammenhänge zwischen einzelnen Merkmalen nicht ausreichend zu beschreiben. Zu viele Neuronen in einem Layer
+            führten hingegen zu Overfitting. 
+            Dieses konnte durch die Verwendung eines Dropoutlayers drastisch reduziert werden.
+            Es stellte sich zudem heraus, dass obgleich bei isolierter Analyse der Tiefe an einfachen Netzen eine größere Tiefe den $R^2$ weiter steigen lässt,
+            bevor bei ungefähr 10 Layern das overfitting übernimmt vgl. \figref{fig:figure_3},
+            dass bei komplexeren und breiteren Modellen jedoch keine große Tiefe für eine relativ genaue Regression notwendig ist.
+            Diese erhöht nur zunehmend das Overfitting. Es wurden gute Ergebnisse mit zwei-drei Hidden Layers, einer $[128-64-32]$-Neuronenverteilung
+            und einem Dropoutlayer, erzielt.
+
+            \begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.85\columnwidth]{figures/dt_depth_tuning.png}
+    		\caption{maximale Tiefe}
+    		\label{fig:figure_3}
+    	    \end{figure}
+
+            \paragraph{Regularisierung (Kolja)}
+            Untersuchungen des Einflusses einer L2-Regularisierung verglichen mit dem Basismodell 
+            ohne Regularisierung erzielte einen signifikant geringeres Overfitting-Gap (-40\%).
+            Damit erbessert sich die Generalisierungsfähigkeit der Modelle erheblich. 
+            Nach Analyse der L2-Regularisierung, des Dropout-Verfahrens und einer Kombination konnte ein von Modell zu Modell
+            sukzessive verringertes Overfitting zulasten des $R^2$ festgestellt werden.
+            Durch die drastische Verringung des Overfittinggaps reduzierte sich dieser um einige Zehntel Prozent.
+
+            \paragraph{Aktivierungsfunktionen (Felix H., Kolja)}
+             Ein Test der sechs gängigsten Aktivierungsfunktionen (ReLU, tanh, sigmoid, ELU, SELU, Leaky-ReLU) im Zusammenspiel mit
+             den verschiedenen Skalierung zeigt die beste Leistung auf den Testdaten mit dem Tangens hyperbolicus angewandt
+             auf den Standard-Scaler. Dieser erzeugt viele Daten um Null herum, die tangens hyperbolicus gut verarbeiten kann.
+             Zudem neigt diese Funktion wegen ihrer Glätte zu wenig Overfitting. Spätere komplexere Modelle zeigen,
+             dass die Leistung nur geringfügig von der Aktivierungsfunktion abhängt und die Wahl dem Modell überlassen werden kann.
+
+            \paragraph{Hyperparameter (Björn, Felix H., Felix N.)}
+            Zunächst fand eine Analyse der Hyperparameter unter festhalten der restlichen Parameter statt, um eine Idee für die Größenordnung zu gewinnen.
+            Die isolierte Hyperparameterbetrachtung endete dabei häufig in lokalen Minima ohne eindeutiges Optimum.
+            Dennoch stellten sich folgende Größenordnungen als Anhaltspunkte für weitere Untersuchungen heraus.
+            \begin{table}[H]
+        	\caption{Ergebnisse der Hyperparameteruntersuchung}
+        	\label{tab:table}
+        	\begin{tabular}{
+        		>{\raggedright\arraybackslash}p{0.25\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.25\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.40\columnwidth}
+        	}
+        	\toprule
+        	\textbf{Hyperparameter} & \textbf{Größenordnung} & \textbf{Kommentar} \\
+        	\midrule
+        	Epochen            & 300-500        &                                            \\ \hline
+            learning-rate      & 0.01- 0.001    & im Folgeneden meist mit Lr-Scheduler. Dennoch fast immer in diesem Bereich  \\ \hline
+            Batch-Size          & 16-128         & größer würde zu einer zu langen Konvergenzzeit führen               \\
+        	\bottomrule
+        	\end{tabular}
+        	%\tabletext{Note: The table contains data of some famous celestial objects.}
+        \end{table}
+            Das Zusammenspiel der Hyperparameter wurde zunächst mit Random Search und zur höheren Recheneffizienz
+            mit einer Bayesschen Optimierungsfunktion durchgeführt.
+            Die Learningrateoptimierung erfolgt dynamisch während des Trainings mit einem Learningrate-Scheduler.\\
+        \vspace{0.25cm}
+
+        lles in allem führt die händische Veränderung der Architektur, der Lernrate und der Epochen zunächst zwar zu kleinen Ergebnisschwankungen,
+        ist aber ohne systematisches Vorgehen und Simultanoptimierung nicht zielführend. 
+        Die besten Modelle variiern daher in der Zusammensetzung der Architektur, liegen aber alle in den genannten Größenordnungen.
+%%% Grafik: Differenz der Leistung auf Trainings- und Testdaten als Maß des Grades an Overfitting
+
+        \subsubsection{Feature engineering (Felix N., Björn, Felix H.)}
+        Eine Untersuchung der Features zeigt eine deutliche Spanne an potenziellen Informationsgewinn durch die einzelnen Features.
+        Daher wurde versucht die Modelle mit den wichtigsten vier bis fünf und auch nur dem wichtigsten Feature zu trainieren.
+        Eine geringere Featureanzahl verringert die Komplexität des Modells und somit die Rechenzeit.
+        Obgleich eine geringere Featureanzahl zu keine höheren Leistung führt,
+        können Ensembles aus  Modellen die verschieden viele Features berücksichtigen dies leisten. 
+        Um die Korrelation einzelner Merkmale untereinander zu nutzen wurden weitere Features aus dem Datensatz zusammengefasst. 
+        Die so neu entstandenen Features sind „Bedrooms-per-Room“,  „Dist-to-SF“ und „Dist-to-LA“, 
+        als Hypothese einer Preissteigerung in Abhängigkeit der relativen Nähe zu den größten Ballungsräumen,
+        sowie „Lat-x-Lon“,als allgemeine geografische Einordnung. Aufgrund der Schwierigkeiten mit schiefen Verteilungen wurde
+        zudem die Population in logarithmischer Form eingebracht. 
+        Auch die Einführung dieser Features brachte keine nennenswerte Leistungsteigerung $(ca. 0.5\%)$ oder Fehlerminderung mit sich.
+        Dennoch haben vor allem die beiden Distance-Features einen Mehrwert für das Projekt, da ihre Feature Importance realtiv hoch ist.
+        Wie im Plot \figref{fig:figure_4} zu sehen, haben die Distancefeatures keine unwesentliche Feature Importance.
+        Das Median Einkommen bleibt jedoch das stärkste Feature für den Datensatz.
+
+        \begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.85\columnwidth]{figures/"Feature Importance (with distance features).png"}
+    		\caption{Featureimportance}
+    		\label{fig:figure_4}
+    	\end{figure}
+
+        Obgleich vorallem die Distance-Features keine unwesentliche Feature Importance aufweisen,
+        bleibt das Median Einkommen das stärkste Feature für den Datensatz.
+
+        \subsubsection{Gesamtvergleich mit der Linearen Regression}
+        Der Gesamtvergleich zwischen linearer Regression und unserem stärksten Neuronalen Netz zeigt eine deutliche Leistungsdifferenz:
+         \begin{table}[H]
+        	\caption{Vergleich linearer Regression mit Neuronalem Netz }
+        	\label{tab:table}
+        	\begin{tabular}{
+        		>{\raggedright\arraybackslash}p{0.2\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.28\columnwidth}
+        		>{\raggedright\arraybackslash}p{0.4\columnwidth}
+        	}
+        	\toprule
+        	\textbf{Metrik} & \textbf{Lineare Regression} & \textbf{Neuronales Netz} \\
+        	\midrule
+        	$R^2-Score$        & 0.6326  &  0.7958 ($\Delta_{Baseline} R^2 = 0.1632$)       \\
+            MAE                & 0.4331  &  0.2895       \\
+            RMSE               & 0.5779  &  0.4308        \\
+        	\bottomrule
+        	\end{tabular}
+        	%\tabletext{Note: The table contains data of some famous celestial objects.}
+        \end{table}
+
+        Der direkte Vergleich zwischen linearer Regression und neuronalen Netzen 
+        offenbart ein klassisches Spannungsfeld in der Datenwissenschaft: die Abwägung zwischen Vorhersagegenauigkeit und Interpretierbarkeit.
+        Da bereits ein einfaches neuronales Netz als Minimalnetz einen deutlich besseren Score auf den Testdaten 
+        erzielt als die lineare Regression vgl. \figref{fig:figure_5},
+        lässt sich schließen, dass die Features und ihr Zusammenwirken komplexe, nichtlineare Zusammenhänge aufweisen.
+        Während neuronale Netze diese abbilden können, bedarf es bei der linearen Regression aufwendigen
+        Feature-Engineering, wie etwa durch polynomiale Erweiterungen. 
+        
+        \begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.85\columnwidth]{figures/nn_vs_linear_regression.png}
+    		\caption{Lineare Regression vgl. einfaches Neuronales Netz}
+    		\label{fig:figure_5}
+    	\end{figure}
+
+    
+        Das Training eines NN benötigt ein Vielfaches an Rechenzeit und benötigt ein umfangreiches Hyperparameter-Tuning,
+        unter anderem bezüglich der Architektur, Lernrate, Dropout-Rate und Batch-Größe für ein optimales Ergebnis.
+        Wie die Untersuchungen zeigten, neigt beispielsweise ein unreguliertes Modell mit einer
+        [128-64-32]-Neuronenverteilung zu starkem Overfitting.
+        Die Generalisierungsfähigkeit kann jedoch durch den Einsatz von Regularisierung und Dropout erheblich robuster
+        gestaltet werden.
+
+        Zudem fehlt den neuronalen Netzen die Interpretierbarkeit fast vollständig.
+        Die lineare Regression hingegen überzeugt durch ihre leicht nachvollziehbaren Koeffizienten.
+
+        Die nicht-linearen Zusammenhänge des kalifornischen Hauspreis Datensatzes lassen sich sehr gut 
+        durch ein neuronales Netz beschreiben. Das Optimalergebnis des Random Forest mit Gradient Boosting wurde jedoch noch nicht erreicht.
+        Mögliche Ansätze für noch weitere Optimierungen wäre zum Beispiel der Einsatz von Batch Normalization zur
+        Stabilisierung des Lernprozesses oder die Verwendung eines Powertransformers. Ansätze wie die bereits untersuchte manuelle
+        Logarithmisierung der Population könnten damit automatisiert werden. Dass dies zu Lasten der Interpretierbarkeit geht,
+        wöge im Vergleich zur linearen Regression nicht weiter auf. 
+
+        
+        
+
+
+%----------------------------------------------------------
 \newpage
-\section{Zusammenfassung der Gruppentreffen}
-\newpage 
+
+%\includepdf[pages=-, link=true, linkname=logbuch]{Ergebnisse.pdf}
+
+
+
+
+
+
+\newpage
+%leerseite einfügen
+\newpage
+
+
+
+
+
+
+\section{Protokoll der Gruppentreffen}
+
+\subsection*{Gruppentreffen 1}
+\textbf{Datum:} 11.02.2026 \\
+\textbf{Teilnehmende:} Florian, Kolja, Felix N., Felix H., Björn
+
+\textbf{Zusammenfassung und inhaltlicher Verlauf:}
+\begin{itemize}
+    \item Die Gruppe lernte sich kennen und klärte die technische Organisation, wie die Nutzung von Python 3.14.3, einem GitHub-Education Account und einem Git-Repository.
+    \item Felix Neumann wurde zum Gruppensprecher bestimmt.
+    \item Es wurde festgelegt, funktional zu programmieren, um die Übersichtlichkeit zu wahren.
+\end{itemize}
+
+\textbf{Aufgabenverteilung und zeitliche Absprachen:}
+\begin{itemize}
+    \item Florian übernahm die Bereinigung des Datensatzes unter Einbezug von Vorlesungsinformationen.
+    \item Als zeitliche Absprache für das nächste Treffen wurde der 17.02.2026 vereinbart.
+\end{itemize}
+
+\subsection*{Gruppentreffen 2}
+\textbf{Datum:} 17.02.2026 \\
+\textbf{Teilnehmende:} Björn, Kolja, Florian, Felix H.
+
+\textbf{Zusammenfassung und inhaltlicher Verlauf:}
+\begin{itemize}
+    \item Die Nutzung von \texttt{notebook-stripout} und VS Code mit GitHub wurde besprochen und eingeführt.
+    \item Eine Idee zur Nutzung des JupyterHubs der JLU für größere Berechnungen wurde zunächst auf spätere Meetings (beim Modelltraining) verschoben.
+    \item Die Gruppe einigte sich auf eine einheitliche Beschriftung des Codes per Kommentar oder Markdown.
+\end{itemize}
+
+\textbf{Aufgabenverteilung und zeitliche Absprachen:}
+\begin{itemize}
+    \item Florian und Kolja wurden mit der Datenbereinigung und Datenanalyse betraut.
+    \item Felix übernahm die Aufgabe der Datentransformation.
+    \item Das nächste Treffen wurde für den 27.02.2026 auf Discord angesetzt.
+\end{itemize}
+
+\subsection*{Gruppentreffen 3}
+\textbf{Datum:} 20.02.2026 \\
+\textbf{Teilnehmende:} Kolja, Florian
+
+\textbf{Zusammenfassung und inhaltlicher Verlauf:}
+\begin{itemize}
+    \item Bisherige Arbeitsschritte sowie die Installation von Python 3.11 und 3.13 wurden besprochen.
+    \item Es traten Probleme mit der Python-Version auf einem Intel-Mac in Verbindung mit TensorFlow auf, deren Lösung diskutiert wurde.
+    \item Die Projektsortierung und eine einheitliche Code-Beschriftung durch Markdown wurden weiter vorangetrieben.
+\end{itemize}
+
+\textbf{Aufgabenverteilung und zeitliche Absprachen:}
+\begin{itemize}
+    \item Die Aufgaben aus dem letzten Treffen für Florian, Kolja (Datenbereinigung/-analyse) und Felix (Datentransformation) blieben bestehen.
+    \item Kolja übernahm zusätzlich die Lösung des TensorFlow-Problems.
+    \item Der Termin für das nächste Treffen (27.02.2026) wurde bestätigt.
+\end{itemize}
+
+\subsection*{Gruppentreffen 4}
+\textbf{Datum:} 27.02.2026 \\
+\textbf{Teilnehmende:} Florian, Kolja, Felix N., Felix H., Björn
+
+\textbf{Zusammenfassung und inhaltlicher Verlauf (Planungsänderungen):}
+\begin{itemize}
+    \item \textbf{Anpassung des Vorgehens:} Es wurde festgestellt, dass die bisherige Arbeit teilweise an der Aufgabenstellung vorbeiging, weshalb ein stärkerer Fokus auf Neuronale Netzwerke gelegt wurde.
+    \item Trotz anhaltender Versionsprobleme wurde beschlossen, bei TensorFlow und inhomogenen Python-Versionen zu bleiben.
+    \item Zur besseren Übersicht wurde vereinbart, bei der Arbeit mit Hyperparametern und großen Veränderungen künftig Git-Branches zu nutzen.
+\end{itemize}
+
+\textbf{Aufgabenverteilung und zeitliche Absprachen:}
+\begin{itemize}
+    \item Felix: Prüfung verschiedener Aktivierungsfunktionen, Lernrate, Batchsize und Epochenanzahl.
+    \item Kolja: Untersuchung verschiedener Lossfunktionen sowie der Anzahl und Breite der Hidden Layers.
+    \item Florian: Zurücknahme in den Aufgaben aufgrund eines bisher sehr großen Workloads.
+    \item Die endgültige Abgabe wurde auf spätestens Gründonnerstag terminiert, das nächste Treffen auf den 17.03.2026.
+\end{itemize}
+
+\subsection*{Gruppentreffen 5}
+\textbf{Datum:} 17.03.2026 \\
+\textbf{Teilnehmende:} Florian, Kolja, Felix N., Felix H., Björn
+
+\textbf{Zusammenfassung und inhaltlicher Verlauf:}
+\begin{itemize}
+    \item Kolja und Felix H. stellten ihre Projekte vor. Die Erkenntnisse von Felix H. zeigten, dass eine Beschränkung auf bestimmte Features bessere Ergebnisse liefert, da einige Features zu starkes Rauschen verursachen.
+    \item Aufgrund zu großer Variation bei erneutem Ausführen wurde festgestellt, dass Ensembles eine gute Möglichkeit zur Score-Verbesserung sind.
+    \item Die Gruppe einigte sich auf den Harvard-Zitierstil und die Erstellung einer LaTeX-Vorlage für die Gruppenergebnisse.
+\end{itemize}
+
+\textbf{Aufgabenverteilung und zeitliche Absprachen:}
+\begin{itemize}
+    \item Person 1: Systematische Hyperparameter-Optimierung durchführen und analysieren.
+    \item Person 2: Modellvergleich durch Implementierung alternativer Modelle (Random Forest, Gradient Boosting) im Vergleich zu neuronalen Netzen durchführen.
+    \item Björn und Felix wurden beauftragt, die Ergebnisse zusammenzufassen und im Code verständlich zu erläutern.
+\end{itemize}
+
+\subsection*{Gruppentreffen 6}
+\textbf{Datum:} 26.03.2026 \\
+\textbf{Teilnehmende:} Florian, Kolja, Felix N., Felix H., Björn
+
+\textbf{Zusammenfassung und inhaltlicher Verlauf:}
+\begin{itemize}
+    \item Felix N. und Björn stellten ihre Projekte vor.
+    \item Die Gruppe einigte sich auf verschiedene Formatierungen und beschloss, \texttt{nbstripout} zu deinstallieren, damit die Notebooks ausgeführt gepusht und anschließend vom Gruppensprecher gezippt werden können.
+    \item Wichtige Grafiken sollen ins Logbuch eingefügt werden; zudem fand eine kurze Mediation statt.
+\end{itemize}
+
+\textbf{Aufgabenverteilung und zeitliche Absprachen:}
+\begin{itemize}
+    \item Felix N. schreibt mit Unterstützung der Gruppe die Gruppenergebnisse zu Ende.
+    \item Aufgrund von Urlaub einigte sich die Gruppe auf eine zeitnahe Abgabe.
+\end{itemize}
+
 %\section*{Anhang: Logbuch}
 % Der Parameter 'link=true' generiert automatisch Sprungmarken für jede Seite!
 % 'linkname=logbuch' gibt diesen Seiten den Basisnamen "logbuch"
+\newpage 
+\section{Logbuch}
 \includepdf[pages=-, link=true, linkname=logbuch]{Logbuch_Felix_Neumann.pdf}
 %refernzieren auf Logbuch, siehe Anleitung
+\newpage 
+\section{Quellen und Hilfsmittel}
+\printbibliography
 \end{document}
